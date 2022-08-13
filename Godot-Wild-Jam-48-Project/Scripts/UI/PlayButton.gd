@@ -7,5 +7,4 @@ func _ready():
 
 
 func _pressed():
-	# warning-ignore:return_value_discarded
-	get_tree().change_scene(Constants.GAME_SCENE_PATH)
+	GameManager.engage()

@@ -86,5 +86,4 @@ func get_input() -> Vector3:
 
 
 func _exit_game():
-	# warning-ignore:return_value_discarded
-	get_tree().change_scene(Constants.TITLE_SCENE_PATH)
+	GameManager.abort()
