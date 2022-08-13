@@ -8,11 +8,21 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Constants",
+"language": "GDScript",
+"path": "res://Scripts/Constants.gd"
+} ]
+_global_script_class_icons={
+"Constants": ""
+}
+
 [application]
 
 config/name="Godot-Wild-Jam-48-Project"
 config/description="Godot Wild Jam #48 Submission"
-run/main_scene="res://Scenes/Intro.tscn"
+run/main_scene="res://Scenes/Title.tscn"
 config/icon="res://icon.png"
 
 [audio]

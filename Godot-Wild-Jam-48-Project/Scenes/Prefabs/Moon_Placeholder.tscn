@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="SphereShape" id=5]
+radius = 50.0
+
+[sub_resource type="OpenSimplexNoise" id=1]
+period = 12.1
+
+[sub_resource type="NoiseTexture" id=2]
+seamless = true
+noise = SubResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = SubResource( 2 )
+
+[sub_resource type="SphereMesh" id=4]
+material = SubResource( 3 )
+radius = 50.0
+height = 100.0
+
+[node name="Moon" type="StaticBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 5 )
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+mesh = SubResource( 4 )
