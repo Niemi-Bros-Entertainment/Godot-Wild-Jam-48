@@ -1,6 +1,13 @@
 'GameManager'
 extends Node
 
+const AMBIANCE_AUDIO = preload("res://Scenes/Prefabs/Audio/Ambiance.tscn")
+var _ambiance :AudioStreamPlayer
+
+
+func _ready():
+	_ambiance = AMBIANCE_AUDIO.instance()
+	add_child(_ambiance)
 
 
 func engage():
