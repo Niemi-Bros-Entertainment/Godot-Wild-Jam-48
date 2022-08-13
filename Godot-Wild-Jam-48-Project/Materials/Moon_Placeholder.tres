@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://Shaders/Moon.tres" type="Shader" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+period = 12.1
+
+[sub_resource type="NoiseTexture" id=2]
+seamless = true
+noise = SubResource( 1 )
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/fresnel_exponent = 3.0
+shader_param/fresnel_intensity = 3.0
+shader_param/fresnel_color = Color( 0, 0.7, 0.9, 1 )
+shader_param/texture_albedo = SubResource( 2 )
