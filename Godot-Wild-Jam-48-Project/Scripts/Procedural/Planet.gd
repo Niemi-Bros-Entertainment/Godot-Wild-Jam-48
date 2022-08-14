@@ -20,6 +20,9 @@ func _ready():
 	
 	
 func on_data_changed():
+	if is_instance_valid(planetData):
+		planetData.reset()
+		
 	if terrainFaces.empty():
 		terrainFaces.resize(NORMALS.size())
 		collisionShapes.resize(NORMALS.size())
@@ -30,7 +33,13 @@ func on_data_changed():
 			collisionShapes[i] = cs
 			add_child(instance)
 			add_child(cs)
-	generate_mesh()
+			instance.generate_mesh(planetData)
+	else:
+		for child in get_children():
+			if child is TerrainFace:
+				(child as TerrainFace).generate_mesh(planetData)
+			
+#	generate_mesh()
 	for i in range(collisionShapes.size()):
 		collisionShapes[i].shape = terrainFaces[i].convexShape
 

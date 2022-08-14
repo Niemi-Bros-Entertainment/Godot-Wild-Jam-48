@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://Shaders/Moon_Procedural.tres" type="Shader" id=1]
+
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 0.542032, 0.613281, 0.345049, 1, 0.659426, 0.815503, 0.863281, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+width = 512
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/minHeight = 50.0
+shader_param/maxHeight = 68.4528
+shader_param/heightColor = SubResource( 6 )

@@ -16,7 +16,7 @@ func _init(_n :Vector3):
 	name = str(_n)
 	
 	
-func construct_mesh(data :PlanetData):
+func generate_mesh(data :PlanetData):
 	var arrays :Array = [] # Array of mesh arrays
 	arrays.resize(Mesh.ARRAY_MAX)
 	
@@ -45,6 +45,12 @@ func construct_mesh(data :PlanetData):
 			var pointOnPlanet = data.point_on_planet(pointOnUnitSphere)
 			#vertexArray[i] = pointOnUnitSphere * data.radius
 			vertexArray[i] = pointOnPlanet
+			
+			var l = pointOnPlanet.length()
+			if  l < data.minHeight:
+				data.minHeight = l
+			if l > data.maxHeight:
+				data.maxHeight = l
 			
 			if x != resolution-1 and y != resolution-1:
 				indexArray[triIndex + 2] = i
@@ -77,44 +83,19 @@ func construct_mesh(data :PlanetData):
 	arrays[Mesh.ARRAY_TEX_UV] = uvArray
 	arrays[Mesh.ARRAY_INDEX] = indexArray
 	
-	call_deferred("_update_mesh", arrays)
+	call_deferred("_update_mesh", arrays, data)
 
 
-func _update_mesh(arrays :Array):
+func _update_mesh(arrays :Array, data :PlanetData):
 	proceduralMesh.clear_surfaces()
 	proceduralMesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-	self.mesh = proceduralMesh
+	mesh = proceduralMesh
+	material_override = data.material
+	# create collision mesh
 	convexShape = mesh.create_trimesh_shape()
-
-
-#func construct_mesh():
-#	var verts = PoolVector3Array()
-#	verts.resize(resolution * resolution)
-#	var triangles = Array()
-#	triangles.resize((resolution-1) * (resolution-1) * 6)
-#	var triIndex :int = 0
-#
-#	for y in range(resolution):
-#		for x in range(resolution):
-#			var i = x + y * resolution
-#			var percent = Vector2(x, y) / (resolution - 1)
-#			var pointOnUnitCube = normal + (percent.x - 0.5) * 2 * axisA + (percent.y - 0.5) * 2 * axisB
-#			verts[i] = pointOnUnitCube
-#
-#			if x != resolution-1 and y != resolution-1:
-#				triangles[triIndex] = i
-#				triangles[triIndex + 1] = i+resolution+1
-#				triangles[triIndex + 2] = i+resolution
-#
-#				triangles[triIndex + 3] = i
-#				triangles[triIndex + 4] = i+1
-#				triangles[triIndex + 5] = i+resolution+1
-#				triIndex += 6
-#
-#	proceduralMesh.clear_surfaces()
-#	var resultArrays :Array = []
-#	resultArrays.resize(ArrayMesh.ARRAY_MAX)
-#	resultArrays[ArrayMesh.ARRAY_VERTEX] = verts
-#	proceduralMesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, resultArrays)
-#	mesh = proceduralMesh
-#
+	
+	if material_override:
+		material_override.set_shader_param("heightColor", data.planetColor)
+		material_override.set_shader_param("minHeight", data.minHeight)
+		material_override.set_shader_param("maxHeight", data.maxHeight)
+	

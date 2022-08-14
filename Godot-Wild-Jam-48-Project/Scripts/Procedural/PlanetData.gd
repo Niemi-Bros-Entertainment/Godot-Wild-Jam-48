@@ -1,6 +1,8 @@
 tool
 class_name PlanetData extends Resource
 
+export(Material) var material :Material setget set_material
+export(GradientTexture) var planetColor :GradientTexture setget set_planet_color
 export var resolution :int = 10 setget set_resolution
 export var radius :float = 50.0 setget set_radius
 export(Array, Resource) var planetNoise setget set_planet_noise
@@ -8,6 +10,26 @@ export(Array, Resource) var planetNoise setget set_planet_noise
 #export var noise :OpenSimplexNoise setget set_noise
 #export var amplitude :float = 1.0 setget set_amplitude
 #export var minHeight :float = 1.0 setget set_min_height
+
+var minHeight :float = 99999.0
+var maxHeight :float = 0.0
+
+
+func reset():
+	minHeight = 99999.0
+	maxHeight = 0.0
+
+
+func set_planet_color(value):
+	planetColor = value
+	if planetColor != null and not planetColor.is_connected("changed", self, "on_data_changed"):
+		planetColor.connect("changed", self, "on_data_changed")
+	#emit_signal("changed")
+
+
+func set_material(value):
+	material = value
+	emit_signal("changed")
 
 
 func set_radius(value):
