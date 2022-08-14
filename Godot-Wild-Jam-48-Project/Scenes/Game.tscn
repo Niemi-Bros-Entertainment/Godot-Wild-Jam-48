@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scenes/Prefabs/Moon_Placeholder.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Prefabs/Moon/Moon_Placeholder.tscn" type="PackedScene" id=2]
 
 [node name="Game" type="Spatial"]
 

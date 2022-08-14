@@ -13,9 +13,27 @@ _global_script_classes=[ {
 "class": "Constants",
 "language": "GDScript",
 "path": "res://Scripts/Constants.gd"
+}, {
+"base": "Resource",
+"class": "PlanetData",
+"language": "GDScript",
+"path": "res://Scripts/Procedural/PlanetData.gd"
+}, {
+"base": "Resource",
+"class": "PlanetNoise",
+"language": "GDScript",
+"path": "res://Scripts/Procedural/PlanetNoise.gd"
+}, {
+"base": "MeshInstance",
+"class": "TerrainFace",
+"language": "GDScript",
+"path": "res://Scripts/Procedural/TerrainFace.gd"
 } ]
 _global_script_class_icons={
-"Constants": ""
+"Constants": "",
+"PlanetData": "",
+"PlanetNoise": "",
+"TerrainFace": ""
 }
 
 [application]

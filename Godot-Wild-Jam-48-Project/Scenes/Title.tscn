@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/UI/PlayButton.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/UI/QuitButton.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Prefabs/Moon_Placeholder.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Prefabs/Moon/Moon_Placeholder.tscn" type="PackedScene" id=3]
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
