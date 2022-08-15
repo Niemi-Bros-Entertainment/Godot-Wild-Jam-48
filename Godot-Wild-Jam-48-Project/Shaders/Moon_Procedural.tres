@@ -7,7 +7,18 @@ uniform float minHeight;
 uniform float maxHeight;
 uniform sampler2D heightColor;
 
+uniform float fresnel_exponent = 3.0;
+uniform float fresnel_intensity = 3.0;
+uniform vec4 fresnel_color :hint_color = vec4(0.1, 0.7, 1.0, 1.0);
+
 varying float height;
+
+
+// https://godotshaders.com/snippet/fresnel/
+vec3 fresnel_glow(float amount, float intensity, vec3 color, vec3 normal, vec3 view)
+{
+	return pow((1.0 - dot(normalize(normal), normalize(view))), amount) * color * intensity;
+}
 
 void vertex()
 {
@@ -18,5 +29,7 @@ void fragment()
 {
 	float t = height / (maxHeight - minHeight) - (minHeight / (maxHeight-minHeight));
 	vec3 color = texture(heightColor, vec2(t, 0.0)).rgb;
-	ALBEDO = vec3(color);
+	//ALBEDO = vec3(color);
+	vec3 fresnel = fresnel_glow(fresnel_exponent, fresnel_intensity, fresnel_color.rgb, NORMAL, VIEW);
+	ALBEDO = color + fresnel;
 }"
