@@ -1,0 +1,29 @@
+[gd_resource type="SpatialMaterial" load_steps=5 format=2]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+octaves = 8
+persistence = 0.866
+lacunarity = 3.35
+
+[sub_resource type="NoiseTexture" id=2]
+seamless = true
+noise = SubResource( 1 )
+
+[sub_resource type="OpenSimplexNoise" id=5]
+octaves = 7
+period = 89.3
+persistence = 0.213
+lacunarity = 3.23
+
+[sub_resource type="NoiseTexture" id=6]
+seamless = true
+as_normalmap = true
+noise = SubResource( 5 )
+
+[resource]
+flags_transparent = true
+albedo_texture = SubResource( 2 )
+roughness = 0.23
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = SubResource( 6 )

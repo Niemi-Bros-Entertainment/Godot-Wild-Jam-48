@@ -1,0 +1,196 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Meshes/Gouda-1/Gouda-1_Cone.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://Meshes/Gouda-1/Gouda-1_CockpitGlass.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://Meshes/Gouda-1/Gouda-1_Bolts.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://Meshes/Gouda-1/Gouda-1_Exterior.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://Meshes/Gouda-1/Gouda-1_SideWindows_Glass.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://Meshes/Gouda-1/Gouda-1_LandingGear.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://Meshes/Gouda-1/Gouda-1_LandingGear_Leg.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://Meshes/Gouda-1/Gouda-1_LandingGear_Leg_Ankle.mesh" type="ArrayMesh" id=8]
+[ext_resource path="res://Meshes/Gouda-1/Gouda-1_LandingGear_Leg_1.mesh" type="ArrayMesh" id=9]
+[ext_resource path="res://Meshes/Gouda-1/Gouda-1_LandingGear_Leg_Ankle_1.mesh" type="ArrayMesh" id=10]
+[ext_resource path="res://Meshes/Gouda-1/Gouda-1_LandingGear_Leg_2.mesh" type="ArrayMesh" id=11]
+[ext_resource path="res://Meshes/Gouda-1/Gouda-1_LandingGear_Leg_Ankle_2.mesh" type="ArrayMesh" id=12]
+[ext_resource path="res://Meshes/Gouda-1/Gouda-1_BoardingRamp.mesh" type="ArrayMesh" id=13]
+[ext_resource path="res://Meshes/Gouda-1/Gouda-1_BoardingRamp_End.mesh" type="ArrayMesh" id=14]
+[ext_resource path="res://Materials/Props/Gouda-1.tres" type="Material" id=15]
+[ext_resource path="res://Materials/Props/Gouda_Glass.tres" type="Material" id=16]
+
+[node name="Gouda-1" type="Spatial"]
+
+[node name="Exterior" type="MeshInstance" parent="."]
+mesh = ExtResource( 4 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 15 )
+
+[node name="Exhaust" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 15 )
+
+[node name="Exhaust-2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, 6, 0, 0 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 15 )
+
+[node name="Exhaust-3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, -6, 0, 0 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 15 )
+
+[node name="CockpitGlass" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 16 )
+
+[node name="Bolts" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.951057, 0.309017, 0, -0.309017, 0.951057, 0, 6.15163, 2.84429 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 15 )
+
+[node name="SideWindows_Glass" type="MeshInstance" parent="."]
+mesh = ExtResource( 5 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 16 )
+
+[node name="LandingGear" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.18872, -0.192292, -8.78175 )
+mesh = ExtResource( 6 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 15 )
+
+[node name="LandingLeg_Pivot" type="Spatial" parent="LandingGear"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.72628, 0 )
+
+[node name="LandingGear_Leg" type="MeshInstance" parent="LandingGear"]
+transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -0.58445, -1.96259, -0.94876 )
+mesh = ExtResource( 7 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_Ankle" type="MeshInstance" parent="LandingGear/LandingGear_Leg"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.791037, -0.743574, 0 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_1" type="MeshInstance" parent="LandingGear"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11387, -1.96259, -0.0317802 )
+mesh = ExtResource( 9 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_Ankle_1" type="MeshInstance" parent="LandingGear/LandingGear_Leg_1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.791037, -0.743574, 0 )
+mesh = ExtResource( 10 )
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_2" type="MeshInstance" parent="LandingGear"]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -0.52942, -1.96259, 0.98052 )
+mesh = ExtResource( 11 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_Ankle_2" type="MeshInstance" parent="LandingGear/LandingGear_Leg_2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.791036, -0.743574, 0 )
+mesh = ExtResource( 12 )
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear-2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.189, -0.192, -8.782 )
+mesh = ExtResource( 6 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 15 )
+
+[node name="LandingLeg_Pivot" type="Spatial" parent="LandingGear-2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.72628, 0 )
+
+[node name="LandingGear_Leg" type="MeshInstance" parent="LandingGear-2"]
+transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -0.58445, -1.96259, -0.94876 )
+mesh = ExtResource( 7 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_Ankle" type="MeshInstance" parent="LandingGear-2/LandingGear_Leg"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.791037, -0.743574, 0 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_1" type="MeshInstance" parent="LandingGear-2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11387, -1.96259, -0.0317802 )
+mesh = ExtResource( 9 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_Ankle_1" type="MeshInstance" parent="LandingGear-2/LandingGear_Leg_1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.791037, -0.743574, 0 )
+mesh = ExtResource( 10 )
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_2" type="MeshInstance" parent="LandingGear-2"]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -0.52942, -1.96259, 0.98052 )
+mesh = ExtResource( 11 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_Ankle_2" type="MeshInstance" parent="LandingGear-2/LandingGear_Leg_2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.791036, -0.743574, 0 )
+mesh = ExtResource( 12 )
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear-3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.192, 8.782 )
+mesh = ExtResource( 6 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 15 )
+
+[node name="LandingLeg_Pivot" type="Spatial" parent="LandingGear-3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.72628, 0 )
+
+[node name="LandingGear_Leg" type="MeshInstance" parent="LandingGear-3"]
+transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -0.58445, -1.96259, -0.94876 )
+mesh = ExtResource( 7 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_Ankle" type="MeshInstance" parent="LandingGear-3/LandingGear_Leg"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.791037, -0.743574, 0 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_1" type="MeshInstance" parent="LandingGear-3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11387, -1.96259, -0.0317802 )
+mesh = ExtResource( 9 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_Ankle_1" type="MeshInstance" parent="LandingGear-3/LandingGear_Leg_1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.791037, -0.743574, 0 )
+mesh = ExtResource( 10 )
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_2" type="MeshInstance" parent="LandingGear-3"]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -0.52942, -1.96259, 0.98052 )
+mesh = ExtResource( 11 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 15 )
+
+[node name="LandingGear_Leg_Ankle_2" type="MeshInstance" parent="LandingGear-3/LandingGear_Leg_2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.791036, -0.743574, 0 )
+mesh = ExtResource( 12 )
+material/0 = ExtResource( 15 )
+
+[node name="BoardingRamp" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.898794, -0.438371, 0, 0.438371, 0.898794, -0.00360691, 0.184264, -5.54798 )
+mesh = ExtResource( 13 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 15 )
+
+[node name="BoardingRamp_End" type="MeshInstance" parent="BoardingRamp"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.279789, 5.88338 )
+mesh = ExtResource( 14 )
+material/0 = ExtResource( 15 )
