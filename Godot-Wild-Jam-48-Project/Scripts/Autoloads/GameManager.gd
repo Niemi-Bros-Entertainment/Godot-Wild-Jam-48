@@ -11,15 +11,18 @@ func _ready():
 
 
 func engage():
-	# warning-ignore:return_value_discarded
-	get_tree().change_scene(Constants.GAME_SCENE_PATH)
+	call_deferred("_swap_scene", Constants.GAME_SCENE_PATH)
 
 
 func abort():
-	# warning-ignore:return_value_discarded
-	get_tree().change_scene(Constants.TITLE_SCENE_PATH)
+	call_deferred("_swap_scene", Constants.TITLE_SCENE_PATH)
 
 
 func quit_game():
+	call_deferred("_swap_scene", Constants.QUIT_SCENE_PATH)
+
+
+func _swap_scene(targetScenePath :String):
 	# warning-ignore:return_value_discarded
-	get_tree().change_scene(Constants.QUIT_SCENE_PATH)
+#	get_tree().change_scene(targetScenePath)
+	SceneManager.go_to(targetScenePath)

@@ -80,6 +80,7 @@ default_bus_layout="res://Audio/AudioBus.tres"
 [autoload]
 
 GameManager="*res://Scripts/Autoloads/GameManager.gd"
+SceneManager="*res://Scripts/Autoloads/SceneManager.gd"
 MusicManager="*res://Scripts/Autoloads/MusicManager.gd"
 SfxManager="*res://Scripts/Autoloads/SfxManager.gd"
 

@@ -20,8 +20,8 @@ func _ready():
 
 
 func _on_gui_focus_change(_arg :Control):
-	#if SceneManager.is_loading():
-	#	return
+	if SceneManager.is_loading():
+		return
 		
 	if _arg.is_visible_in_tree():
 		enqueue2d(Enums.SoundType.MenuNavigate)
@@ -42,14 +42,6 @@ func enqueue2d(type :int, pitchScale :float = 1.0):
 
 func enqueue(type :int, pos :Vector3, pitchScale :float = 1.0):
 	serviceProvider.enqueue(type, pos, pitchScale)
-
-
-func enqueue_body_hit_fx(body, pos :Vector3):
-	serviceProvider.enqueue_body_hit_fx(body, pos)
-
-
-func enqueue_hit_fx(pMatKey :String, pos :Vector3):
-	serviceProvider.enqueue_hit_fx(pMatKey, pos)
 
 
 func get_clip_set(id :String):
@@ -164,10 +156,7 @@ class SfxProvider extends Reference:
 			return
 		var index = SoundType.values().find(type)
 		var path = SFX_PATH_FORMAT % SoundType.keys()[index]
-		#print("Enqueueing 3D SFX " + path)
-		
-		# For some reason this is null!?
-		#var targetQueue = queue.get(PlayerType.Positional)
+
 		if !queue.has(PlayerType.Positional):
 			push_error("No Positional/3D player type queue available!?")
 			return
