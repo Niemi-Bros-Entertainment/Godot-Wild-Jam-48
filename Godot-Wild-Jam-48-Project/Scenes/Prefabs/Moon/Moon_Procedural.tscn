@@ -29,7 +29,7 @@ minHeight = 0.5
 script = ExtResource( 1 )
 material = ExtResource( 4 )
 planetColor = SubResource( 6 )
-resolution = 50
+resolution = 100
 radius = 50.0
 planetNoise = [ SubResource( 3 ) ]
 

@@ -18,3 +18,8 @@ func engage():
 func abort():
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene(Constants.TITLE_SCENE_PATH)
+
+
+func quit_game():
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene(Constants.QUIT_SCENE_PATH)
