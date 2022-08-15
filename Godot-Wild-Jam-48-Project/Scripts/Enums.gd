@@ -14,4 +14,6 @@ enum SoundType {
 	MenuConfirm,
 	MenuCancel,
 	MenuNavigate,
+	
+	Pickup,
 }
