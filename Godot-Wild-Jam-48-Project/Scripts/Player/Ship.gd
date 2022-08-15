@@ -2,7 +2,7 @@
 extends Spatial
 
 export(float) var speed :float = 10.0
-onready var audio = $AudioStreamPlayer3D
+onready var audio :AudioStreamPlayer3D= $AudioStreamPlayer3D
 onready var light = $OmniLight
 onready var tween = $Tween
 
@@ -27,6 +27,7 @@ func _physics_process(delta):
 		
 		
 func _touchdown():
+	SfxManager.enqueue2d(Enums.SoundType.Ship2)
 	GameManager.touchdown()
 	set_physics_process(false)
 		

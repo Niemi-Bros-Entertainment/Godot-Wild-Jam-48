@@ -23,6 +23,8 @@ onready var up :Vector3 = global_transform.basis.y
 
 
 func _ready():
+	SfxManager.enqueue2d(Enums.SoundType.Ship1)
+	
 	raycast.cast_to = raycast.to_local(ORIGIN - raycast.global_transform.origin)
 	raycast.force_raycast_update()
 	if raycast.is_colliding(): 
@@ -59,6 +61,7 @@ func _physics_process(delta :float):
 
 func align_with_y(xform :Transform, new_y :Vector3) -> Transform:
 	return GameManager.align_with_y(xform, new_y)
+
 
 func _unhandled_input(event :InputEvent):
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

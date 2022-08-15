@@ -16,4 +16,7 @@ enum SoundType {
 	MenuNavigate,
 	
 	Pickup,
+	
+	Ship1,
+	Ship2,
 }
