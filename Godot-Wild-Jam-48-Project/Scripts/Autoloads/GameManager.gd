@@ -13,6 +13,10 @@ func _ready():
 
 
 func engage():
+	call_deferred("_swap_scene", Constants.TOUCHDOWN_SCENE_PATH)
+
+
+func touchdown():
 	call_deferred("_swap_scene", Constants.GAME_SCENE_PATH)
 
 

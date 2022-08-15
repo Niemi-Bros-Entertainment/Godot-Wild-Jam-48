@@ -194,3 +194,8 @@ material/0 = ExtResource( 15 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.279789, 5.88338 )
 mesh = ExtResource( 14 )
 material/0 = ExtResource( 15 )
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback_process_mode = 0
+playback/repeat = true

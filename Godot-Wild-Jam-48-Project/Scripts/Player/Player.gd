@@ -23,7 +23,10 @@ onready var up :Vector3 = global_transform.basis.y
 
 
 func _ready():
-	#global_transform.origin.y = MOON_RADIUS
+	raycast.cast_to = raycast.to_local(ORIGIN - raycast.global_transform.origin)
+	raycast.force_raycast_update()
+	if raycast.is_colliding(): 
+		global_transform.origin = raycast.get_collision_point()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
@@ -51,7 +54,7 @@ func _physics_process(delta :float):
 	
 	# if we somehow get too close to the origin, game over
 	if raycast.cast_to.length_squared() < 1:
-		GameManager.abort()
+		_exit_game()
 
 
 func align_with_y(xform :Transform, new_y :Vector3) -> Transform:
@@ -94,4 +97,5 @@ func get_input() -> Vector3:
 
 
 func _exit_game():
+	set_physics_process(false)
 	GameManager.abort()
