@@ -10,9 +10,9 @@ const ORIGIN :Vector3 = Vector3.ZERO
 const MOON_RADIUS :float = Constants.MOON_RADIUS
 const TRANSFORM_INTERPOLATE :float = 0.2
 const LOOK_PITCH_LIMIT :float = deg2rad(89.0)
-const GRAVITY_STRENGTH :float = 20.0
+const GRAVITY_STRENGTH :float = 10.0
 
-export(float) var speed = 50.0
+export(float) var speed = 8.0
 export(float) var acceleration = 5.0
 
 var direction :Vector3 = Vector3.ZERO
@@ -22,8 +22,12 @@ onready var up :Vector3 = global_transform.basis.y
 
 
 func _ready():
-	global_transform.origin.y = MOON_RADIUS
+	#global_transform.origin.y = MOON_RADIUS
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _exit_tree():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func _physics_process(delta :float):
@@ -31,14 +35,22 @@ func _physics_process(delta :float):
 	up = -get_gravity_dir()
 		
 	raycast.cast_to = raycast.to_local(ORIGIN - raycast.global_transform.origin)
+	#if raycast.is_colliding(): 
+	#	transform.origin.y = raycast.get_collision_point().y
 	
-	direction += -up * GRAVITY_STRENGTH
+	if not is_on_floor():
+		direction += -up * GRAVITY_STRENGTH
 
 	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
-	velocity = move_and_slide(velocity, up, true)
+	velocity = move_and_slide_with_snap(velocity, -up * GRAVITY_STRENGTH, up, true)
+	#velocity = move_and_slide(velocity, up, true)
 	
 	var xform :Transform = align_with_y(global_transform, up)
 	global_transform = global_transform.interpolate_with(xform, TRANSFORM_INTERPOLATE)
+	
+	# if we somehow get too close to the origin, game over
+	if raycast.cast_to.length_squared() < 1:
+		GameManager.abort()
 
 
 func align_with_y(xform :Transform, new_y :Vector3) -> Transform:

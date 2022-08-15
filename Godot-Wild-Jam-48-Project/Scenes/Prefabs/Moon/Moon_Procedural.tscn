@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/Procedural/PlanetData.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Procedural/Planet.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Procedural/PlanetNoise.gd" type="Script" id=3]
+[ext_resource path="res://Materials/Moon_Procedural.tres" type="Material" id=4]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.0990099, 0.376238, 0.816832 )
+colors = PoolColorArray( 0.882187, 1, 0.556468, 1, 0.542032, 0.613281, 0.345049, 1, 0.659426, 0.815503, 0.863281, 1, 0.680843, 0.644764, 1, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+width = 512
+
+[sub_resource type="OpenSimplexNoise" id=2]
+octaves = 9
+period = 54.6
+persistence = 0.613
+lacunarity = 1.43
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 3 )
+noise = SubResource( 2 )
+amplitude = 0.9
+minHeight = 0.5
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+material = ExtResource( 4 )
+planetColor = SubResource( 6 )
+resolution = 50
+radius = 50.0
+planetNoise = [ SubResource( 3 ) ]
+
+[node name="Moon_Procedural" type="StaticBody"]
+script = ExtResource( 2 )
+planetData = SubResource( 1 )
