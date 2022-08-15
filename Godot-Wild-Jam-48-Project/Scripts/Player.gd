@@ -1,19 +1,20 @@
+'Player'
 extends KinematicBody
 
 onready var pivot :Spatial = $Pivot
 onready var raycast :RayCast = $RayCast
 onready var camera :Camera = $Pivot/Camera
 
-var mouseSensitivity = 0.002 # radians/pixel
+var mouseSensitivity :float= 0.002 # radians/pixel
 
-const ORIGIN :Vector3 = Vector3.ZERO
+const ORIGIN :Vector3 = Constants.ORIGIN
 const MOON_RADIUS :float = Constants.MOON_RADIUS
 const TRANSFORM_INTERPOLATE :float = 0.2
 const LOOK_PITCH_LIMIT :float = deg2rad(89.0)
 const GRAVITY_STRENGTH :float = 10.0
 
-export(float) var speed = 8.0
-export(float) var acceleration = 5.0
+export(float) var speed :float = 7.0
+export(float) var acceleration :float = 5.0
 
 var direction :Vector3 = Vector3.ZERO
 var velocity :Vector3 = Vector3.ZERO
@@ -32,7 +33,7 @@ func _exit_tree():
 
 func _physics_process(delta :float):
 	direction = get_input()
-	up = -get_gravity_dir()
+	up = -GameManager.get_gravity_dir(global_transform)
 		
 	raycast.cast_to = raycast.to_local(ORIGIN - raycast.global_transform.origin)
 	#if raycast.is_colliding(): 
@@ -54,12 +55,8 @@ func _physics_process(delta :float):
 
 
 func align_with_y(xform :Transform, new_y :Vector3) -> Transform:
-	xform.basis.y = new_y
-	xform.basis.x = -xform.basis.z.cross(new_y)
-	xform.basis = xform.basis.orthonormalized()
-	return xform
-#
-#
+	return GameManager.align_with_y(xform, new_y)
+
 func _unhandled_input(event :InputEvent):
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event.is_action_pressed("ui_cancel"):
@@ -80,10 +77,6 @@ func _unhandled_input(event :InputEvent):
 				rotate(up, -event.relative.x * mouseSensitivity)
 				pivot.rotate_x(-event.relative.y * mouseSensitivity)
 				pivot.rotation.x = clamp(pivot.rotation.x, -LOOK_PITCH_LIMIT, LOOK_PITCH_LIMIT)
-
-
-func get_gravity_dir() -> Vector3:
-	return (ORIGIN - global_transform.origin).normalized()
 
 
 func get_input() -> Vector3:
