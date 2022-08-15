@@ -7,4 +7,5 @@ func _ready():
 
 
 func _pressed():
+	SfxManager.enqueue2d(Enums.SoundType.MenuConfirm)
 	GameManager.engage()
