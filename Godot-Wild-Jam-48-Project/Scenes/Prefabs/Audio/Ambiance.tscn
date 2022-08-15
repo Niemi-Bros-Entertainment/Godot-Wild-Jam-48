@@ -4,5 +4,7 @@
 
 [node name="Ambiance" type="AudioStreamPlayer"]
 stream = ExtResource( 1 )
+volume_db = -12.0
+pitch_scale = 0.2
 autoplay = true
 bus = "Ambiance"
