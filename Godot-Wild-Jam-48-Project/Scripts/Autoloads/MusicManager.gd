@@ -51,8 +51,6 @@ class MusicProvider extends Reference:
 	var lastTrackIndex :int = 0
 	var num_players :int = 1
 	var bus :String = "Music"
-	var lastPlaybackPosition :float = 0.0
-	var lastPlaybackVolume01 :float = 1.0
 
 	var available :Array = []  # The available players.
 	var queue :Array = []  # The queue of clip sets to play by path.
@@ -84,8 +82,6 @@ class MusicProvider extends Reference:
 
 
 	func push(type :int):
-		lastPlaybackPosition = available[0].get_playback_position()
-		lastPlaybackVolume01 = db2linear(available[0].volume_db)
 		available[0].stop()
 		var index :int = MusicType.values().find(type)
 		var path :String = MUSIC_PATH_FORMAT % MusicType.keys()[index]
@@ -116,7 +112,7 @@ class MusicProvider extends Reference:
 		popped.queue_free()
 		if pushed.empty():
 			available[0].volume_db = linear2db(0)
-			available[0].play(lastPlaybackPosition)
+			available[0].play()
 
 
 	func enqueue(type :int):
@@ -148,7 +144,7 @@ class MusicProvider extends Reference:
 	func process(_delta :float):
 		if not pushed.empty():
 			return
-		available[0].volume_db = linear2db(move_toward(db2linear(available[0].volume_db), lastPlaybackVolume01, _delta))
+			
 		# Play a queued sound if any players are available.
 		if not queue.empty():
 			var path = queue.pop_front()
