@@ -63,12 +63,15 @@ func align_with_y(xform :Transform, new_y :Vector3) -> Transform:
 func _unhandled_input(event :InputEvent):
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event.is_action_pressed("ui_cancel"):
+			SfxManager.enqueue2d(Enums.SoundType.MenuCancel)
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		if event.is_action_pressed("ui_cancel"):
+			SfxManager.enqueue2d(Enums.SoundType.MenuCancel)
 			_exit_game()
 		elif event.is_action_pressed("l-click"):
 			if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+				SfxManager.enqueue2d(Enums.SoundType.MenuConfirm)
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	if event is InputEventMouseMotion:
