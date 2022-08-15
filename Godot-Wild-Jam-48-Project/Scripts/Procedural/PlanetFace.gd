@@ -2,7 +2,7 @@
 # https://www.youtube.com/playlist?list=PL43PN07AM4J_7ZkZAUotpfijJSoibrvbr
 # https://www.youtube.com/playlist?list=PLFt_AvWsXl0cONs3T0By4puYy6GM22ko8
 
-class_name TerrainFace extends MeshInstance
+class_name PlanetFace extends MeshInstance
 
 export(Vector3) var normal :Vector3 = Vector3.ZERO
 

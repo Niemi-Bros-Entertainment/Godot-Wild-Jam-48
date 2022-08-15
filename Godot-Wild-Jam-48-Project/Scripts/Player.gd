@@ -26,6 +26,10 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
+func _exit_tree():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
 func _physics_process(delta :float):
 	direction = get_input()
 	up = -get_gravity_dir()
@@ -43,6 +47,10 @@ func _physics_process(delta :float):
 	
 	var xform :Transform = align_with_y(global_transform, up)
 	global_transform = global_transform.interpolate_with(xform, TRANSFORM_INTERPOLATE)
+	
+	# if we somehow get too close to the origin, game over
+	if raycast.cast_to.length_squared() < 1:
+		GameManager.abort()
 
 
 func align_with_y(xform :Transform, new_y :Vector3) -> Transform:

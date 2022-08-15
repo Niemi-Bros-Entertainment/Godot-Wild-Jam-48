@@ -20,46 +20,51 @@ const NORMALS :Array = [
 ]
 
 func _ready():
-	# only rotate if there's angular velocity to match
-	#set_physics_process( not constant_angular_velocity.is_equal_approx( Vector3.ZERO ) )
-	on_data_changed()
-	
-	
-# base class
-#func _physics_process(delta):
-#	rotate_x(constant_angular_velocity.x * delta)
-#	rotate_y(constant_angular_velocity.y * delta)
-#	rotate_z(constant_angular_velocity.z * delta)
+	regenerate_mesh()
 	
 	
 func on_data_changed():
+#	print("Data Changed!")
+#	print_stack()
+
 	if is_instance_valid(planetData):
 		planetData.reset()
 		
 	if terrainFaces.empty():
 		terrainFaces.resize(NORMALS.size())
+		for i in range(NORMALS.size()):
+			var instance :PlanetFace = PlanetFace.new(NORMALS[i])
+			terrainFaces[i] = instance
+			add_child(instance)
+			instance.generate_mesh(planetData)
+	else:
+		for child in terrainFaces:
+			(child as PlanetFace).generate_mesh(planetData)
+			
+	if collisionShapes.empty():
 		collisionShapes.resize(NORMALS.size())
 		for i in range(NORMALS.size()):
 			var cs :CollisionShape = CollisionShape.new()
-			var instance :TerrainFace = TerrainFace.new(NORMALS[i])
-			terrainFaces[i] = instance
 			collisionShapes[i] = cs
-			add_child(instance)
 			add_child(cs)
-			instance.generate_mesh(planetData)
 	else:
-		for child in get_children():
-			if child is TerrainFace:
-				(child as TerrainFace).generate_mesh(planetData)
+		for cs in collisionShapes:
+			cs.shape = null
 			
-#	generate_mesh()
+	# update collision shapes
 	for i in range(collisionShapes.size()):
 		collisionShapes[i].shape = terrainFaces[i].convexShape
+		
+#	print("Finished updating procedural planet")
 
 
-func generate_mesh():
-	for t in terrainFaces:
-		(t as TerrainFace).construct_mesh(planetData)
+func regenerate_mesh():
+	# randomize seed, causes issues...
+#	randomize()
+#	if is_instance_valid(planetData):
+#		planetData.update_seed(randi())
+	
+	on_data_changed()
 
 
 func set_planet_data(value):

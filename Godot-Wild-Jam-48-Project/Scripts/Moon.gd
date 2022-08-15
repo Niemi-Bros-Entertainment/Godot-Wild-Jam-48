@@ -3,8 +3,8 @@ class_name Moon extends StaticBody
 
 
 func _ready():
-	# only rotate if there's angular velocity to match
-	set_physics_process( not constant_angular_velocity.is_equal_approx( Vector3.ZERO ) )
+	# only rotate if there's angular velocity and not in the editor
+	set_physics_process( not constant_angular_velocity.is_equal_approx( Vector3.ZERO ) and not Engine.editor_hint )
 
 
 func _physics_process(delta):

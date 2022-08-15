@@ -10,7 +10,14 @@ export var amplitude :float = 1.0 setget set_amplitude
 export var minHeight :float = 1.0 setget set_min_height
 
 
+func update_seed(s :int):
+	# NOTE: this triggers a changed signal
+	if is_instance_valid(noise):
+		noise.seed = s
+
+
 func set_noise(value):
+	value.seed = randi()
 	noise = value
 	emit_signal("changed")
 	# trigger our change, when noise resource changes

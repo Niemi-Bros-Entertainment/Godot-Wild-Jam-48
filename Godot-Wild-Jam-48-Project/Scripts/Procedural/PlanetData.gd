@@ -17,6 +17,11 @@ export(Array, Resource) var planetNoise setget set_planet_noise
 
 var minHeight :float = 99999.0
 var maxHeight :float = 0.0
+var _seed :int = 0
+
+
+func update_seed(s :int):
+	_seed = s
 
 
 func reset():
@@ -52,6 +57,7 @@ func set_planet_noise(value):
 	planetNoise = value
 	emit_signal("changed")
 	for n in planetNoise:
+		n.update_seed(_seed)
 		# trigger our change, when noise resource changes
 		if n != null and not n.is_connected("changed", self, "on_data_changed"):
 			n.connect("changed", self, "on_data_changed")

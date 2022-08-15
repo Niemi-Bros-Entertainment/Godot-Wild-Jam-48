@@ -24,22 +24,22 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Procedural/PlanetData.gd"
 }, {
+"base": "MeshInstance",
+"class": "PlanetFace",
+"language": "GDScript",
+"path": "res://Scripts/Procedural/PlanetFace.gd"
+}, {
 "base": "Resource",
 "class": "PlanetNoise",
 "language": "GDScript",
 "path": "res://Scripts/Procedural/PlanetNoise.gd"
-}, {
-"base": "MeshInstance",
-"class": "TerrainFace",
-"language": "GDScript",
-"path": "res://Scripts/Procedural/TerrainFace.gd"
 } ]
 _global_script_class_icons={
 "Constants": "",
 "Moon": "",
 "PlanetData": "",
-"PlanetNoise": "",
-"TerrainFace": ""
+"PlanetFace": "",
+"PlanetNoise": ""
 }
 
 [application]
