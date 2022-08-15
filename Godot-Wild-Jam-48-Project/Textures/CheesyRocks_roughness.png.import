@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Rocks_roughness.png-737ef3be261830d0ad302c1f50dc189c.s3tc.stex"
-path.etc2="res://.import/Rocks_roughness.png-737ef3be261830d0ad302c1f50dc189c.etc2.stex"
+path.s3tc="res://.import/CheesyRocks_roughness.png-00733cbe8a603564e766c3d634f36d84.s3tc.stex"
+path.etc2="res://.import/CheesyRocks_roughness.png-00733cbe8a603564e766c3d634f36d84.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Rocks_roughness.png"
-dest_files=[ "res://.import/Rocks_roughness.png-737ef3be261830d0ad302c1f50dc189c.s3tc.stex", "res://.import/Rocks_roughness.png-737ef3be261830d0ad302c1f50dc189c.etc2.stex" ]
+source_file="res://Textures/CheesyRocks_roughness.png"
+dest_files=[ "res://.import/CheesyRocks_roughness.png-00733cbe8a603564e766c3d634f36d84.s3tc.stex", "res://.import/CheesyRocks_roughness.png-00733cbe8a603564e766c3d634f36d84.etc2.stex" ]
 
 [params]
 

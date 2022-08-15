@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Rock4.glb-6fc290d7aa9ddacc20e1aecec7f1a58a.scn"
+path="res://.import/CheesyRock1.glb-b7cdc412039a0a75d754bef8a5012c22.scn"
 
 [deps]
 
-source_file="res://Meshes/Rock4.glb"
-dest_files=[ "res://.import/Rock4.glb-6fc290d7aa9ddacc20e1aecec7f1a58a.scn" ]
+source_file="res://Meshes/CheesyRock1.glb"
+dest_files=[ "res://.import/CheesyRock1.glb-b7cdc412039a0a75d754bef8a5012c22.scn" ]
 
 [params]
 
@@ -28,7 +28,7 @@ meshes/light_baking=0
 meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 external_files/store_in_subdir=true
-animation/import=false
+animation/import=true
 animation/fps=15
 animation/filter_script=""
 animation/storage=false
