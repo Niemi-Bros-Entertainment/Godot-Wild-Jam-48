@@ -9,10 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "AudioClipSet",
+"language": "GDScript",
+"path": "res://Scripts/Audio/AudioClipSet.gd"
+}, {
 "base": "Reference",
 "class": "Constants",
 "language": "GDScript",
 "path": "res://Scripts/Constants.gd"
+}, {
+"base": "Reference",
+"class": "Enums",
+"language": "GDScript",
+"path": "res://Scripts/Enums.gd"
 }, {
 "base": "StaticBody",
 "class": "Moon",
@@ -33,13 +43,27 @@ _global_script_classes=[ {
 "class": "PlanetNoise",
 "language": "GDScript",
 "path": "res://Scripts/Procedural/PlanetNoise.gd"
+}, {
+"base": "Node",
+"class": "PlayMusic",
+"language": "GDScript",
+"path": "res://Scripts/Audio/PlayMusic.gd"
+}, {
+"base": "Node",
+"class": "PlaySound",
+"language": "GDScript",
+"path": "res://Scripts/Audio/PlaySound.gd"
 } ]
 _global_script_class_icons={
+"AudioClipSet": "",
 "Constants": "",
+"Enums": "",
 "Moon": "",
 "PlanetData": "",
 "PlanetFace": "",
-"PlanetNoise": ""
+"PlanetNoise": "",
+"PlayMusic": "",
+"PlaySound": ""
 }
 
 [application]
@@ -56,6 +80,8 @@ default_bus_layout="res://Audio/AudioBus.tres"
 [autoload]
 
 GameManager="*res://Scripts/Autoloads/GameManager.gd"
+MusicManager="*res://Scripts/Autoloads/MusicManager.gd"
+SfxManager="*res://Scripts/Autoloads/SfxManager.gd"
 
 [display]
 
