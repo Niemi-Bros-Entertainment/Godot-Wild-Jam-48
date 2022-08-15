@@ -1,9 +1,10 @@
-extends StaticBody
+tool
+class_name Moon extends StaticBody
 
 
 func _ready():
-	# we want the child Directional Light to maintain its transform, use global
-	$DirectionalLight.set_as_toplevel(true)
+	# only rotate if there's angular velocity to match
+	set_physics_process( not constant_angular_velocity.is_equal_approx( Vector3.ZERO ) )
 
 
 func _physics_process(delta):

@@ -36,7 +36,7 @@ planetNoise = [ SubResource( 3 ) ]
 [sub_resource type="SphereShape" id=4]
 radius = 50.0
 
-[node name="Planet" type="StaticBody"]
+[node name="Moon" type="StaticBody"]
 script = ExtResource( 2 )
 planetData = SubResource( 1 )
 

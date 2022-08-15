@@ -22,7 +22,7 @@ onready var up :Vector3 = global_transform.basis.y
 
 
 func _ready():
-	global_transform.origin.y = MOON_RADIUS
+	#global_transform.origin.y = MOON_RADIUS
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
@@ -31,12 +31,15 @@ func _physics_process(delta :float):
 	up = -get_gravity_dir()
 		
 	raycast.cast_to = raycast.to_local(ORIGIN - raycast.global_transform.origin)
+	#if raycast.is_colliding(): 
+	#	transform.origin.y = raycast.get_collision_point().y
 	
 	if not is_on_floor():
 		direction += -up * GRAVITY_STRENGTH
 
 	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
 	velocity = move_and_slide_with_snap(velocity, -up * GRAVITY_STRENGTH, up, true)
+	#velocity = move_and_slide(velocity, up, true)
 	
 	var xform :Transform = align_with_y(global_transform, up)
 	global_transform = global_transform.interpolate_with(xform, TRANSFORM_INTERPOLATE)

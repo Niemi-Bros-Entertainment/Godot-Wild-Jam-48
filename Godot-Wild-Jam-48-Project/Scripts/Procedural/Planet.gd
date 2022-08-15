@@ -1,6 +1,10 @@
-'Planet'
+# Sources:
+# https://www.youtube.com/playlist?list=PL43PN07AM4J_7ZkZAUotpfijJSoibrvbr
+# https://www.youtube.com/playlist?list=PLFt_AvWsXl0cONs3T0By4puYy6GM22ko8
+
+'Procedural Moon/Planet'
 tool
-extends Spatial
+extends Moon
 
 export(Resource) var planetData setget set_planet_data
 var terrainFaces :Array = []
@@ -16,7 +20,16 @@ const NORMALS :Array = [
 ]
 
 func _ready():
+	# only rotate if there's angular velocity to match
+	#set_physics_process( not constant_angular_velocity.is_equal_approx( Vector3.ZERO ) )
 	on_data_changed()
+	
+	
+# base class
+#func _physics_process(delta):
+#	rotate_x(constant_angular_velocity.x * delta)
+#	rotate_y(constant_angular_velocity.y * delta)
+#	rotate_z(constant_angular_velocity.z * delta)
 	
 	
 func on_data_changed():
