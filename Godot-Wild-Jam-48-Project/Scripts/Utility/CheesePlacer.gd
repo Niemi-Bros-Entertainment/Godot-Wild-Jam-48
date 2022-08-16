@@ -27,4 +27,5 @@ func _instance_cheese():
 	var pickup = CHEESE_PICKUP.instance()
 	pickup.transform.origin = pos
 	add_child(pickup)
+	pickups.append(pickup)
 	#pickup.global_transform.origin = pos
