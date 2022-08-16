@@ -11,3 +11,7 @@ func _physics_process(delta):
 	rotate_x(constant_angular_velocity.x * delta)
 	rotate_y(constant_angular_velocity.y * delta)
 	rotate_z(constant_angular_velocity.z * delta)
+
+
+func get_point_on_planet(pointOnSphere :Vector3) -> Vector3:
+	return pointOnSphere

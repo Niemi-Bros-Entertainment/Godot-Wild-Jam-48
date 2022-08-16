@@ -72,3 +72,7 @@ func set_planet_data(value):
 	on_data_changed()
 	if planetData != null and not planetData.is_connected("changed", self, "on_data_changed"):
 		planetData.connect("changed", self, "on_data_changed")
+
+
+func get_point_on_planet(pointOnSphere :Vector3) -> Vector3:
+	return planetData.point_on_planet(pointOnSphere)

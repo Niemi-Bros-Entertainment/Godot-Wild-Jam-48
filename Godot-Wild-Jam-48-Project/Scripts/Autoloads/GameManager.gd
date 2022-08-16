@@ -1,7 +1,8 @@
 'GameManager'
+'GameManager'
 extends Node
 
-const POST_PROCESS_PREFAB = preload("res://Scenes/Prefabs/VFX/ChromaticAbberation.tscn")
+const POST_PROCESS_PREFAB = preload("res://Scenes/Prefabs/VFX/PostProcess.tscn")
 const AMBIANCE_AUDIO_PREFAB = preload("res://Scenes/Prefabs/Audio/Ambiance.tscn")
 const ORIGIN :Vector3 = Constants.ORIGIN
 

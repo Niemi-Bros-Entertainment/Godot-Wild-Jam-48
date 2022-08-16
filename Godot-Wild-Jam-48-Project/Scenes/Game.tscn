@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Tests/ProceduralPlanetWalker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Audio/PlayMusic.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Prefabs/Gouda-1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Prefabs/VFX/WorldEnvironment.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Prefabs/VFX/FadeIn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/Utility/CheesePlacer.gd" type="Script" id=7]
 
 [node name="Game" type="Spatial"]
 
@@ -14,12 +15,15 @@
 [node name="PlayMusic" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="Pickup" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2461, 48.6848, 0 )
-
 [node name="Gouda-1" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 51.9241, 0 )
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 5 )]
 
 [node name="FadeIn" parent="." instance=ExtResource( 6 )]
+
+[node name="CheesePlacer" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="Pickup" parent="CheesePlacer" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2461, 48.6848, 0 )

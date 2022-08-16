@@ -33,6 +33,6 @@ resolution = 100
 radius = 50.0
 planetNoise = [ SubResource( 3 ) ]
 
-[node name="Moon_Procedural" type="StaticBody"]
+[node name="Moon" type="StaticBody" groups=["Moon"]]
 script = ExtResource( 2 )
 planetData = SubResource( 1 )
