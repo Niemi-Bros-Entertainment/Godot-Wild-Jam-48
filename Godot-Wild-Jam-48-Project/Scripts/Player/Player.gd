@@ -4,7 +4,9 @@ extends KinematicBody
 onready var pivot :Spatial = $Pivot
 onready var raycast :RayCast = $RayCast
 onready var camera :Camera = $Pivot/Camera
-onready var audio :AudioStreamPlayer3D = $AudioStreamPlayer3D
+
+onready var jetpackAudio :AudioStreamPlayer3D = $JetpackAudio
+onready var ambianceAudio :AudioStreamPlayer3D = $AmbianceAudio
 
 var mouseSensitivity :float= 0.002 # radians/pixel
 
@@ -14,6 +16,7 @@ const TRANSFORM_INTERPOLATE :float = 0.2
 const LOOK_PITCH_LIMIT :float = deg2rad(89.0)
 const GRAVITY_STRENGTH :float = 1.0
 const JETPACK_STRENGTH :float = 1.0
+const JETPACK_CAPACITY :float = 1.0
 const MAX_VERTICAL_VELOCITY = 10.0
 
 export(float) var speed :float = 7.0
@@ -22,6 +25,8 @@ export(float) var acceleration :float = 5.0
 var direction :Vector3 = Vector3.ZERO
 var verticalVelocity :float = 0.0
 var velocity :Vector3 = Vector3.ZERO
+var jetpack :float = JETPACK_CAPACITY
+var cheese :float = 0.0
 
 onready var up :Vector3 = global_transform.basis.y
 
@@ -48,14 +53,23 @@ func _physics_process(delta :float):
 	#if raycast.is_colliding(): 
 	#	transform.origin.y = raycast.get_collision_point().y
 	
-	if Input.is_action_pressed("jetpack"):
+	var isJetpackOn :bool = Input.is_action_pressed("jetpack") and jetpack > 0
+	if isJetpackOn:
+		jetpack -= delta
+		if not jetpackAudio.playing:
+			jetpackAudio.play()
 		verticalVelocity += JETPACK_STRENGTH * delta
 		verticalVelocity = min(MAX_VERTICAL_VELOCITY, verticalVelocity)
 	else:
+		jetpack += delta
+		if jetpackAudio.playing:
+			jetpackAudio.stop()
 		if not is_on_floor():
 			verticalVelocity -= GRAVITY_STRENGTH * delta
 			verticalVelocity = max(-MAX_VERTICAL_VELOCITY, verticalVelocity)
 		else:
+			if verticalVelocity < -0.5:
+				SfxManager.enqueue(Enums.SoundType.Thud, global_transform.origin)
 			verticalVelocity = 0
 	direction += up * verticalVelocity
 
@@ -65,6 +79,9 @@ func _physics_process(delta :float):
 	
 	var xform :Transform = align_with_y(global_transform, up)
 	global_transform = global_transform.interpolate_with(xform, TRANSFORM_INTERPOLATE)
+	
+	jetpack = clamp(jetpack, -1.0, JETPACK_CAPACITY)
+	$HUD.update_jetpack_01(jetpack / JETPACK_CAPACITY)
 	
 	# if we somehow get too close to the origin, game over
 	if raycast.cast_to.length_squared() < 1:
@@ -109,6 +126,11 @@ func get_input() -> Vector3:
 		inputDir += global_transform.basis.x
 	inputDir = inputDir.normalized()
 	return inputDir
+
+
+func add_cheese(value :int):
+	cheese += value
+	$HUD.update_cheese_01(cheese / 100.0)
 
 
 func _exit_game():

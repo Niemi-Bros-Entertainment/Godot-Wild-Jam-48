@@ -2,7 +2,7 @@ class_name AudioClipSet extends Resource
 
 export(Array, AudioStream) var clips :Array = []
 export(float, 0.0, 2.0) var volumeMultiplier :float = 1.0
-export(float, 0.0, 3.0) var pitchMultiplier :float = 1.0
+export(float, 0.0, 5.0) var pitchMultiplier :float = 1.0
 export(float, 0.0, 3.0) var pitchRandomness :float = 0.1
 
 var rng : RandomNumberGenerator

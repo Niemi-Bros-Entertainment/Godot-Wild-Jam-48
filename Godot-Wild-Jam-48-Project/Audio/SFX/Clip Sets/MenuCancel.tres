@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource( 1 )
 clips = [ ExtResource( 2 ) ]
-volumeMultiplier = 0.5
+volumeMultiplier = 0.75
 pitchMultiplier = 0.5
 pitchRandomness = 0.0

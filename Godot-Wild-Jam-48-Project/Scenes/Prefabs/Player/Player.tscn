@@ -40,11 +40,17 @@ light_energy = 0.5
 omni_range = 8.0
 omni_attenuation = 2.0
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AmbianceAudio" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 2 )
 unit_size = 2.0
 pitch_scale = 0.25
 autoplay = true
 bus = "Ambiance"
+
+[node name="JetpackAudio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 2 )
+unit_size = 5.0
+pitch_scale = 0.4
+bus = "SFX"
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]

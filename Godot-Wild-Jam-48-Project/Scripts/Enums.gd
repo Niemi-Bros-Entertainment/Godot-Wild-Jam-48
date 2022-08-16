@@ -15,6 +15,11 @@ enum SoundType {
 	MenuCancel,
 	MenuNavigate,
 	
+	Alarm,
+	Beep,
+	Crash,
+	Thud,
+	
 	Pickup,
 	
 	Ship1,
