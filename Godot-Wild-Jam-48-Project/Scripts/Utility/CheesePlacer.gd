@@ -1,23 +1,32 @@
-extends Node
+'CheesePlacer'
+extends Control
 
 const CHEESE_PICKUP = preload("res://Scenes/Prefabs/Pickups/Pickup.tscn")
-const CHEESE_COUNT :int = 50
+const CHEESE_COUNT :int = 100
 const MOON_RADIUS = Constants.MOON_RADIUS
+
+onready var label :Label = $Label
 
 var pickups :Array = []
 var moon :Moon
 
+
 func _ready():
 	moon = get_tree().get_nodes_in_group("Moon")[0]
 	assert(moon)
-	
+
+
+func _notification(what):
+	match what:
+		NOTIFICATION_VISIBILITY_CHANGED:
+			set_process(visible)
 
 
 func _process(_delta):
 	if pickups.size() < CHEESE_COUNT:
 		_instance_cheese()
 	else:
-		set_process(false)
+		visible = false
 
 
 func _instance_cheese():

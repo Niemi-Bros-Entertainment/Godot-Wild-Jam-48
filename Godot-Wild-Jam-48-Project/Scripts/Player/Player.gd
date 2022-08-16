@@ -13,7 +13,8 @@ const MOON_RADIUS :float = Constants.MOON_RADIUS
 const TRANSFORM_INTERPOLATE :float = 0.2
 const LOOK_PITCH_LIMIT :float = deg2rad(89.0)
 const GRAVITY_STRENGTH :float = 1.0
-const JETPACK_STRENGTH :float = 0.9
+const JETPACK_STRENGTH :float = 1.0
+const MAX_VERTICAL_VELOCITY = 10.0
 
 export(float) var speed :float = 7.0
 export(float) var acceleration :float = 5.0
@@ -49,9 +50,11 @@ func _physics_process(delta :float):
 	
 	if Input.is_action_pressed("jetpack"):
 		verticalVelocity += JETPACK_STRENGTH * delta
+		verticalVelocity = min(MAX_VERTICAL_VELOCITY, verticalVelocity)
 	else:
 		if not is_on_floor():
 			verticalVelocity -= GRAVITY_STRENGTH * delta
+			verticalVelocity = max(-MAX_VERTICAL_VELOCITY, verticalVelocity)
 		else:
 			verticalVelocity = 0
 	direction += up * verticalVelocity

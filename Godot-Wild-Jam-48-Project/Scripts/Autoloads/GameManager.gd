@@ -1,5 +1,4 @@
 'GameManager'
-'GameManager'
 extends Node
 
 const POST_PROCESS_PREFAB = preload("res://Scenes/Prefabs/VFX/PostProcess.tscn")
@@ -20,14 +19,20 @@ func _ready():
 
 
 func engage():
+	_postProcess.material.set_shader_param("vignette_intensity", 1.0)
+	_postProcess.material.set_shader_param("vignette_rgb", Color(0.05, 0, 0))
 	call_deferred("_swap_scene", Constants.TOUCHDOWN_SCENE_PATH)
 
 
 func touchdown():
+	_postProcess.material.set_shader_param("vignette_intensity", 1.0)
+	_postProcess.material.set_shader_param("vignette_rgb", Color(0.05, 0.05, 0))
 	call_deferred("_swap_scene", Constants.GAME_SCENE_PATH)
 
 
 func abort():
+	_postProcess.material.set_shader_param("vignette_intensity", 0.4)
+	_postProcess.material.set_shader_param("vignette_rgb", Color.black)
 	call_deferred("_swap_scene", Constants.TITLE_SCENE_PATH)
 
 

@@ -27,6 +27,7 @@ disabled = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0 )
 
 [node name="Camera" type="Camera" parent="Pivot"]
+far = 200.0
 
 [node name="RayCast" type="RayCast" parent="."]
 enabled = true
