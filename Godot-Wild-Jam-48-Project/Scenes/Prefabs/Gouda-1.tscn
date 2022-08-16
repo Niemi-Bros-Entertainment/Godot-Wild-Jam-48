@@ -354,3 +354,5 @@ shape = SubResource( 25 )
 [node name="CollisionShape-26" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07513, -2.15459, -8.81378 )
 shape = SubResource( 26 )
+
+[node name="Tween" type="Tween" parent="."]
