@@ -15,6 +15,8 @@ func _ready():
 	add_child(_postProcess)
 	_ambiance = AMBIANCE_AUDIO_PREFAB.instance()
 	add_child(_ambiance)
+	
+	Engine.target_fps = 60
 
 
 func engage():
