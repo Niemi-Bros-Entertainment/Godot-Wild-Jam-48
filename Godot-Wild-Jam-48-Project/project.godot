@@ -94,7 +94,7 @@ window/size/test_height=720
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
-theme/custom="res://DefaultTheme.tres"
+theme/custom="res://Themes/DefaultTheme.tres"
 theme/custom_font="res://Fonts/DefaultDynamicFont.tres"
 
 [input]

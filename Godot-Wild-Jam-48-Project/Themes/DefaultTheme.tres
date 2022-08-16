@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=6 format=2]
+
+[ext_resource path="res://Themes/Resources/FocusPanel.tres" type="StyleBox" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[resource]
+Button/colors/font_color_focus = Color( 1, 0.647059, 0.309804, 1 )
+Button/colors/font_color_hover = Color( 1, 0.909804, 0.741176, 1 )
+Button/colors/font_color_pressed = Color( 1, 0.976471, 0.352941, 1 )
+Button/styles/disabled = SubResource( 1 )
+Button/styles/focus = ExtResource( 1 )
+Button/styles/hover = SubResource( 6 )
+Button/styles/normal = SubResource( 4 )
+Button/styles/pressed = SubResource( 5 )
