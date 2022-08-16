@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Audio/SFX/ShipLoop.wav" type="AudioStream" id=2]
+[ext_resource path="res://Scenes/Prefabs/Player/HUD.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -44,3 +45,5 @@ unit_size = 2.0
 pitch_scale = 0.25
 autoplay = true
 bus = "Ambiance"
+
+[node name="HUD" parent="." instance=ExtResource( 3 )]

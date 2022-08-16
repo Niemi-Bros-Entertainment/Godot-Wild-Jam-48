@@ -1,14 +1,18 @@
 'GameManager'
 extends Node
 
-const AMBIANCE_AUDIO = preload("res://Scenes/Prefabs/Audio/Ambiance.tscn")
+const POST_PROCESS_PREFAB = preload("res://Scenes/Prefabs/VFX/ChromaticAbberation.tscn")
+const AMBIANCE_AUDIO_PREFAB = preload("res://Scenes/Prefabs/Audio/Ambiance.tscn")
 const ORIGIN :Vector3 = Constants.ORIGIN
 
 var _ambiance :AudioStreamPlayer
+var _postProcess :Control
 
 
 func _ready():
-	_ambiance = AMBIANCE_AUDIO.instance()
+	_postProcess = POST_PROCESS_PREFAB.instance()
+	add_child(_postProcess)
+	_ambiance = AMBIANCE_AUDIO_PREFAB.instance()
 	add_child(_ambiance)
 
 
