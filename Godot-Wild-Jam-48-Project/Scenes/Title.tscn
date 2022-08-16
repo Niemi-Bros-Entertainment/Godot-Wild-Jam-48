@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/UI/PlayButton.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/UI/QuitButton.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Scenes/Prefabs/VFX/WorldEnvironment.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Themes/TitleTheme.tres" type="Theme" id=7]
 [ext_resource path="res://Scenes/Prefabs/VFX/FadeIn.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Prefabs/Pickups/Pickup.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/Utility/Rotater.gd" type="Script" id=10]
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
@@ -15,6 +17,32 @@ anchor_bottom = 1.0
 
 [node name="Moon" parent="." instance=ExtResource( 3 )]
 constant_angular_velocity = Vector3( 0.01, 0.01, 0 )
+
+[node name="CheeseOrbiter" type="Spatial" parent="Moon"]
+script = ExtResource( 10 )
+rotateVector = Vector3( 0, 1, 0 )
+duration = 8.0
+
+[node name="Pickup" parent="Moon/CheeseOrbiter" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0 )
+
+[node name="Pickup-4" parent="Moon/CheeseOrbiter" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0 )
+
+[node name="Pickup-2" parent="Moon/CheeseOrbiter" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0 )
+
+[node name="Pickup-5" parent="Moon/CheeseOrbiter" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 0 )
+
+[node name="Pickup-3" parent="Moon/CheeseOrbiter" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100 )
+
+[node name="Pickup-6" parent="Moon/CheeseOrbiter" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100 )
+
+[node name="Tween" type="Tween" parent="Moon/CheeseOrbiter"]
+playback_process_mode = 0
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 40, 0, 100 )
