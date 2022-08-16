@@ -1,19 +1,20 @@
+'Player'
 extends KinematicBody
 
 onready var pivot :Spatial = $Pivot
 onready var raycast :RayCast = $RayCast
 onready var camera :Camera = $Pivot/Camera
 
-var mouseSensitivity = 0.002 # radians/pixel
+var mouseSensitivity :float= 0.002 # radians/pixel
 
-const ORIGIN :Vector3 = Vector3.ZERO
+const ORIGIN :Vector3 = Constants.ORIGIN
 const MOON_RADIUS :float = Constants.MOON_RADIUS
 const TRANSFORM_INTERPOLATE :float = 0.2
 const LOOK_PITCH_LIMIT :float = deg2rad(89.0)
 const GRAVITY_STRENGTH :float = 10.0
 
-export(float) var speed = 8.0
-export(float) var acceleration = 5.0
+export(float) var speed :float = 7.0
+export(float) var acceleration :float = 5.0
 
 var direction :Vector3 = Vector3.ZERO
 var velocity :Vector3 = Vector3.ZERO
@@ -22,7 +23,12 @@ onready var up :Vector3 = global_transform.basis.y
 
 
 func _ready():
-	#global_transform.origin.y = MOON_RADIUS
+	SfxManager.enqueue2d(Enums.SoundType.Ship1)
+	
+	raycast.cast_to = raycast.to_local(ORIGIN - raycast.global_transform.origin)
+	raycast.force_raycast_update()
+	if raycast.is_colliding(): 
+		global_transform.origin = raycast.get_collision_point()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
@@ -32,7 +38,7 @@ func _exit_tree():
 
 func _physics_process(delta :float):
 	direction = get_input()
-	up = -get_gravity_dir()
+	up = -GameManager.get_gravity_dir(global_transform)
 		
 	raycast.cast_to = raycast.to_local(ORIGIN - raycast.global_transform.origin)
 	#if raycast.is_colliding(): 
@@ -50,16 +56,13 @@ func _physics_process(delta :float):
 	
 	# if we somehow get too close to the origin, game over
 	if raycast.cast_to.length_squared() < 1:
-		GameManager.abort()
+		_exit_game()
 
 
 func align_with_y(xform :Transform, new_y :Vector3) -> Transform:
-	xform.basis.y = new_y
-	xform.basis.x = -xform.basis.z.cross(new_y)
-	xform.basis = xform.basis.orthonormalized()
-	return xform
-#
-#
+	return GameManager.align_with_y(xform, new_y)
+
+
 func _unhandled_input(event :InputEvent):
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event.is_action_pressed("ui_cancel"):
@@ -82,10 +85,6 @@ func _unhandled_input(event :InputEvent):
 				pivot.rotation.x = clamp(pivot.rotation.x, -LOOK_PITCH_LIMIT, LOOK_PITCH_LIMIT)
 
 
-func get_gravity_dir() -> Vector3:
-	return (ORIGIN - global_transform.origin).normalized()
-
-
 func get_input() -> Vector3:
 	var inputDir :Vector3 = Vector3.ZERO
 	if Input.is_action_pressed("move_forward"):
@@ -101,4 +100,5 @@ func get_input() -> Vector3:
 
 
 func _exit_game():
+	set_physics_process(false)
 	GameManager.abort()
