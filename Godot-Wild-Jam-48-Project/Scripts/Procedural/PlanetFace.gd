@@ -44,6 +44,7 @@ func generate_mesh(data :PlanetData):
 		for x in range(resolution):
 			var i = x + y * resolution
 			var percent = Vector2(x, y) / (resolution - 1)
+			uvArray[i] = Vector3(percent.x, percent.y, 0)
 			var pointOnUnitCube :Vector3 = normal + (percent.x - 0.5) * 2 * axisA + (percent.y - 0.5) * 2 * axisB
 			var pointOnUnitSphere :Vector3 = pointOnUnitCube.normalized()
 			var pointOnPlanet = data.point_on_planet(pointOnUnitSphere)
