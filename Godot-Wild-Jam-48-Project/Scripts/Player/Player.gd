@@ -4,6 +4,7 @@ extends KinematicBody
 onready var pivot :Spatial = $Pivot
 onready var raycast :RayCast = $RayCast
 onready var camera :Camera = $Pivot/Camera
+onready var audio :AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var mouseSensitivity :float= 0.002 # radians/pixel
 
@@ -11,12 +12,14 @@ const ORIGIN :Vector3 = Constants.ORIGIN
 const MOON_RADIUS :float = Constants.MOON_RADIUS
 const TRANSFORM_INTERPOLATE :float = 0.2
 const LOOK_PITCH_LIMIT :float = deg2rad(89.0)
-const GRAVITY_STRENGTH :float = 10.0
+const GRAVITY_STRENGTH :float = 1.0
+const JETPACK_STRENGTH :float = 0.75
 
 export(float) var speed :float = 7.0
 export(float) var acceleration :float = 5.0
 
 var direction :Vector3 = Vector3.ZERO
+var verticalVelocity :float = 0.0
 var velocity :Vector3 = Vector3.ZERO
 
 onready var up :Vector3 = global_transform.basis.y
@@ -44,12 +47,18 @@ func _physics_process(delta :float):
 	#if raycast.is_colliding(): 
 	#	transform.origin.y = raycast.get_collision_point().y
 	
-	if not is_on_floor():
-		direction += -up * GRAVITY_STRENGTH
+	if Input.is_action_pressed("jetpack"):
+		verticalVelocity += JETPACK_STRENGTH * delta
+	else:
+		if not is_on_floor():
+			verticalVelocity -= GRAVITY_STRENGTH * delta
+		else:
+			verticalVelocity = 0
+	direction += up * verticalVelocity
 
 	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
-	velocity = move_and_slide_with_snap(velocity, -up * GRAVITY_STRENGTH, up, true)
-	#velocity = move_and_slide(velocity, up, true)
+	#velocity = move_and_slide_with_snap(velocity, -up * GRAVITY_STRENGTH, up, true)
+	velocity = move_and_slide(velocity, up, true)
 	
 	var xform :Transform = align_with_y(global_transform, up)
 	global_transform = global_transform.interpolate_with(xform, TRANSFORM_INTERPOLATE)
