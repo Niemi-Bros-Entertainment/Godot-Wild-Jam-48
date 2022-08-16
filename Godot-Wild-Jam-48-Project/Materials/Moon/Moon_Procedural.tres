@@ -1,6 +1,16 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+[gd_resource type="ShaderMaterial" load_steps=10 format=2]
 
 [ext_resource path="res://Shaders/Moon_Procedural.tres" type="Shader" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=7]
+octaves = 8
+period = 55.0
+persistence = 1.0
+lacunarity = 3.0
+
+[sub_resource type="NoiseTexture" id=8]
+seamless = true
+noise = SubResource( 7 )
 
 [sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.0990099, 0.376238, 0.816832 )
@@ -10,6 +20,27 @@ colors = PoolColorArray( 0.882187, 1, 0.556468, 1, 0.542032, 0.613281, 0.345049,
 gradient = SubResource( 5 )
 width = 512
 
+[sub_resource type="OpenSimplexNoise" id=9]
+octaves = 8
+period = 55.0
+persistence = 1.0
+lacunarity = 3.0
+
+[sub_resource type="NoiseTexture" id=10]
+seamless = true
+as_normalmap = true
+noise = SubResource( 9 )
+
+[sub_resource type="OpenSimplexNoise" id=11]
+octaves = 8
+period = 55.0
+persistence = 1.0
+lacunarity = 3.0
+
+[sub_resource type="NoiseTexture" id=12]
+seamless = true
+noise = SubResource( 11 )
+
 [resource]
 shader = ExtResource( 1 )
 shader_param/minHeight = 50.0
@@ -18,3 +49,6 @@ shader_param/fresnel_exponent = 3.0
 shader_param/fresnel_intensity = 3.0
 shader_param/fresnel_color = Color( 0.1, 0.7, 1, 1 )
 shader_param/heightColor = SubResource( 6 )
+shader_param/albedo_texture = SubResource( 8 )
+shader_param/roughness_texture = SubResource( 12 )
+shader_param/normalmap_texture = SubResource( 10 )
