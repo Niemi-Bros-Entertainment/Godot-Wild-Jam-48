@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Smoke.png-bd7765f3695075dfdbc1c9b069b38c1f.s3tc.stex"
-path.etc2="res://.import/Smoke.png-bd7765f3695075dfdbc1c9b069b38c1f.etc2.stex"
+path.s3tc="res://.import/Smoke_albedo.png-573ae6e33a58e56e67a43782149d64e7.s3tc.stex"
+path.etc2="res://.import/Smoke_albedo.png-573ae6e33a58e56e67a43782149d64e7.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/VFX/Smoke.png"
-dest_files=[ "res://.import/Smoke.png-bd7765f3695075dfdbc1c9b069b38c1f.s3tc.stex", "res://.import/Smoke.png-bd7765f3695075dfdbc1c9b069b38c1f.etc2.stex" ]
+source_file="res://Textures/VFX/Smoke_albedo.png"
+dest_files=[ "res://.import/Smoke_albedo.png-573ae6e33a58e56e67a43782149d64e7.s3tc.stex", "res://.import/Smoke_albedo.png-573ae6e33a58e56e67a43782149d64e7.etc2.stex" ]
 
 [params]
 
