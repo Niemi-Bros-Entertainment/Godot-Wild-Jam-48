@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Meshes/Cheddar/Cheddar_Cheddar.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://Scenes/Prefabs/Pickups/Pickup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Materials/Props/Cheddar.tres" type="Material" id=3]
+
+[node name="Pickup_Cheddar" instance=ExtResource( 2 )]
+
+[node name="MeshInstance" parent="." index="1"]
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 3 )
