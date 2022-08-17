@@ -22,7 +22,7 @@ func _ready():
 	MusicManager.enqueue(Enums.MusicType.Theme)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if _delay <= 0:
 		set_physics_process(false)
 		$Margin/DoneButton.disabled = false
