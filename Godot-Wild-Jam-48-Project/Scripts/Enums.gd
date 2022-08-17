@@ -15,7 +15,7 @@ enum SoundType {
 	MenuCancel,
 	MenuNavigate,
 	
-	MissonFail,
+	MissionFail,
 	MissionSuccess,
 	
 	ShipAlarm,
