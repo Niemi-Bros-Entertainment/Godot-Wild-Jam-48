@@ -41,7 +41,7 @@ void fragment()
 	
 	//ALBEDO = vec3(color);
 	vec3 fresnel = fresnel_glow(fresnel_exponent, fresnel_intensity, fresnel_color.rgb, NORMAL, VIEW);
-	ALBEDO = (albedo * color) + fresnel;
+	ALBEDO = (albedo*color*color*COLOR.rgb) + (fresnel*(1.0-roughness));
 	ROUGHNESS = roughness;
 	NORMALMAP = normalmap;
 }"

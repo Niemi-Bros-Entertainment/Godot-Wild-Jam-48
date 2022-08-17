@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Prefabs/Moon/Moon_Procedural.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Prefabs/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Prefabs/Geyser.tscn" type="PackedScene" id=3]
 
 [node name="PlanetTest" type="Spatial"]
 
@@ -9,3 +10,9 @@
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 125, 0 )
+
+[node name="Geyser" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.994856, -0.101207, -0.00431969, 0.0724952, 0.741111, -0.667457, 0.0707526, 0.66371, 0.744636, -4.32629, 37.2734, 33.0537 )
+
+[node name="Geyser-2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.979562, 0.200704, -0.0132553, -0.143692, 0.652147, -0.74435, -0.140749, 0.731042, 0.667658, 10.8233, 32.8887, 36.0888 )
