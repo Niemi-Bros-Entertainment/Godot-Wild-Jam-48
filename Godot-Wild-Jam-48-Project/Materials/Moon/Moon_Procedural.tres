@@ -7,7 +7,7 @@
 
 [sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.0990099, 0.376238, 0.816832 )
-colors = PoolColorArray( 0.882187, 1, 0.556468, 1, 0.542032, 0.613281, 0.345049, 1, 0.659426, 0.815503, 0.863281, 1, 0.680843, 0.644764, 1, 1 )
+colors = PoolColorArray( 1, 0.930698, 0.556468, 1, 0.542032, 0.613281, 0.345049, 1, 0.659426, 0.815503, 0.863281, 1, 0.730798, 0.644764, 1, 1 )
 
 [sub_resource type="GradientTexture" id=6]
 gradient = SubResource( 5 )
@@ -18,6 +18,7 @@ shader = ExtResource( 1 )
 shader_param/minHeight = 50.0
 shader_param/maxHeight = 69.326
 shader_param/texture_tile = 10.0
+shader_param/normalmap_intensity = 2.0
 shader_param/fresnel_exponent = 8.0
 shader_param/fresnel_intensity = 4.0
 shader_param/fresnel_color = Color( 0.1, 0.7, 1, 1 )
