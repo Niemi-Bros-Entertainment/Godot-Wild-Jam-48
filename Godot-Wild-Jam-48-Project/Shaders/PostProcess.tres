@@ -1,13 +1,17 @@
 [gd_resource type="Shader" format=2]
 
 [resource]
-code = "// https://godotshaders.com/shader/chromatic-abberation-with-offset/
+code = "// chromatic abberation: https://godotshaders.com/shader/chromatic-abberation-with-offset/
+// vignette: https://godotshaders.com/shader/color-vignetting/
+// noise: https://godotshaders.com/shader/tv-noise-effect/
+
 shader_type canvas_item;
 
 uniform sampler2D offset_image : hint_white;
 uniform float strength = 0.25;
 
-// https://godotshaders.com/shader/color-vignetting/
+uniform float noise_amount = 0.1;
+
 uniform float vignette_intensity = 0.4;
 uniform float vignette_opacity : hint_range(0.0, 1.0) = 0.5;
 uniform vec4 vignette_rgb : hint_color = vec4(0.0, 0.0, 0.0, 1.0);
@@ -29,9 +33,16 @@ void fragment()
 	output.g = texture(SCREEN_TEXTURE, SCREEN_UV).g;
 	output.b = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x - shift, SCREEN_UV.y)).b;
 	
+	// vignette
 	vec4 v = vignette_rgb;
 	v *= 1.0 - vignette(UV);
-	
 	output.rgb = mix(output.rgb, v.rgb, v.a);
-	COLOR = output;
+	
+	// noise
+	vec2 uv = UV*0.05;
+	float a = fract(sin(dot(UV, vec2(12.9898, 78.233) * TIME)) * 438.5453) * 1.9;
+	output.a *= pow(a, noise_amount);
+	
+	COLOR.rgb = output.rgb * output.a;
+	COLOR.a = 1.0;
 }"
