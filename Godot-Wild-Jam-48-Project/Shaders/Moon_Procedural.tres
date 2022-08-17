@@ -10,6 +10,7 @@ uniform sampler2D heightColor;
 uniform sampler2D albedo_texture : hint_albedo;
 uniform sampler2D roughness_texture: hint_white;
 uniform sampler2D normalmap_texture : hint_normal;
+uniform float texture_tile = 1.0;
 
 uniform float fresnel_exponent = 3.0;
 uniform float fresnel_intensity = 3.0;
@@ -34,9 +35,9 @@ void fragment()
 	float t = height / (maxHeight - minHeight) - (minHeight / (maxHeight-minHeight));
 	vec3 color = texture(heightColor, vec2(t, 0.0)).rgb;
 	
-	vec3 albedo = texture(albedo_texture, UV).rgb;
-	float roughness = texture(roughness_texture, UV).r;
-	vec3 normalmap = texture(normalmap_texture, UV).rgb;
+	vec3 albedo = texture(albedo_texture, UV*texture_tile).rgb;
+	float roughness = texture(roughness_texture, UV*texture_tile).r;
+	vec3 normalmap = texture(normalmap_texture, UV*texture_tile).rgb;
 	
 	//ALBEDO = vec3(color);
 	vec3 fresnel = fresnel_glow(fresnel_exponent, fresnel_intensity, fresnel_color.rgb, NORMAL, VIEW);
