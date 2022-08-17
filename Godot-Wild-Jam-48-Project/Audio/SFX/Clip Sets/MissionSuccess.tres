@@ -1,11 +1,11 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Audio/AudioClipSet.gd" type="Script" id=1]
-[ext_resource path="res://Audio/SFX/Thud.wav" type="AudioStream" id=2]
+[ext_resource path="res://Audio/SFX/Drone.wav" type="AudioStream" id=2]
 
 [resource]
 script = ExtResource( 1 )
 clips = [ ExtResource( 2 ) ]
-volumeMultiplier = 0.25
+volumeMultiplier = 0.75
 pitchMultiplier = 2.0
-pitchRandomness = 0.025
+pitchRandomness = 0.0

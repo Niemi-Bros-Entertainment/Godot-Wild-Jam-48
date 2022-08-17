@@ -4,8 +4,7 @@ extends Node
 onready var serviceProvider :MusicProvider = MusicProvider.new(self)
 
 
-func _ready():
-	# continue music while console is open
+func _init():
 	pause_mode = Node.PAUSE_MODE_PROCESS
 
 

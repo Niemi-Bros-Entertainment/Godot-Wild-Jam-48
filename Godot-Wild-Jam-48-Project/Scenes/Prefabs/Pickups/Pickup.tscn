@@ -6,7 +6,7 @@
 [sub_resource type="SphereShape" id=1]
 radius = 0.75
 
-[node name="Pickup" type="Area"]
+[node name="Pickup" type="Area" groups=["Pickup"]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 2 )

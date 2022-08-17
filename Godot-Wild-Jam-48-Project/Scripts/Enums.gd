@@ -15,6 +15,10 @@ enum SoundType {
 	MenuCancel,
 	MenuNavigate,
 	
+	MissonFail,
+	MissionSuccess,
+	
+	ShipAlarm,
 	Alarm,
 	Beep,
 	Crash,

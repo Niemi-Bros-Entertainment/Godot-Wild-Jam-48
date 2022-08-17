@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Scripts/UI/PlayButton.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/UI/QuitButton.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/UI/Buttons/PlayButton.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/UI/Buttons/QuitButton.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Prefabs/Moon/Moon_Procedural.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Themes/SmallTheme.tres" type="Theme" id=4]
 [ext_resource path="res://Scripts/Audio/PlayMusic.gd" type="Script" id=5]
@@ -91,7 +91,7 @@ anchor_right = 0.99
 anchor_bottom = 0.99
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Created by: Andrew Niemi, Emil Ritter, & Jonathan Niemi"
-align = 1
+align = 2
 valign = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]

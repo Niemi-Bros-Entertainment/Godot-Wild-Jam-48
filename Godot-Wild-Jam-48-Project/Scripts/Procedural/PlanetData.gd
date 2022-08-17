@@ -67,11 +67,11 @@ func on_data_changed():
 	emit_signal("changed")
 
 
-func point_on_planet(pointOnSphere :Vector3) -> Vector3:
+func point_on_planet(pointOnUnitSphere :Vector3) -> Vector3:
 	var elevation :float = 0.0
 	for n in planetNoise:
-		var levelElevation = n.noise.get_noise_3dv(pointOnSphere * 100.0) # -1 to 1
+		var levelElevation = n.noise.get_noise_3dv(pointOnUnitSphere * 100.0) # -1 to 1
 		levelElevation = levelElevation + 1 / 2.0 * n.amplitude
 		levelElevation = max(0.0, levelElevation - n.minHeight)
 		elevation += levelElevation
-	return pointOnSphere * radius * (elevation+1.0)
+	return pointOnUnitSphere * radius * (elevation+1.0)

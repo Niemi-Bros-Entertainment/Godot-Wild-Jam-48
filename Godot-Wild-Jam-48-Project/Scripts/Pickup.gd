@@ -8,6 +8,13 @@ onready var tween :Tween = $Tween
 const ORIGIN :Vector3 = Constants.ORIGIN
 
 
+func _notification(what):
+	match what:
+		NOTIFICATION_VISIBILITY_CHANGED:
+			if not is_visible_in_tree():
+				_check_victory()
+
+
 func _ready():
 	# warning-ignore:return_value_discarded
 	connect("body_entered", self, "_on_body_entered")
@@ -33,4 +40,10 @@ func _on_body_entered(_body):
 func collect(body):
 	body.add_cheese(cheeseValue)
 	SfxManager.enqueue(Enums.SoundType.Pickup, global_transform.origin)
-	queue_free() # goodbye!
+	hide()
+	queue_free()
+
+
+func _check_victory():
+	if get_tree().get_nodes_in_group("Pickup").size() <= 1:
+		GameManager.mission_success()
