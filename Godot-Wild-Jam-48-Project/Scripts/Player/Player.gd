@@ -68,9 +68,10 @@ func _physics_process(delta :float):
 			verticalVelocity -= GRAVITY_STRENGTH * delta
 			verticalVelocity = max(-MAX_VERTICAL_VELOCITY, verticalVelocity)
 		else:
-			if verticalVelocity < -0.5:
-				SfxManager.enqueue(Enums.SoundType.Thud, global_transform.origin)
-			verticalVelocity = 0
+			if verticalVelocity < 0:
+				if verticalVelocity < -0.5:
+					SfxManager.enqueue(Enums.SoundType.Thud, global_transform.origin)
+				verticalVelocity = 0
 	direction += up * verticalVelocity
 
 	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
@@ -131,6 +132,10 @@ func get_input() -> Vector3:
 func add_cheese(value :int):
 	cheese += value
 	$HUD.update_cheese_01(cheese / 100.0)
+
+
+func force(dir :Vector3):
+	verticalVelocity += dir.y
 
 
 func _exit_game():

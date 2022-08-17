@@ -46,7 +46,7 @@ func abort():
 
 func mission_fail():
 	emit_signal("game_over")
-	SfxManager.enqueue2d(Enums.SoundType.MissonFail)
+	SfxManager.enqueue2d(Enums.SoundType.MissionFail)
 	var aftermath = AFTERMATH_HUD_PREFAB.instance()
 	aftermath.update_display(0, false)
 	get_tree().current_scene.add_child(aftermath)

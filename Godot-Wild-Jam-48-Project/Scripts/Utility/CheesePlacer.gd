@@ -2,12 +2,16 @@
 extends Control
 	
 enum CheeseType {
-	Swiss,
+	Swiss = 0,
+	Cheddar,
+	Brie,
 	Wheel
 }
 	
 	
 const SWISS_PICKUP = preload("res://Scenes/Prefabs/Pickups/Swiss.tscn")
+const CHEDDAR_PICKUP = preload("res://Scenes/Prefabs/Pickups/Cheddar.tscn")
+const BRIE_PICKUP = preload("res://Scenes/Prefabs/Pickups/Brie.tscn")
 const WHEEL_PICKUP = preload("res://Scenes/Prefabs/Pickups/Wheel.tscn")
 
 const CHEESE_COUNT :int = 10
@@ -17,7 +21,12 @@ const CHEESE_VERTICAL_OFFSET_PER_TYPE = 10.0
 const CHEESE_VERTICAL_OFFSET :float = 1.5
 
 var frameDelay :int = 30
-var cheeseChoices :Array = [SWISS_PICKUP, WHEEL_PICKUP]
+var cheeseChoices :Array = [
+	SWISS_PICKUP, 
+	CHEDDAR_PICKUP,
+	BRIE_PICKUP,
+	WHEEL_PICKUP
+]
 
 onready var label :Label = $Label
 
