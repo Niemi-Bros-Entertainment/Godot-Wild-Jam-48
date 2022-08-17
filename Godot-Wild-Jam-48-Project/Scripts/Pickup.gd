@@ -38,10 +38,11 @@ func _on_body_entered(_body):
 
 
 func collect(body):
-	body.add_cheese(cheeseValue)
-	SfxManager.enqueue(Enums.SoundType.Pickup, global_transform.origin)
+	remove_from_group("Pickup")
 	hide()
 	queue_free()
+	body.add_cheese(cheeseValue)
+	SfxManager.enqueue(Enums.SoundType.Pickup, global_transform.origin)
 
 
 func _check_victory():

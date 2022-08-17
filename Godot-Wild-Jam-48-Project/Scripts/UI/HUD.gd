@@ -3,16 +3,21 @@ extends CanvasLayer
 
 onready var body = get_parent()
 onready var tween :Tween = $Tween
+onready var timeLabel :Label = $Margin/TimeLabel
+onready var cheeseLabel :Label = $Margin/CheeseLabel
 var alarmTimer :float = 1.0
 var orbitTimer :float = ORBIT_DANGER_TIME
 
 const ORBIT_DANGER_TIME :float = 6.0
+const CHEESE_STRING_FORMAT :String = "\n%s"
 const MOON_ORBIT :float = Constants.MOON_RADIUS * 2.0
 
 
 func _ready():
 	# warning-ignore:return_value_discarded
 	GameManager.connect("game_over", self, "_on_game_over")
+	# warning-ignore:return_value_discarded
+	get_tree().current_scene.find_node("CheesePlacer").connect("instance_cheese", self, "_update_cheese_label")
 	
 	update_cheese_01(0)
 	update_jetpack_01(0)
@@ -62,6 +67,11 @@ func _flash_elevation_meters():
 
 func update_cheese_01(amount01 :float):
 	$Margin/CheeseProgress.value = $Margin/CheeseProgress.max_value * amount01
+	_update_cheese_label()
+	
+	
+func _update_cheese_label():
+	cheeseLabel.text = CHEESE_STRING_FORMAT % [get_tree().get_nodes_in_group("Pickup").size()]
 	
 	
 func update_jetpack_01(amount01 :float):

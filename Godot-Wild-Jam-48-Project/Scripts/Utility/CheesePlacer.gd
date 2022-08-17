@@ -1,9 +1,12 @@
 'CheesePlacer'
 extends Control
+
+signal instance_cheese
 	
 enum CheeseType {
 	Swiss = 0,
 	Cheddar,
+	Provolone,
 	Brie,
 	Wheel
 }
@@ -12,18 +15,26 @@ enum CheeseType {
 const SWISS_PICKUP = preload("res://Scenes/Prefabs/Pickups/Swiss.tscn")
 const CHEDDAR_PICKUP = preload("res://Scenes/Prefabs/Pickups/Cheddar.tscn")
 const BRIE_PICKUP = preload("res://Scenes/Prefabs/Pickups/Brie.tscn")
+const PROVOLONE_PICKUP = preload("res://Scenes/Prefabs/Pickups/Provolone.tscn")
 const WHEEL_PICKUP = preload("res://Scenes/Prefabs/Pickups/Wheel.tscn")
 
-const CHEESE_COUNT :int = 10
-const MOON_RADIUS = Constants.MOON_RADIUS
-const MESSAGE = "Locating Cheese..."
-const CHEESE_VERTICAL_OFFSET_PER_TYPE = 10.0
+const CHEESE_COUNT :Dictionary = {
+	CheeseType.Swiss: 25,
+	CheeseType.Cheddar: 10,
+	CheeseType.Provolone: 5,
+	CheeseType.Brie: 5,
+	CheeseType.Wheel: 5
+}
+const MOON_RADIUS :float = Constants.MOON_RADIUS
+const MESSAGE :String = "Locating Cheese..."
+const CHEESE_VERTICAL_OFFSET_PER_TYPE :float = 10.0
 const CHEESE_VERTICAL_OFFSET :float = 1.5
 
 var frameDelay :int = 30
 var cheeseChoices :Array = [
 	SWISS_PICKUP, 
 	CHEDDAR_PICKUP,
+	PROVOLONE_PICKUP,
 	BRIE_PICKUP,
 	WHEEL_PICKUP
 ]
@@ -57,14 +68,16 @@ func _process(_delta):
 		
 	if label.visible_characters < MESSAGE.length():
 		SfxManager.enqueue2d(Enums.SoundType.Beep)
+		label.visible_characters += 1
 		
+	var isDone :bool = true
 	for i in range(CheeseType.size()):
-		if pickups[i].size() < CHEESE_COUNT:
-			label.visible_characters += 1
+		if pickups[i].size() < CHEESE_COUNT.get(i, 1):
+			isDone = false
 			_instance_cheese(i)
-		else:
-			if label.visible_characters >= MESSAGE.length():
-				visible = false
+			
+	if isDone:
+		hide()
 
 
 func _instance_cheese(type :int):
@@ -85,3 +98,4 @@ func _instance_cheese(type :int):
 	
 	# shift pickup away from gravity to avoid ground clipping
 	pickup.global_transform.origin -= GameManager.get_gravity_dir(pickup.global_transform) * (CHEESE_VERTICAL_OFFSET + (CHEESE_VERTICAL_OFFSET_PER_TYPE * type))
+	emit_signal("instance_cheese")
