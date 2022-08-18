@@ -6,7 +6,7 @@
 
 [sub_resource type="Curve" id=2]
 max_value = 3.0
-_data = [ Vector2( 0, 0.0791875 ), 0.0, 0.918182, 0, 0, Vector2( 0.59901, 1.11665 ), 4.37902, 4.37902, 0, 0, Vector2( 1, 2.59091 ), 4.21284, 4.21284, 0, 0 ]
+_data = [ Vector2( 0, 0 ), 0.0, 0.918182, 0, 0, Vector2( 0.589109, 1.17273 ), 3.62026, 3.62026, 0, 0, Vector2( 0.995049, 3 ), 4.21284, 4.21284, 0, 0 ]
 
 [sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0, 0.100559, 0.664804, 1 )
@@ -18,7 +18,7 @@ colors = PoolColorArray( 0.68, 0.68, 0.68, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0
 material_override = ExtResource( 1 )
 amount = 25
 lifetime = 2.0
-explosiveness = 0.35
+explosiveness = 0.4
 randomness = 0.25
 draw_order = 2
 mesh = SubResource( 1 )

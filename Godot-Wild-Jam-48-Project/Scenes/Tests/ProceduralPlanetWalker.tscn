@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Prefabs/Moon/Moon_Procedural.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Prefabs/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Prefabs/Geyser.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Prefabs/Geyser_Large.tscn" type="PackedScene" id=4]
 
 [node name="PlanetTest" type="Spatial"]
 
@@ -11,8 +12,28 @@
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 125, 0 )
 
-[node name="Geyser" parent="." instance=ExtResource( 3 )]
+[node name="Props" type="Spatial" parent="."]
+
+[node name="Geyser" parent="Props" instance=ExtResource( 3 )]
 transform = Transform( 0.994856, -0.101207, -0.00431969, 0.0724952, 0.741111, -0.667457, 0.0707526, 0.66371, 0.744636, -4.32629, 37.2734, 33.0537 )
 
-[node name="Geyser-2" parent="." instance=ExtResource( 3 )]
+[node name="Geyser-2" parent="Props" instance=ExtResource( 3 )]
 transform = Transform( 0.979562, 0.200704, -0.0132553, -0.143692, 0.652147, -0.74435, -0.140749, 0.731042, 0.667658, 10.8233, 32.8887, 36.0888 )
+
+[node name="Geyser-3" parent="Props" instance=ExtResource( 3 )]
+transform = Transform( -0.144759, -0.975305, 0.166806, 0.00922383, 0.167245, 0.985872, -0.989424, 0.144253, -0.0152142, -49.0626, 7.51908, 6.1238 )
+
+[node name="Geyser-4" parent="Props" instance=ExtResource( 3 )]
+transform = Transform( -0.858402, -0.196267, 0.473946, 0.490036, -0.586943, 0.644485, 0.151688, 0.785478, 0.600012, -9.74055, -28.3837, 40.0178 )
+
+[node name="Geyser-5" parent="Props" instance=ExtResource( 3 )]
+transform = Transform( -0.998679, -0.0459743, -0.0229271, 0.00894821, -0.59512, 0.803587, -0.0505887, 0.80232, 0.594746, -2.7618, -30.9721, 39.1859 )
+
+[node name="Geyser_Large" parent="Props" instance=ExtResource( 4 )]
+transform = Transform( 0.632976, 1.60431e-08, -0.774172, 0.774172, -3.38401e-08, 0.632976, -1.60431e-08, -1, -3.38401e-08, 0, 2.12536e-07, -50.0265 )
+
+[node name="Geyser_Large-2" parent="Props" instance=ExtResource( 4 )]
+transform = Transform( 0.753778, 0.579169, 0.310455, 0.653566, -0.611613, -0.44585, -0.0683441, 0.538974, -0.839545, 28.1421, -30.9804, 27.2838 )
+
+[node name="Geyser_Large-3" parent="Props" instance=ExtResource( 4 )]
+transform = Transform( 0.882938, -0.0754963, 0.463381, -0.159509, -0.976514, 0.144834, 0.441563, -0.201793, -0.874244, -4.91204, -48.946, -9.04147 )
