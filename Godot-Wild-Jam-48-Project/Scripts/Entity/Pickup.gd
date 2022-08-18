@@ -2,6 +2,7 @@
 extends Area
 
 const CheeseType = Enums.CheeseType
+const PICKUP_PARTICLE_PREFAB = Constants.PICKUP_PARTICLE_PREFAB
 
 export(CheeseType) var cheeseType :int = CheeseType.Swiss
 export(Vector3) var rotateVector :Vector3 = Vector3(0.0, 1.0, 0.0)
@@ -10,11 +11,11 @@ onready var tween :Tween = $Tween
 const ORIGIN :Vector3 = Constants.ORIGIN
 
 
-func _notification(what):
-	match what:
-		NOTIFICATION_VISIBILITY_CHANGED:
-			if not is_visible_in_tree():
-				_check_victory()
+#func _notification(what):
+#	match what:
+#		NOTIFICATION_VISIBILITY_CHANGED:
+#			if not is_visible_in_tree():
+#				_check_victory()
 
 
 func _ready():
@@ -41,6 +42,9 @@ func _on_body_entered(_body):
 
 
 func collect(body):
+	var particle = PICKUP_PARTICLE_PREFAB.instance()
+	particle.transform.origin = transform.origin
+	get_parent().add_child(particle)
 	remove_from_group("Pickup")
 	hide() # triggers victory check
 	queue_free()
@@ -48,6 +52,6 @@ func collect(body):
 	SfxManager.enqueue(Enums.SoundType.Pickup, global_transform.origin)
 
 
-func _check_victory():
-	if get_tree().get_nodes_in_group("Pickup").size() <= 0:
-		GameManager.mission_success()
+#func _check_victory():
+#	if get_tree().get_nodes_in_group("Pickup").size() <= 0:
+#		GameManager.mission_success()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/UI/Buttons/PlayButton.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/UI/Buttons/QuitButton.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Prefabs/UI/FadeIn.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Prefabs/Pickups/Pickup.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/Utility/Rotater.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Prefabs/VFX/CheesePickupParticle.tscn" type="PackedScene" id=11]
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
@@ -125,3 +126,5 @@ type = 1
 [node name="WorldEnvironment" parent="." instance=ExtResource( 6 )]
 
 [node name="FadeIn" parent="." instance=ExtResource( 8 )]
+
+[node name="CheesePickupParticle" parent="." instance=ExtResource( 11 )]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Materials/VFX/CheeseCrumbs.tres" type="Material" id=1]
+[ext_resource path="res://Scripts/Utility/OneShotParticle.gd" type="Script" id=2]
 
 [sub_resource type="QuadMesh" id=1]
 size = Vector2( 0.5, 0.5 )
@@ -13,12 +14,12 @@ _data = [ Vector2( 0, 0.333423 ), 0.0, 0.524675, 0, 0, Vector2( 0.995049, 0.9334
 offsets = PoolRealArray( 0, 0.100559, 0.664804, 1 )
 colors = PoolColorArray( 0.68, 0.68, 0.68, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 )
 
-[node name="Cheese_Pickup" type="Spatial"]
-
-[node name="CPUParticles" type="CPUParticles" parent="."]
+[node name="CheesePickupParticle" type="CPUParticles"]
 material_override = ExtResource( 1 )
+emitting = false
 amount = 6
 lifetime = 1.8
+one_shot = true
 explosiveness = 1.0
 randomness = 1.0
 draw_order = 2
@@ -39,3 +40,4 @@ angle_random = 1.0
 scale_amount_random = 1.0
 scale_amount_curve = SubResource( 2 )
 color_ramp = SubResource( 3 )
+script = ExtResource( 2 )

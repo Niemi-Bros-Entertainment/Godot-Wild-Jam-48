@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Moon.gd"
 }, {
+"base": "Node",
+"class": "Oxygen",
+"language": "GDScript",
+"path": "res://Scripts/Entity/Player/Components/Oxygen.gd"
+}, {
 "base": "Resource",
 "class": "PlanetData",
 "language": "GDScript",
@@ -71,6 +76,7 @@ _global_script_class_icons={
 "HUDAftermath": "",
 "Inventory": "",
 "Moon": "",
+"Oxygen": "",
 "PlanetData": "",
 "PlanetFace": "",
 "PlanetNoise": "",

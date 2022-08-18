@@ -8,6 +8,7 @@ onready var cheeseProgress :TextureProgress = $Margin/CheeseProgress
 onready var cheeseLabel :Label = $Margin/CheeseLabel
 onready var scoreLabel :Label = $Margin/ScoreLabel
 onready var jetpackProgress :TextureProgress = $Margin/JetpackProgress
+onready var oxygenProgress :ProgressBar = $Margin/OxygenBar
 
 var alarmTimer :float = 1.0
 var orbitTimer :float = ORBIT_DANGER_TIME
@@ -73,6 +74,7 @@ func _flash_elevation_meters():
 func update_cheese(amount :float):
 	cheeseProgress.value = amount
 	cheeseProgress.get_node("Label-2").text = "%s / %s" % [cheeseProgress.value, cheeseProgress.max_value]
+	cheeseProgress.find_node("Full").visible = cheeseProgress.value >= cheeseProgress.max_value
 	_update_cheese_label()
 	
 	
@@ -100,4 +102,15 @@ func update_jetpack_01(amount01 :float):
 
 func _on_game_over():
 	hide()
-	
+
+
+func _on_Oxygen_updated(amount01 :float):
+	oxygenProgress.value = oxygenProgress.max_value * amount01
+
+
+func _on_Oxygen_depleted():
+	var a :float = $Margin.modulate.a
+	$Margin.modulate = Color.salmon
+	$Margin.modulate.a = a
+	#oxygenProgress.modulate = Color.salmon
+	oxygenProgress.find_node("Label").text = "Backup O2 - Return to ship!"

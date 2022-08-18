@@ -4,7 +4,9 @@ extends Area
 var _bodies :Array = []
 
 var _delay :float = DELAY_PER_CHEESE
+
 const DELAY_PER_CHEESE :float = 0.15
+const PICKUP_PARTICLE_PREFAB = Constants.PICKUP_PARTICLE_PREFAB
 
 
 func _ready():
@@ -38,4 +40,7 @@ func _process(delta):
 
 func _dump_cheese(b):
 	if b.dump_cheese():
+		var particle = PICKUP_PARTICLE_PREFAB.instance()
+		particle.transform.origin = transform.origin
+		get_parent().add_child(particle)
 		SfxManager.enqueue(Enums.SoundType.CheeseDump, global_transform.origin)

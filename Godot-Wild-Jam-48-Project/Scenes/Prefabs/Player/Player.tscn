@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Entity/Player/PlayerWalker.gd" type="Script" id=1]
 [ext_resource path="res://Audio/SFX/ShipLoop.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scenes/Prefabs/UI/HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Entity/Player/Components/Inventory.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Entity/Player/Components/Oxygen.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -58,3 +59,9 @@ bus = "SFX"
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource( 4 )
+
+[node name="Oxygen" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[connection signal="depleted" from="Oxygen" to="HUD" method="_on_Oxygen_depleted"]
+[connection signal="updated" from="Oxygen" to="HUD" method="_on_Oxygen_updated"]
