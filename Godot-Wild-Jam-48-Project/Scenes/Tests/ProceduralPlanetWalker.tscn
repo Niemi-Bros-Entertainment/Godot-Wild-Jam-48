@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scenes/Prefabs/Moon/Moon_Procedural.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Prefabs/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Prefabs/Geyser.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Prefabs/Geyser_Large.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Prefabs/Props/Geyser.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Prefabs/Props/Geyser_Large.tscn" type="PackedScene" id=4]
 
 [node name="PlanetTest" type="Spatial"]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Cheddar_roughness.png-2614054948c6c07a76c93d9f4394172b.s3tc.stex"
-path.etc2="res://.import/Cheddar_roughness.png-2614054948c6c07a76c93d9f4394172b.etc2.stex"
+path.s3tc="res://.import/Brie_normal.png-995738944e6eef3db76040b3123f1509.s3tc.stex"
+path.etc2="res://.import/Brie_normal.png-995738944e6eef3db76040b3123f1509.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Props/Cheddar_roughness.png"
-dest_files=[ "res://.import/Cheddar_roughness.png-2614054948c6c07a76c93d9f4394172b.s3tc.stex", "res://.import/Cheddar_roughness.png-2614054948c6c07a76c93d9f4394172b.etc2.stex" ]
+source_file="res://Textures/Pickups/Brie_normal.png"
+dest_files=[ "res://.import/Brie_normal.png-995738944e6eef3db76040b3123f1509.s3tc.stex", "res://.import/Brie_normal.png-995738944e6eef3db76040b3123f1509.etc2.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=1
 flags/repeat=true
 flags/filter=true
 flags/mipmaps=true

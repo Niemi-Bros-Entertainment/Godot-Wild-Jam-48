@@ -8,6 +8,7 @@
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
 shader_param/strength = 0.25
+shader_param/noise_amount = 0.1
 shader_param/vignette_intensity = 0.4
 shader_param/vignette_opacity = 0.5
 shader_param/vignette_rgb = Color( 0, 0, 0, 1 )

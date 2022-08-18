@@ -14,7 +14,7 @@ var _fader
 
 const EMPTY_STRING = ""
 const FADE_OUT_DURATION = 0.5
-const FADE_OUT_PREFAB = preload("res://Scenes/Prefabs/VFX/FadeOut.tscn")
+const FADE_OUT_PREFAB = preload("res://Scenes/Prefabs/UI/FadeOut.tscn")
 
 
 func _ready():

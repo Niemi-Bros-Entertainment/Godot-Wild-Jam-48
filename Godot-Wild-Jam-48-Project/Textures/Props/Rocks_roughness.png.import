@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Swiss_albedo.png-e3b6572c7f64ffd1e238a581417f04df.s3tc.stex"
-path.etc2="res://.import/Swiss_albedo.png-e3b6572c7f64ffd1e238a581417f04df.etc2.stex"
+path.s3tc="res://.import/Rocks_roughness.png-326f7c32a69ffd2b241a0fd8e52d1623.s3tc.stex"
+path.etc2="res://.import/Rocks_roughness.png-326f7c32a69ffd2b241a0fd8e52d1623.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Props/Swiss_albedo.png"
-dest_files=[ "res://.import/Swiss_albedo.png-e3b6572c7f64ffd1e238a581417f04df.s3tc.stex", "res://.import/Swiss_albedo.png-e3b6572c7f64ffd1e238a581417f04df.etc2.stex" ]
+source_file="res://Textures/Props/Rocks_roughness.png"
+dest_files=[ "res://.import/Rocks_roughness.png-326f7c32a69ffd2b241a0fd8e52d1623.s3tc.stex", "res://.import/Rocks_roughness.png-326f7c32a69ffd2b241a0fd8e52d1623.etc2.stex" ]
 
 [params]
 
@@ -25,7 +25,7 @@ flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

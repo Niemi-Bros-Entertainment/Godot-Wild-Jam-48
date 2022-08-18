@@ -1,9 +1,9 @@
 [gd_resource type="ShaderMaterial" load_steps=7 format=2]
 
 [ext_resource path="res://Shaders/Moon_Procedural.tres" type="Shader" id=1]
-[ext_resource path="res://Textures/Moon_normal.png" type="Texture" id=2]
-[ext_resource path="res://Textures/Moon_roughness.png" type="Texture" id=3]
-[ext_resource path="res://Textures/Moon_albedo.png" type="Texture" id=4]
+[ext_resource path="res://Textures/Environment/Moon_normal.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Environment/Moon_roughness.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Environment/Moon_albedo.png" type="Texture" id=4]
 
 [sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.0990099, 0.376238, 0.816832 )

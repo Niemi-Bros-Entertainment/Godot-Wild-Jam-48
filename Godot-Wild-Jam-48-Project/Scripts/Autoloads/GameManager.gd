@@ -3,7 +3,7 @@ extends Node
 
 signal game_over
 
-const POST_PROCESS_PREFAB = preload("res://Scenes/Prefabs/VFX/PostProcess.tscn")
+const POST_PROCESS_PREFAB = preload("res://Scenes/Prefabs/UI/PostProcess.tscn")
 const AMBIANCE_AUDIO_PREFAB = preload("res://Scenes/Prefabs/Audio/Ambiance.tscn")
 const AFTERMATH_HUD_PREFAB = preload("res://Scenes/Prefabs/UI/HUDAftermath.tscn")
 

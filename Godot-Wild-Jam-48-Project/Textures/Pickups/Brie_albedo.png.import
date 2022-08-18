@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Swiss_normal.png-7eb9351259e905fe7ceaa59e698ad337.s3tc.stex"
-path.etc2="res://.import/Swiss_normal.png-7eb9351259e905fe7ceaa59e698ad337.etc2.stex"
+path.s3tc="res://.import/Brie_albedo.png-202ba158bcb2b57ad76b73383692b256.s3tc.stex"
+path.etc2="res://.import/Brie_albedo.png-202ba158bcb2b57ad76b73383692b256.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Props/Swiss_normal.png"
-dest_files=[ "res://.import/Swiss_normal.png-7eb9351259e905fe7ceaa59e698ad337.s3tc.stex", "res://.import/Swiss_normal.png-7eb9351259e905fe7ceaa59e698ad337.etc2.stex" ]
+source_file="res://Textures/Pickups/Brie_albedo.png"
+dest_files=[ "res://.import/Brie_albedo.png-202ba158bcb2b57ad76b73383692b256.s3tc.stex", "res://.import/Brie_albedo.png-202ba158bcb2b57ad76b73383692b256.etc2.stex" ]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=1
+compress/normal_map=0
 flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

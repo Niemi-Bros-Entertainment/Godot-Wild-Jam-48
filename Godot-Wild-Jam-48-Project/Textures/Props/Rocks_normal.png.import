@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Provolone_albedo.png-d0be141acddcde260626ee214e9d548c.s3tc.stex"
-path.etc2="res://.import/Provolone_albedo.png-d0be141acddcde260626ee214e9d548c.etc2.stex"
+path.s3tc="res://.import/Rocks_normal.png-3ac28c4a236c18c4ea908cc2d3f03601.s3tc.stex"
+path.etc2="res://.import/Rocks_normal.png-3ac28c4a236c18c4ea908cc2d3f03601.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Props/Provolone_albedo.png"
-dest_files=[ "res://.import/Provolone_albedo.png-d0be141acddcde260626ee214e9d548c.s3tc.stex", "res://.import/Provolone_albedo.png-d0be141acddcde260626ee214e9d548c.etc2.stex" ]
+source_file="res://Textures/Props/Rocks_normal.png"
+dest_files=[ "res://.import/Rocks_normal.png-3ac28c4a236c18c4ea908cc2d3f03601.s3tc.stex", "res://.import/Rocks_normal.png-3ac28c4a236c18c4ea908cc2d3f03601.etc2.stex" ]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=1
 flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

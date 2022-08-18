@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Brie_albedo.png-f439e94d57e93e87b96f44bb315b047b.s3tc.stex"
-path.etc2="res://.import/Brie_albedo.png-f439e94d57e93e87b96f44bb315b047b.etc2.stex"
+path.s3tc="res://.import/Moon_normal.png-fcef64fd40f9e7616a10808399e02183.s3tc.stex"
+path.etc2="res://.import/Moon_normal.png-fcef64fd40f9e7616a10808399e02183.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Props/Brie_albedo.png"
-dest_files=[ "res://.import/Brie_albedo.png-f439e94d57e93e87b96f44bb315b047b.s3tc.stex", "res://.import/Brie_albedo.png-f439e94d57e93e87b96f44bb315b047b.etc2.stex" ]
+source_file="res://Textures/Environment/Moon_normal.png"
+dest_files=[ "res://.import/Moon_normal.png-fcef64fd40f9e7616a10808399e02183.s3tc.stex", "res://.import/Moon_normal.png-fcef64fd40f9e7616a10808399e02183.etc2.stex" ]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=1
 flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

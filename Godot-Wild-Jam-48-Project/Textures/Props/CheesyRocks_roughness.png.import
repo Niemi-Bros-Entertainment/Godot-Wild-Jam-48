@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Brie_roughness.png-ca335eca9f889f2044a395b706511654.s3tc.stex"
-path.etc2="res://.import/Brie_roughness.png-ca335eca9f889f2044a395b706511654.etc2.stex"
+path.s3tc="res://.import/CheesyRocks_roughness.png-cc49a51431fbcd6bc8857cf13b49c5ea.s3tc.stex"
+path.etc2="res://.import/CheesyRocks_roughness.png-cc49a51431fbcd6bc8857cf13b49c5ea.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Props/Brie_roughness.png"
-dest_files=[ "res://.import/Brie_roughness.png-ca335eca9f889f2044a395b706511654.s3tc.stex", "res://.import/Brie_roughness.png-ca335eca9f889f2044a395b706511654.etc2.stex" ]
+source_file="res://Textures/Props/CheesyRocks_roughness.png"
+dest_files=[ "res://.import/CheesyRocks_roughness.png-cc49a51431fbcd6bc8857cf13b49c5ea.s3tc.stex", "res://.import/CheesyRocks_roughness.png-cc49a51431fbcd6bc8857cf13b49c5ea.etc2.stex" ]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_resource type="SpatialMaterial" load_steps=4 format=2]
 
-[ext_resource path="res://Textures/Props/Provolone_roughness.png" type="Texture" id=1]
-[ext_resource path="res://Textures/Props/Provolone_normal.png" type="Texture" id=2]
-[ext_resource path="res://Textures/Props/Provolone_albedo.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Pickups/Provolone_roughness.png" type="Texture" id=1]
+[ext_resource path="res://Textures/Pickups/Provolone_normal.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Pickups/Provolone_albedo.png" type="Texture" id=3]
 
 [resource]
 albedo_texture = ExtResource( 3 )

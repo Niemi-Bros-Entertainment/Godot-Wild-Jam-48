@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Moon_roughness.png-ab19214b1bf9d2ad769b8432c2e3ab66.s3tc.stex"
-path.etc2="res://.import/Moon_roughness.png-ab19214b1bf9d2ad769b8432c2e3ab66.etc2.stex"
+path.s3tc="res://.import/Cheddar_roughness.png-f7cdd718aa0ae78ce2b3c6a7f1b9670b.s3tc.stex"
+path.etc2="res://.import/Cheddar_roughness.png-f7cdd718aa0ae78ce2b3c6a7f1b9670b.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Moon_roughness.png"
-dest_files=[ "res://.import/Moon_roughness.png-ab19214b1bf9d2ad769b8432c2e3ab66.s3tc.stex", "res://.import/Moon_roughness.png-ab19214b1bf9d2ad769b8432c2e3ab66.etc2.stex" ]
+source_file="res://Textures/Pickups/Cheddar_roughness.png"
+dest_files=[ "res://.import/Cheddar_roughness.png-f7cdd718aa0ae78ce2b3c6a7f1b9670b.s3tc.stex", "res://.import/Cheddar_roughness.png-f7cdd718aa0ae78ce2b3c6a7f1b9670b.etc2.stex" ]
 
 [params]
 

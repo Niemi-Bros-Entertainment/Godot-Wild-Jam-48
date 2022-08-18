@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/CheesyRocks_roughness.png-00733cbe8a603564e766c3d634f36d84.s3tc.stex"
-path.etc2="res://.import/CheesyRocks_roughness.png-00733cbe8a603564e766c3d634f36d84.etc2.stex"
+path.s3tc="res://.import/Provolone_albedo.png-b17b84a3064e1535d84d6e5ffe35c7a5.s3tc.stex"
+path.etc2="res://.import/Provolone_albedo.png-b17b84a3064e1535d84d6e5ffe35c7a5.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/CheesyRocks_roughness.png"
-dest_files=[ "res://.import/CheesyRocks_roughness.png-00733cbe8a603564e766c3d634f36d84.s3tc.stex", "res://.import/CheesyRocks_roughness.png-00733cbe8a603564e766c3d634f36d84.etc2.stex" ]
+source_file="res://Textures/Pickups/Provolone_albedo.png"
+dest_files=[ "res://.import/Provolone_albedo.png-b17b84a3064e1535d84d6e5ffe35c7a5.s3tc.stex", "res://.import/Provolone_albedo.png-b17b84a3064e1535d84d6e5ffe35c7a5.etc2.stex" ]
 
 [params]
 
@@ -25,7 +25,7 @@ flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

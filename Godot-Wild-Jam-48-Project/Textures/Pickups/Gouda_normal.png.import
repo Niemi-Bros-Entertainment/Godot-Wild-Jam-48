@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Moon_normal.png-c3f0ea46666426dc78aaa55f78399de3.s3tc.stex"
-path.etc2="res://.import/Moon_normal.png-c3f0ea46666426dc78aaa55f78399de3.etc2.stex"
+path.s3tc="res://.import/Gouda_normal.png-b4ff3e7cda3c3cfc53f7e9c225033c97.s3tc.stex"
+path.etc2="res://.import/Gouda_normal.png-b4ff3e7cda3c3cfc53f7e9c225033c97.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Moon_normal.png"
-dest_files=[ "res://.import/Moon_normal.png-c3f0ea46666426dc78aaa55f78399de3.s3tc.stex", "res://.import/Moon_normal.png-c3f0ea46666426dc78aaa55f78399de3.etc2.stex" ]
+source_file="res://Textures/Pickups/Gouda_normal.png"
+dest_files=[ "res://.import/Gouda_normal.png-b4ff3e7cda3c3cfc53f7e9c225033c97.s3tc.stex", "res://.import/Gouda_normal.png-b4ff3e7cda3c3cfc53f7e9c225033c97.etc2.stex" ]
 
 [params]
 

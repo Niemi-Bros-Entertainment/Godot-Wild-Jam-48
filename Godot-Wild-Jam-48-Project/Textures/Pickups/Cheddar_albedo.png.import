@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Swiss_roughness.png-5493f33fa81cfd86c9217f3c6f921b5e.s3tc.stex"
-path.etc2="res://.import/Swiss_roughness.png-5493f33fa81cfd86c9217f3c6f921b5e.etc2.stex"
+path.s3tc="res://.import/Cheddar_albedo.png-596d9bd8298d6443ecc09c139c505a86.s3tc.stex"
+path.etc2="res://.import/Cheddar_albedo.png-596d9bd8298d6443ecc09c139c505a86.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Props/Swiss_roughness.png"
-dest_files=[ "res://.import/Swiss_roughness.png-5493f33fa81cfd86c9217f3c6f921b5e.s3tc.stex", "res://.import/Swiss_roughness.png-5493f33fa81cfd86c9217f3c6f921b5e.etc2.stex" ]
+source_file="res://Textures/Pickups/Cheddar_albedo.png"
+dest_files=[ "res://.import/Cheddar_albedo.png-596d9bd8298d6443ecc09c139c505a86.s3tc.stex", "res://.import/Cheddar_albedo.png-596d9bd8298d6443ecc09c139c505a86.etc2.stex" ]
 
 [params]
 
@@ -25,7 +25,7 @@ flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
