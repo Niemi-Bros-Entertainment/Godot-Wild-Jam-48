@@ -1,7 +1,9 @@
 'Pickup'
 extends Area
 
-export(int) var cheeseValue :int = 1
+const CheeseType = Enums.CheeseType
+
+export(CheeseType) var cheeseType :int = CheeseType.Swiss
 export(Vector3) var rotateVector :Vector3 = Vector3(0.0, 1.0, 0.0)
 onready var tween :Tween = $Tween
 
@@ -34,14 +36,15 @@ func _ready():
 
 
 func _on_body_entered(_body):
-	collect(_body)
+	if _body.is_in_group("Player") and not _body.is_full():
+		collect(_body)
 
 
 func collect(body):
 	remove_from_group("Pickup")
 	hide()
 	queue_free()
-	body.add_cheese(cheeseValue)
+	body.add_cheese(cheeseType)
 	SfxManager.enqueue(Enums.SoundType.Pickup, global_transform.origin)
 
 

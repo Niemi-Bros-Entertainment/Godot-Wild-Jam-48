@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/UI/HUD.gd" type="Script" id=1]
-[ext_resource path="res://Textures/VFX/Radial.png" type="Texture" id=2]
+[ext_resource path="res://Textures/UI/RadialMeter.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Prefabs/UI/ElevationProgressBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Themes/SmallTheme.tres" type="Theme" id=4]
 
 [node name="HUD" type="CanvasLayer"]
 layer = 2
@@ -29,7 +30,8 @@ margin_right = 128.0
 margin_bottom = 128.0
 rect_pivot_offset = Vector2( 64, 64 )
 mouse_filter = 2
-value = 45.0
+max_value = 10.0
+value = 10.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 2 )
 fill_mode = 5
@@ -47,6 +49,17 @@ align = 1
 valign = 2
 uppercase = true
 
+[node name="Label-2" type="Label" parent="Margin/CheeseProgress"]
+anchor_left = 1.1
+anchor_right = 3.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+text = "x0"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="JetpackProgress" type="TextureProgress" parent="Margin"]
 anchor_left = 1.0
 anchor_right = 1.0
@@ -59,7 +72,7 @@ texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 2 )
 fill_mode = 5
 tint_under = Color( 0, 0, 0, 1 )
-tint_progress = Color( 0, 0.717647, 1, 1 )
+tint_progress = Color( 0, 0.788235, 1, 1 )
 nine_patch_stretch = true
 
 [node name="Label" type="Label" parent="Margin/JetpackProgress"]
@@ -72,11 +85,25 @@ align = 1
 valign = 2
 uppercase = true
 
+[node name="Label-2" type="Label" parent="Margin/JetpackProgress"]
+anchor_left = -2.0
+anchor_right = -0.1
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+text = "100%"
+align = 2
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="TimeLabel" type="Label" parent="Margin"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = "10:00"
 align = 1
+valign = 2
 
 [node name="CheeseLabel" type="Label" parent="Margin"]
 anchor_right = 1.0
@@ -86,6 +113,30 @@ custom_colors/font_outline_modulate = Color( 1, 0.984314, 0, 1 )
 text = "
 0"
 align = 1
+
+[node name="ScoreLabel" type="Label" parent="Margin"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "0"
+align = 1
+
+[node name="OxygenBar" type="ProgressBar" parent="Margin"]
+anchor_left = 0.2
+anchor_top = 1.0
+anchor_right = 0.8
+anchor_bottom = 1.0
+margin_top = -24.0
+rect_min_size = Vector2( 0, 24 )
+value = 100.0
+percent_visible = false
+
+[node name="Label" type="Label" parent="Margin/OxygenBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+text = "O2"
+align = 1
+valign = 1
 
 [node name="Tween" type="Tween" parent="."]
 playback_process_mode = 0

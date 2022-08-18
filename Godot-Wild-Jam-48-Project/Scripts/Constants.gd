@@ -7,5 +7,6 @@ const QUIT_SCENE_PATH :String = "res://Scenes/Quit.tscn"
 
 const ORIGIN :Vector3 = Vector3.ZERO
 const MOON_RADIUS :float = 50.0
+const CHEESE_CARRY_CAPACITY :float = 10.0
 
 const SUCCESS_BONUS_POINTS :int = 1000

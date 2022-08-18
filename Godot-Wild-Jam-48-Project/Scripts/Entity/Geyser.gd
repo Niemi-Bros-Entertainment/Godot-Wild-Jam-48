@@ -26,4 +26,4 @@ func _on_body_exited(body):
 func _physics_process(delta):
 	for b in _bodies:
 		if b.is_in_group("Player"):
-			b.force(Vector3.UP * force * delta)
+			b.apply_force(Vector3.UP * force * delta)

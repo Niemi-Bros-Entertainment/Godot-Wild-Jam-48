@@ -1,17 +1,9 @@
 'CheesePlacer'
 extends Control
 
-signal instance_cheese
+signal instance_cheese	
 	
-enum CheeseType {
-	Swiss = 0,
-	Cheddar,
-	Provolone,
-	Brie,
-	Gouda
-}
-	
-	
+const CheeseType = Enums.CheeseType
 const SWISS_PICKUP = preload("res://Scenes/Prefabs/Pickups/Swiss.tscn")
 const CHEDDAR_PICKUP = preload("res://Scenes/Prefabs/Pickups/Cheddar.tscn")
 const BRIE_PICKUP = preload("res://Scenes/Prefabs/Pickups/Brie.tscn")

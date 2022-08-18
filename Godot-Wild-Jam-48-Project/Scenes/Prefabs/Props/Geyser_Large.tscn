@@ -3,7 +3,7 @@
 [ext_resource path="res://Materials/Moon/Moon_Procedural.tres" type="Material" id=1]
 [ext_resource path="res://Meshes/Geyser/Geyser_Geyser.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://Scenes/Prefabs/VFX/Smoke_Large.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/Geyser.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Entity/Geyser.gd" type="Script" id=4]
 [ext_resource path="res://Audio/SFX/ShipLoop.wav" type="AudioStream" id=5]
 
 [sub_resource type="ConvexPolygonShape" id=3]

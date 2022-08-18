@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Audio/AudioClipSet.gd" type="Script" id=1]
+[ext_resource path="res://Audio/SFX/Ship1.wav" type="AudioStream" id=2]
+
+[resource]
+script = ExtResource( 1 )
+clips = [ ExtResource( 2 ) ]
+volumeMultiplier = 1.0
+pitchMultiplier = 4.0
+pitchRandomness = 0.1

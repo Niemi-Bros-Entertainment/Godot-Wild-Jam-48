@@ -1,4 +1,4 @@
-'Player'
+'PlayerWalker'
 extends KinematicBody
 
 onready var pivot :Spatial = $Pivot
@@ -26,12 +26,14 @@ var direction :Vector3 = Vector3.ZERO
 var verticalVelocity :float = 0.0
 var velocity :Vector3 = Vector3.ZERO
 var jetpack :float = JETPACK_CAPACITY
-var cheese :float = 0.0
 
 onready var up :Vector3 = global_transform.basis.y
 
 
 func _ready():
+	assert(has_node("Inventory"))
+	# warning-ignore:return_value_discarded
+	$Inventory.connect("inventory_changed", self, "_on_inventory_changed")
 	SfxManager.enqueue2d(Enums.SoundType.Ship1)
 	
 	raycast.cast_to = raycast.to_local(ORIGIN - raycast.global_transform.origin)
@@ -130,12 +132,27 @@ func get_input() -> Vector3:
 	return inputDir
 
 
-func add_cheese(value :int):
-	cheese += value
-	$HUD.update_cheese_01(cheese / 100.0)
+func add_cheese(type :int):
+	$Inventory.add_cheese(type)
 
 
-func force(dir :Vector3):
+func dump_cheese() -> bool:
+	return $Inventory.dump_cheese()
+
+
+func _on_inventory_changed():
+	$HUD.update_cheese($Inventory.get_carried_cheese_count())
+
+
+func is_full() -> bool:
+	return $Inventory.is_full()
+
+
+func get_vertical_speed() -> float:
+	return verticalVelocity
+
+
+func apply_force(dir :Vector3):
 	verticalVelocity += dir.y
 
 

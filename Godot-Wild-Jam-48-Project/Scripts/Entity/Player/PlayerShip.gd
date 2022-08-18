@@ -1,4 +1,4 @@
-'Ship'
+'PlayerShip'
 extends Spatial
 
 export(float) var speed :float = 10.0
