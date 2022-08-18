@@ -6,7 +6,7 @@ onready var tween :Tween = $Tween
 onready var timeLabel :Label = $Margin/TimeLabel
 onready var cheeseProgress :TextureProgress = $Margin/CheeseProgress
 onready var cheeseLabel :Label = $Margin/CheeseLabel
-onready var scoreLabel :Label = $Margin/ScoreLabel
+#onready var scoreLabel :Label = $Margin/ScoreLabel
 onready var jetpackProgress :TextureProgress = $Margin/JetpackProgress
 onready var oxygenProgress :ProgressBar = $Margin/OxygenBar
 
@@ -22,7 +22,9 @@ func _ready():
 	# warning-ignore:return_value_discarded
 	GameManager.connect("game_over", self, "_on_game_over")
 	# warning-ignore:return_value_discarded
-	get_tree().current_scene.find_node("CheesePlacer").connect("instance_cheese", self, "_update_cheese_label")
+	var placer = get_tree().current_scene.get_node_or_null("CheesePlacer")
+	if placer:
+		placer.connect("instance_cheese", self, "_update_cheese_label")
 	
 	cheeseProgress.max_value = Constants.CHEESE_CARRY_CAPACITY
 	update_cheese(0)
@@ -42,7 +44,7 @@ func _physics_process(_delta):
 			orbitTimer -= _delta
 			if orbitTimer <= 0:
 				$OrbitLabel.hide()
-				GameManager.mission_fail()
+				GameManager.mission_fail(Enums.AftermathType.LeftOrbit)
 				set_physics_process(false)
 				return
 		else:
@@ -80,7 +82,7 @@ func update_cheese(amount :float):
 	
 func _update_cheese_label():
 # warning-ignore:return_value_discarded
-	tween.interpolate_property(scoreLabel, "self_modulate", Color(2,2,2), Color.white, 1.0)
+#	tween.interpolate_property(scoreLabel, "self_modulate", Color(2,2,2), Color.white, 1.0)
 # warning-ignore:return_value_discarded
 	tween.interpolate_property(cheeseLabel, "self_modulate", Color(2,2,2), Color.white, 1.0)
 # warning-ignore:return_value_discarded
@@ -91,6 +93,8 @@ func _update_cheese_label():
 	
 	
 func update_jetpack_01(amount01 :float):
+	if not get_parent().is_in_group("Player"):
+		return
 #	if jetpackProgress.value > jetpackProgress.max_value * amount01:
 #		# warning-ignore:return_value_discarded
 #		tween.interpolate_property(jetpackProgress, "modulate", Color.dimgray, Color.white, 0.5)

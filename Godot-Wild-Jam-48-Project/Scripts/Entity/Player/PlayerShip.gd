@@ -4,6 +4,7 @@ extends Spatial
 export(float) var speed :float = 10.0
 var speedMultiplier :float = 1.0
 var alarmTimer :float = 0.0
+var travelBonus :float = 0.0
 
 onready var camera :Camera = $Camera
 onready var defaultFov :float = camera.fov
@@ -15,6 +16,7 @@ onready var tween :Tween = $Tween
 const ALARM_DURATION = 1.5
 const BOOST_SPEED_MULTIPLIER :float = 3.0
 const BOOST_FOV :float = 60.0
+const TRAVEL_POINT_MULTIPLIER :int = 10
 
 
 func _ready():	
@@ -42,6 +44,14 @@ func _physics_process(delta):
 	camera.fov = lerp(defaultFov, BOOST_FOV, speedMultiplier-1)
 	audio.pitch_scale = lerp(audio.pitch_scale, speedMultiplier + input.length(), delta)
 	
+	travelBonus += delta * (speedMultiplier * 2.0)
+	while travelBonus > 5.0:
+		travelBonus -= 5
+		GameManager.add_points(5 * TRAVEL_POINT_MULTIPLIER)
+	while travelBonus > 1.0:
+		travelBonus -= 1
+		GameManager.add_points(1 * TRAVEL_POINT_MULTIPLIER)
+
 	if (Constants.ORIGIN - global_transform.origin).length() < Constants.MOON_RADIUS:
 		_touchdown()
 		
@@ -55,7 +65,7 @@ func _physics_process(delta):
 func _touchdown():
 	if speedMultiplier > 1.5:
 		SfxManager.enqueue2d(Enums.SoundType.Crash)
-		GameManager.mission_fail()
+		GameManager.mission_fail(Enums.AftermathType.Crashed)
 	else:
 		SfxManager.enqueue2d(Enums.SoundType.Ship2)
 		GameManager.touchdown()

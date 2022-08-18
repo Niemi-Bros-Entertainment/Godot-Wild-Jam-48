@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/UI/HUDScore.gd" type="Script" id=1]
+[ext_resource path="res://Themes/SmallTheme.tres" type="Theme" id=2]
+
+[node name="ScoreLabel" type="Label"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+text = "0"
+align = 1
+uppercase = true
+script = ExtResource( 1 )

@@ -2,6 +2,7 @@
 extends Node
 
 signal game_over
+signal score_changed
 
 const POST_PROCESS_PREFAB = preload("res://Scenes/Prefabs/UI/PostProcess.tscn")
 const AMBIANCE_AUDIO_PREFAB = preload("res://Scenes/Prefabs/Audio/Ambiance.tscn")
@@ -11,6 +12,7 @@ const ORIGIN :Vector3 = Constants.ORIGIN
 
 var _ambiance :AudioStreamPlayer
 var _postProcess :Control
+var _score :int = 0
 
 
 func _init():
@@ -42,21 +44,23 @@ func abort():
 	_postProcess.material.set_shader_param("vignette_intensity", 0.4)
 	_postProcess.material.set_shader_param("vignette_rgb", Color.black)
 	call_deferred("_swap_scene", Constants.TITLE_SCENE_PATH)
+	clear_score()
 
 
-func mission_fail():
+func mission_fail(type :int = Enums.AftermathType.InsufficientCheese):
 	emit_signal("game_over")
 	SfxManager.enqueue2d(Enums.SoundType.MissionFail)
 	var aftermath = AFTERMATH_HUD_PREFAB.instance()
-	aftermath.update_display(0, false)
+	aftermath.update_display(type)
 	get_tree().current_scene.add_child(aftermath)
 
 
 func mission_success():
 	emit_signal("game_over")
+	add_points(Constants.SUCCESS_BONUS_POINTS)
 	SfxManager.enqueue2d(Enums.SoundType.MissionSuccess)
 	var aftermath = AFTERMATH_HUD_PREFAB.instance()
-	aftermath.update_display(Constants.SUCCESS_BONUS_POINTS, true)
+	aftermath.update_display(Enums.AftermathType.Success)
 	get_tree().current_scene.add_child(aftermath)
 
 
@@ -84,3 +88,20 @@ func align_with_y(xform :Transform, new_y :Vector3) -> Transform:
 	xform.basis.x = -xform.basis.z.cross(new_y)
 	xform.basis = xform.basis.orthonormalized()
 	return xform
+
+
+# --- SCORE ---
+
+func add_points(p :int):
+	_score += p
+	emit_signal("score_changed")
+
+
+func clear_score():
+	_score = 0
+	emit_signal("score_changed")
+
+
+func get_score() -> int:
+	return _score
+	

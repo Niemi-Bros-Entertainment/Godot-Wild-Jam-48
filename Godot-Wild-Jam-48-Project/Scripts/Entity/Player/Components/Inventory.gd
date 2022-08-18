@@ -25,6 +25,7 @@ func remove_cheese(type :int):
 func dump_cheese() -> bool:
 	for key in items:
 		if items[key] > 0:
+			GameManager.add_points(Constants.CHEESE_POINT_LOOKUP.get(key, 1))
 			remove_cheese(key)
 			return true
 	return false

@@ -1,18 +1,23 @@
 class_name HUDAftermath extends Control
 
-var _delay :int = 30 # HACK: delay to prevent an immediate click of thedone button
-var _score :int = 0
-var _success :bool = false
+const AftermathType = Enums.AftermathType
 
-const SCORE_FORMAT = "Score: %s"
+var _delay :int = 30 # HACK: delay to prevent an immediate click of the 'done' button
+
+const DISPLAY_LOOKUP :Dictionary = {
+	AftermathType.Crashed: "You crashed the ship!",
+	AftermathType.InsufficientCheese: "Failed to gather enough cheese.",
+	AftermathType.LeftOrbit: "You are lost in space...",
+	AftermathType.NoOxygen: "You ran out of oxygen...",
+	AftermathType.Success: "Well done!"
+}
 
 
-func update_display(score :int, success :bool):
-	_success = success
-	_score = score
+func update_display(type :int):
+	var _success :bool = type == AftermathType.Success
 	$Margin/Fail.visible = not _success
 	$Margin/Success.visible = _success
-	$Margin/Info.text = SCORE_FORMAT % _score
+	$Margin/Info.text = DISPLAY_LOOKUP.get(type, "")
 
 
 func _ready():

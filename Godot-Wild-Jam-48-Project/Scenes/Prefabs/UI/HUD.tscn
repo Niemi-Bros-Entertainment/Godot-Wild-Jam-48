@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/UI/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Textures/UI/RadialMeter.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Prefabs/UI/ElevationProgressBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Themes/SmallTheme.tres" type="Theme" id=4]
+[ext_resource path="res://Scenes/Prefabs/UI/HUDScoreLabel.tscn" type="PackedScene" id=5]
 
 [node name="HUD" type="CanvasLayer"]
 layer = 2
@@ -122,11 +123,7 @@ text = "
 0"
 align = 1
 
-[node name="ScoreLabel" type="Label" parent="Margin"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "0"
-align = 1
+[node name="ScoreLabel" parent="Margin" instance=ExtResource( 5 )]
 
 [node name="OxygenBar" type="ProgressBar" parent="Margin"]
 anchor_left = 0.2

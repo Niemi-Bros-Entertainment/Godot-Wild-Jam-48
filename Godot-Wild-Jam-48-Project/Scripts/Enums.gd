@@ -6,7 +6,17 @@ enum CheeseType {
 	Cheddar,
 	Provolone,
 	Brie,
-	Gouda
+	Gouda,
+	Gorgonzola
+}
+
+
+enum AftermathType {
+	Success,
+	LeftOrbit,
+	Crashed,
+	NoOxygen,
+	InsufficientCheese
 }
 
 

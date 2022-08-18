@@ -33,7 +33,7 @@ func _done():
 	set_physics_process(false)
 	var gouda1 = get_tree().get_nodes_in_group("Gouda-1")[0]
 	if (gouda1.global_transform.origin - get_parent().global_transform.origin).length() > Constants.SHIP_RADIUS:
-		GameManager.mission_fail()
+		GameManager.mission_fail(Enums.AftermathType.NoOxygen)
 	else:
 		GameManager.mission_success()
 
