@@ -16,7 +16,7 @@ noise = SubResource( 5 )
 
 [resource]
 flags_transparent = true
-albedo_color = Color( 1, 1, 1, 0.490196 )
+albedo_color = Color( 1, 1, 1, 0.392157 )
 albedo_texture = ExtResource( 1 )
 roughness_texture = ExtResource( 2 )
 normal_enabled = true

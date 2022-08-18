@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Materials/Moon/Moon_Procedural.tres" type="Material" id=1]
+[ext_resource path="res://Materials/Props/Gouda-1.tres" type="Material" id=1]
 [ext_resource path="res://Meshes/Geyser/Geyser_Geyser.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://Textures/UI/DumpIcon.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Entity/CheeseDump.gd" type="Script" id=4]
