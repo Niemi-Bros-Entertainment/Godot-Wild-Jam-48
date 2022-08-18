@@ -42,12 +42,12 @@ func _on_body_entered(_body):
 
 func collect(body):
 	remove_from_group("Pickup")
-	hide()
+	hide() # triggers victory check
 	queue_free()
 	body.add_cheese(cheeseType)
 	SfxManager.enqueue(Enums.SoundType.Pickup, global_transform.origin)
 
 
 func _check_victory():
-	if get_tree().get_nodes_in_group("Pickup").size() <= 1:
+	if get_tree().get_nodes_in_group("Pickup").size() <= 0:
 		GameManager.mission_success()
