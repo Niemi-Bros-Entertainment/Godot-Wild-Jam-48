@@ -24,6 +24,12 @@ func _ready():
 	tween.interpolate_property(light, "light_color", Color.red, Color.black, 0.5)
 	# warning-ignore:return_value_discarded
 	tween.start()
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _exit_tree():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func _physics_process(delta):

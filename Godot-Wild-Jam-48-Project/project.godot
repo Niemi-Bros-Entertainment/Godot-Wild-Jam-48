@@ -74,7 +74,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Godot-Wild-Jam-48-Project"
+config/name="Cheese-E Expedition"
 config/description="Godot Wild Jam #48 Submission"
 run/main_scene="res://Scenes/Title.tscn"
 config/icon="res://icon.png"
@@ -97,6 +97,7 @@ window/size/width=1920
 window/size/height=1080
 window/size/test_width=1280
 window/size/test_height=720
+mouse_cursor/custom_image="res://Textures/UI/Cursor.png"
 
 [gui]
 

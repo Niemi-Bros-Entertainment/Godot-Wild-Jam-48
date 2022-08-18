@@ -38,6 +38,7 @@ func _ready():
 	raycast.force_raycast_update()
 	if raycast.is_colliding(): 
 		global_transform.origin = raycast.get_collision_point()
+		
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
