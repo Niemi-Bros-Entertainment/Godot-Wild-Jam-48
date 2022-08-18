@@ -5,6 +5,7 @@
 [ext_resource path="res://Materials/Props/Gorgonzola.tres" type="Material" id=3]
 
 [node name="Pickup_Goronzola" instance=ExtResource( 1 )]
+cheeseType = 5
 
 [node name="MeshInstance" parent="." index="1"]
 mesh = ExtResource( 2 )

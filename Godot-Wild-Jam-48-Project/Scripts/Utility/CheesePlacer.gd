@@ -9,7 +9,7 @@ const CHEDDAR_PICKUP = preload("res://Scenes/Prefabs/Pickups/Cheddar.tscn")
 const BRIE_PICKUP = preload("res://Scenes/Prefabs/Pickups/Brie.tscn")
 const PROVOLONE_PICKUP = preload("res://Scenes/Prefabs/Pickups/Provolone.tscn")
 const GOUDA_PICKUP = preload("res://Scenes/Prefabs/Pickups/Gouda.tscn")
-const GORGONZOLA_PICKUP = preload("res://Scenes/Prefabs/Pickups/Gouda.tscn")
+const GORGONZOLA_PICKUP = preload("res://Scenes/Prefabs/Pickups/Gorgonzola.tscn")
 
 const CHEESE_COUNT :Dictionary = {
 	CheeseType.Swiss: 25,
@@ -17,7 +17,7 @@ const CHEESE_COUNT :Dictionary = {
 	CheeseType.Provolone: 5,
 	CheeseType.Brie: 5,
 	CheeseType.Gouda: 5,
-	CheeseType.Gorgonzola: 0
+	CheeseType.Gorgonzola: 1
 }
 const MOON_RADIUS :float = Constants.MOON_RADIUS
 const MESSAGE :String = "Locating Cheese..."
@@ -30,7 +30,8 @@ var cheeseChoices :Array = [
 	CHEDDAR_PICKUP,
 	PROVOLONE_PICKUP,
 	BRIE_PICKUP,
-	GOUDA_PICKUP
+	GOUDA_PICKUP,
+	GORGONZOLA_PICKUP
 ]
 
 onready var label :Label = $Label
