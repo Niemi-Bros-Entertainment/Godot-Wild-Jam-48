@@ -1,8 +1,8 @@
 [gd_resource type="SpatialMaterial" load_steps=4 format=2]
 
-[ext_resource path="res://Textures/CheesyRocks_normal.png" type="Texture" id=1]
-[ext_resource path="res://Textures/CheesyRocks_roughness.png" type="Texture" id=2]
-[ext_resource path="res://Textures/CheesyRocks_albedo.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Props/CheesyRocks_normal.png" type="Texture" id=1]
+[ext_resource path="res://Textures/Props/CheesyRocks_roughness.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Props/CheesyRocks_albedo.png" type="Texture" id=3]
 
 [resource]
 albedo_texture = ExtResource( 3 )
