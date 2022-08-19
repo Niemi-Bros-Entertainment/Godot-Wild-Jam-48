@@ -74,11 +74,13 @@ func _physics_process(delta :float):
 			verticalVelocity = max(-MAX_VERTICAL_VELOCITY, verticalVelocity)
 		else:
 			if verticalVelocity < 0:
-				if verticalVelocity < -0.5:
-					SfxManager.enqueue(Enums.SoundType.Thud, global_transform.origin)
-				if verticalVelocity <= -3.0:
+				if verticalVelocity <= -2.0:
+					SfxManager.enqueue(Enums.SoundType.Thud_Big, global_transform.origin)
 					$Speed.set_speed_multiplier(0.1)
-				print(verticalVelocity)
+				elif verticalVelocity < -0.5:
+					SfxManager.enqueue(Enums.SoundType.Thud, global_transform.origin)
+				
+				#print(verticalVelocity)
 				verticalVelocity = 0.0
 	direction += up * verticalVelocity
 

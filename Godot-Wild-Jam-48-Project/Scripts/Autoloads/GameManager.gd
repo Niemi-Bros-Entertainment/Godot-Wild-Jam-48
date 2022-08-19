@@ -70,6 +70,7 @@ func quit_game():
 
 func _input(event):
 	if event.is_action_pressed("vision"):
+		SfxManager.enqueue2d(Enums.SoundType.VisionToggle)
 		get_viewport().debug_draw = Viewport.DEBUG_DRAW_OVERDRAW if get_viewport().debug_draw != Viewport.DEBUG_DRAW_OVERDRAW else Viewport.DEBUG_DRAW_DISABLED
 
 

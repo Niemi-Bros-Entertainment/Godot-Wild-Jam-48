@@ -25,4 +25,5 @@ func _on_body_exited(body):
 
 func _boost(body):
 	body.boost(SPEED_MULTIPLIER)
-	SfxManager.enqueue(Enums.SoundType.Boost, global_transform.origin)
+	SfxManager.enqueue2d(Enums.SoundType.Boost)
+	#SfxManager.enqueue(Enums.SoundType.Boost, global_transform.origin)

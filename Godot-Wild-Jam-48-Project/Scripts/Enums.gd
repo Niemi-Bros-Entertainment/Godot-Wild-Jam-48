@@ -42,6 +42,8 @@ enum SoundType {
 	Beep,
 	Crash,
 	Thud,
+	Thud_Big,
+	VisionToggle,
 	
 	Pickup,
 	Boost,
