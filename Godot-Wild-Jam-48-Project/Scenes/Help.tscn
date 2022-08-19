@@ -83,7 +83,8 @@ text = "PLANETSIDE Controls:
 ~
 
 - Gather cheese and bring it back to your ship.
-- Operate the control panel when you are ready to leave."
+- Operate the control panel when you are ready to leave.
+- Cheeses at higher elevations are worth more points."
 align = 2
 autowrap = true
 __meta__ = {

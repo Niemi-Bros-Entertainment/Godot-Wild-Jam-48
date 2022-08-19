@@ -13,7 +13,8 @@ const MOON_RADIUS :float = 50.0
 const SHIP_RADIUS :float = 10.0
 const CHEESE_CARRY_CAPACITY :float = 10.0
 
-const SUCCESS_BONUS_POINTS :int = 1000
+const SUCCESS_BONUS_POINTS :int = 10000
+const CHEESE_GOAL :int = 5000
 
 const PICKUP_PARTICLE_PREFAB = preload("res://Scenes/Prefabs/VFX/CheesePickupParticle.tscn")
 
