@@ -34,6 +34,26 @@ func _exit_tree():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
+func _unhandled_input(event :InputEvent):
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		if event.is_action_pressed("quit"):
+			SfxManager.enqueue2d(Enums.SoundType.MenuCancel)
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		if event.is_action_pressed("quit"):
+			SfxManager.enqueue2d(Enums.SoundType.MenuCancel)
+			_exit_game()
+		elif event.is_action_pressed("l-click"):
+			if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+				SfxManager.enqueue2d(Enums.SoundType.MenuConfirm)
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+#	if event is InputEventMouseMotion:
+#		match Input.get_mouse_mode():
+#			Input.MOUSE_MODE_CAPTURED:
+#				_adjust_look(event.relative * MOUSE_SENSITIVITY)
+
+
 func _physics_process(delta):
 	var input = get_input()
 	speedMultiplier = move_toward(speedMultiplier, BOOST_SPEED_MULTIPLIER if Input.is_action_pressed("jetpack") else 1.0, delta)
@@ -65,7 +85,7 @@ func _physics_process(delta):
 func _touchdown():
 	if speedMultiplier > 1.5:
 		SfxManager.enqueue2d(Enums.SoundType.Crash)
-		GameManager.mission_fail(Enums.AftermathType.Crashed)
+		GameManager.mission_over(Enums.AftermathType.Crashed)
 	else:
 		SfxManager.enqueue2d(Enums.SoundType.Ship2)
 		GameManager.touchdown()
@@ -90,3 +110,8 @@ func get_input() -> Vector3:
 		inputDir += global_transform.basis.x
 	inputDir = inputDir.normalized()
 	return inputDir
+
+
+func _exit_game():
+	set_physics_process(false)
+	GameManager.abort()

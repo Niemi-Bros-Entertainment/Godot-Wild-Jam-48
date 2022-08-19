@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Materials/Props/Gouda-1.tres" type="Material" id=1]
 [ext_resource path="res://Meshes/Geyser/Geyser_Geyser.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://Textures/UI/DumpIcon.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Entity/CheeseDump.gd" type="Script" id=4]
+[ext_resource path="res://Materials/VFX/Bubble_Speed.tres" type="Material" id=5]
 
 [sub_resource type="SphereShape" id=1]
 radius = 2.0
@@ -12,6 +13,7 @@ radius = 2.0
 script = ExtResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+material_overlay = ExtResource( 5 )
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 1 )
 

@@ -44,7 +44,7 @@ func _physics_process(_delta):
 			orbitTimer -= _delta
 			if orbitTimer <= 0:
 				$OrbitLabel.hide()
-				GameManager.mission_fail(Enums.AftermathType.LeftOrbit)
+				GameManager.mission_over(Enums.AftermathType.LeftOrbit)
 				set_physics_process(false)
 				return
 		else:

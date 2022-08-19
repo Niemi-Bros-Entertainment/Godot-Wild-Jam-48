@@ -147,10 +147,19 @@ valign = 1
 playback_process_mode = 0
 
 [node name="OrbitLabel" type="Label" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0.341176, 0, 0, 1 )
 text = "DANGER:
 Leaving Orbit"
+align = 1
+valign = 1
+
+[node name="ExitLabel" type="Label" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "EXIT?"
 align = 1
 valign = 1

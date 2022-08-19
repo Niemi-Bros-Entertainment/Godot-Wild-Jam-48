@@ -8,6 +8,7 @@ uniform sampler2D tex : hint_albedo;
 uniform vec4 fresnel_color :hint_color = vec4(0.0, 0.7, 0.9, 1.0);
 uniform float exponent = 4.0;
 uniform float intensity = 2.0;
+uniform float scale = 0.1;
 
 // https://godotshaders.com/snippet/fresnel/
 vec3 fresnel_glow(float e, float i, vec3 color, vec3 normal, vec3 view)
@@ -17,7 +18,7 @@ vec3 fresnel_glow(float e, float i, vec3 color, vec3 normal, vec3 view)
 
 void vertex()
 {
-	VERTEX += sin(1.0 * TIME) * NORMAL * 0.1;
+	VERTEX += sin(1.0 * TIME) * NORMAL * scale;
 	UV.x += (TIME * 0.02);
 }
 

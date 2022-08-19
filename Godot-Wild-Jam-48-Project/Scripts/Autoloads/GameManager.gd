@@ -31,7 +31,8 @@ func _ready():
 func engage():
 	_postProcess.material.set_shader_param("vignette_intensity", 1.0)
 	_postProcess.material.set_shader_param("vignette_rgb", Color(0.05, 0, 0))
-	call_deferred("_swap_scene", Constants.TOUCHDOWN_SCENE_PATH)
+	call_deferred("_swap_scene", Constants.BRIEFING_SCENE_PATH)
+#	call_deferred("_swap_scene", Constants.TOUCHDOWN_SCENE_PATH)
 
 
 func touchdown():
@@ -47,20 +48,17 @@ func abort():
 	clear_score()
 
 
-func mission_fail(type :int = Enums.AftermathType.InsufficientCheese):
+func mission_over(type :int = Enums.AftermathType.InsufficientCheese):
 	emit_signal("game_over")
-	SfxManager.enqueue2d(Enums.SoundType.MissionFail)
+	match type:
+		Enums.AftermathType.Success:
+			add_points(Constants.SUCCESS_BONUS_POINTS)
+			SfxManager.enqueue2d(Enums.SoundType.MissionSuccess)
+		_:
+			SfxManager.enqueue2d(Enums.SoundType.MissionFail)
+			
 	var aftermath = AFTERMATH_HUD_PREFAB.instance()
 	aftermath.update_display(type)
-	get_tree().current_scene.add_child(aftermath)
-
-
-func mission_success():
-	emit_signal("game_over")
-	add_points(Constants.SUCCESS_BONUS_POINTS)
-	SfxManager.enqueue2d(Enums.SoundType.MissionSuccess)
-	var aftermath = AFTERMATH_HUD_PREFAB.instance()
-	aftermath.update_display(Enums.AftermathType.Success)
 	get_tree().current_scene.add_child(aftermath)
 
 

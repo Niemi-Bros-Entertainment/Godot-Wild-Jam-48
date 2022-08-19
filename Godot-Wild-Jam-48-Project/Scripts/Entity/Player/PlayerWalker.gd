@@ -4,6 +4,7 @@ extends KinematicBody
 onready var pivot :Spatial = $Pivot
 onready var raycast :RayCast = $RayCast
 onready var camera :Camera = $Pivot/Camera
+onready var operateRaycast :RayCast = camera.get_node("RayCast")
 
 onready var jetpackAudio :AudioStreamPlayer3D = $JetpackAudio
 onready var ambianceAudio :AudioStreamPlayer3D = $AmbianceAudio
@@ -50,6 +51,8 @@ func _exit_tree():
 
 
 func _physics_process(delta :float):
+	$HUD/ExitLabel.visible = operateRaycast.is_colliding() and operateRaycast.get_collider().is_in_group("Exit")
+	
 	direction = get_move_input()
 	direction *= get_move_speed_multipier()
 	up = -PhysicsUtility.get_gravity_dir(global_transform)
@@ -102,6 +105,11 @@ func _physics_process(delta :float):
 
 
 func _unhandled_input(event :InputEvent):
+	if event.is_action_pressed("operate"):
+		if operateRaycast.is_colliding():
+			if operateRaycast.get_collider().has_method("operate"):
+				operateRaycast.get_collider().operate()
+	
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event.is_action_pressed("quit"):
 			SfxManager.enqueue2d(Enums.SoundType.MenuCancel)

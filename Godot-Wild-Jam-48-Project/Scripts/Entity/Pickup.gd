@@ -55,4 +55,4 @@ func collect(body):
 
 #func _check_victory():
 #	if get_tree().get_nodes_in_group("Pickup").size() <= 0:
-#		GameManager.mission_success()
+#		GameManager.mission_over(Enums.AftermathType.Success)
