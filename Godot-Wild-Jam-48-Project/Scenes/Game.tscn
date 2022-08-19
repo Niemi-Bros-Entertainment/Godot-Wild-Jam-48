@@ -33,7 +33,7 @@ glow_enabled = true
 script = ExtResource( 2 )
 
 [node name="Gouda-1" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 51.9241, 0 )
+transform = Transform( 0.957193, -0.28945, 0, 0.28945, 0.957193, 0, 0, 0, 1, -15.138, 50.0604, 0 )
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 5 )]
 environment = SubResource( 2 )
