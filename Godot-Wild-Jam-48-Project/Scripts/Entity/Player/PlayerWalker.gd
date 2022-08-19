@@ -8,7 +8,8 @@ onready var camera :Camera = $Pivot/Camera
 onready var jetpackAudio :AudioStreamPlayer3D = $JetpackAudio
 onready var ambianceAudio :AudioStreamPlayer3D = $AmbianceAudio
 
-var mouseSensitivity :float= 0.002 # radians/pixel
+const MOUSE_SENSITIVITY :float = 0.002 # radians/pixel
+const CONTROLLER_LOOK_SENSITIVITY :float= 0.05
 
 const ORIGIN :Vector3 = Constants.ORIGIN
 const MOON_RADIUS :float = Constants.MOON_RADIUS
@@ -49,7 +50,7 @@ func _exit_tree():
 
 
 func _physics_process(delta :float):
-	direction = get_input()
+	direction = get_move_input()
 	up = -PhysicsUtility.get_gravity_dir(global_transform)
 		
 	raycast.cast_to = raycast.to_local(ORIGIN - raycast.global_transform.origin)
@@ -87,6 +88,8 @@ func _physics_process(delta :float):
 	jetpack = clamp(jetpack, -1.0, JETPACK_CAPACITY)
 	$HUD.update_jetpack_01(jetpack / JETPACK_CAPACITY)
 	
+	_adjust_look( get_look_input() )
+	
 	# if we somehow get too close to the origin, game over
 	if raycast.cast_to.length_squared() < 1:
 		_exit_game()
@@ -94,11 +97,11 @@ func _physics_process(delta :float):
 
 func _unhandled_input(event :InputEvent):
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		if event.is_action_pressed("ui_cancel"):
+		if event.is_action_pressed("quit"):
 			SfxManager.enqueue2d(Enums.SoundType.MenuCancel)
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
-		if event.is_action_pressed("ui_cancel"):
+		if event.is_action_pressed("quit"):
 			SfxManager.enqueue2d(Enums.SoundType.MenuCancel)
 			_exit_game()
 		elif event.is_action_pressed("l-click"):
@@ -109,23 +112,32 @@ func _unhandled_input(event :InputEvent):
 	if event is InputEventMouseMotion:
 		match Input.get_mouse_mode():
 			Input.MOUSE_MODE_CAPTURED:
-				rotate(up, -event.relative.x * mouseSensitivity)
-				pivot.rotate_x(-event.relative.y * mouseSensitivity)
-				pivot.rotation.x = clamp(pivot.rotation.x, -LOOK_PITCH_LIMIT, LOOK_PITCH_LIMIT)
+				_adjust_look(event.relative * MOUSE_SENSITIVITY)
 
 
-func get_input() -> Vector3:
+func _adjust_look(v2 :Vector2):
+	rotate(up, -v2.x)
+	pivot.rotate_x(-v2.y)
+	pivot.rotation.x = clamp(pivot.rotation.x, -LOOK_PITCH_LIMIT, LOOK_PITCH_LIMIT)
+
+
+func get_move_input() -> Vector3:
 	var inputDir :Vector3 = Vector3.ZERO
-	if Input.is_action_pressed("move_forward"):
-		inputDir += -global_transform.basis.z
-	if Input.is_action_pressed("move_backward"):
-		inputDir += global_transform.basis.z
-	if Input.is_action_pressed("move_left"):
-		inputDir += -global_transform.basis.x
-	if Input.is_action_pressed("move_right"):
-		inputDir += global_transform.basis.x
-	inputDir = inputDir.normalized()
+	inputDir += -global_transform.basis.z * Input.get_action_strength("move_forward")
+	inputDir += global_transform.basis.z * Input.get_action_strength("move_backward")
+	inputDir += -global_transform.basis.x * Input.get_action_strength("move_left")
+	inputDir += global_transform.basis.x * Input.get_action_strength("move_right")
+	inputDir = inputDir.limit_length()
 	return inputDir
+
+
+# used for controllers
+func get_look_input() -> Vector2:
+	var inputDir :Vector2 = Vector2.ZERO
+	inputDir.y = Input.get_action_strength("look_down") - Input.get_action_strength("look_up")
+	inputDir.x = Input.get_action_strength("look_right") - Input.get_action_strength("look_left")
+	inputDir = inputDir.limit_length()
+	return inputDir * CONTROLLER_LOOK_SENSITIVITY
 
 
 func add_oxygen_depletion_multiplier(source, multiplier :float):
