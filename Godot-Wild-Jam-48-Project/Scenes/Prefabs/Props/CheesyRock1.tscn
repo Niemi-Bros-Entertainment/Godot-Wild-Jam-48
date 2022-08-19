@@ -1,10 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Materials/Props/CheesyRocks.tres" type="Material" id=1]
 [ext_resource path="res://Meshes/CheesyRock1/CheesyRock1_CheesyRock1.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://Scripts/Utility/Rotater.gd" type="Script" id=3]
 
-[node name="CheesyRock1" type="Spatial"]
+[sub_resource type="SphereShape" id=1]
+
+[node name="CheesyRock1" type="StaticBody"]
+constant_angular_velocity = Vector3( 1, 0, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="MeshInstance"]
+playback_process_mode = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )

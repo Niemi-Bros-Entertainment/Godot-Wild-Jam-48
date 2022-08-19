@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Procedural/PlanetData.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Procedural/Planet.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Procedural/PlanetNoise.gd" type="Script" id=3]
 [ext_resource path="res://Materials/Moon/Moon_Procedural.tres" type="Material" id=4]
+[ext_resource path="res://Scenes/Prefabs/Props/CheesyRock1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Prefabs/Props/CheesyRock2.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.0990099, 0.376238, 0.816832 )
@@ -36,3 +38,18 @@ planetNoise = [ SubResource( 3 ) ]
 [node name="Moon" type="StaticBody" groups=["Moon"]]
 script = ExtResource( 2 )
 planetData = SubResource( 1 )
+
+[node name="CheesyRock1" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 75, 0 )
+
+[node name="CheesyRock1-2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.9201, -58.8683, 0 )
+
+[node name="CheesyRock2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -60, 0 )
+
+[node name="CheesyRock2-2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 32.516, 0 )
+
+[node name="CheesyRock2-3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.0569, 53.038, 0 )
