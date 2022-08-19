@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "StaticBody",
 "class": "Moon",
 "language": "GDScript",
-"path": "res://Scripts/Moon.gd"
+"path": "res://Scripts/Procedural/Moon.gd"
 }, {
 "base": "Node",
 "class": "Oxygen",
@@ -73,6 +73,11 @@ _global_script_classes=[ {
 "class": "PlaySound",
 "language": "GDScript",
 "path": "res://Scripts/Audio/PlaySound.gd"
+}, {
+"base": "Node",
+"class": "Speed",
+"language": "GDScript",
+"path": "res://Scripts/Entity/Player/Components/Speed.gd"
 } ]
 _global_script_class_icons={
 "AudioClipSet": "",
@@ -87,7 +92,8 @@ _global_script_class_icons={
 "PlanetFace": "",
 "PlanetNoise": "",
 "PlayMusic": "",
-"PlaySound": ""
+"PlaySound": "",
+"Speed": ""
 }
 
 [application]
@@ -113,9 +119,14 @@ TimeManager="*res://Scripts/Autoloads/TimeManager.gd"
 
 window/size/width=1920
 window/size/height=1080
+window/size/fullscreen=true
 window/size/test_width=1280
 window/size/test_height=720
 mouse_cursor/custom_image="res://Textures/UI/Cursor.png"
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+window/stretch/shrink=1.5
+window/size/fullscreen.editor=false
 
 [editor_plugins]
 

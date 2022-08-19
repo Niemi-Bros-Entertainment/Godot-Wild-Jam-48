@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Prefabs/Moon/Moon_Procedural.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Prefabs/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Prefabs/Props/Geyser.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Prefabs/Props/Geyser_Large.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Prefabs/Props/SpeedBubble.tscn" type="PackedScene" id=5]
 
 [node name="PlanetTest" type="Spatial"]
 
@@ -37,3 +38,6 @@ transform = Transform( 0.753778, 0.579169, 0.310455, 0.653566, -0.611613, -0.445
 
 [node name="Geyser_Large-3" parent="Props" instance=ExtResource( 4 )]
 transform = Transform( 0.882938, -0.0754963, 0.463381, -0.159509, -0.976514, 0.144834, 0.441563, -0.201793, -0.874244, -4.91204, -48.946, -9.04147 )
+
+[node name="SpeedBubble" parent="Props" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, 0, 0, -0.989186, 0.146664, 0, 0.146664, 0.989186, 0, -50, 7.41335 )

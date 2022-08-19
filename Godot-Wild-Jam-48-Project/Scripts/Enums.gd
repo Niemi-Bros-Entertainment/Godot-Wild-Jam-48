@@ -44,6 +44,7 @@ enum SoundType {
 	Thud,
 	
 	Pickup,
+	Boost,
 	CheeseDump,
 	
 	Ship1,

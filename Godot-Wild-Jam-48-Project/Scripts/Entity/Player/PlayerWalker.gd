@@ -51,6 +51,7 @@ func _exit_tree():
 
 func _physics_process(delta :float):
 	direction = get_move_input()
+	direction *= get_move_speed_multipier()
 	up = -PhysicsUtility.get_gravity_dir(global_transform)
 		
 	raycast.cast_to = raycast.to_local(ORIGIN - raycast.global_transform.origin)
@@ -75,10 +76,13 @@ func _physics_process(delta :float):
 			if verticalVelocity < 0:
 				if verticalVelocity < -0.5:
 					SfxManager.enqueue(Enums.SoundType.Thud, global_transform.origin)
-				verticalVelocity = 0
+				if verticalVelocity <= -3.0:
+					$Speed.set_speed_multiplier(0.1)
+				print(verticalVelocity)
+				verticalVelocity = 0.0
 	direction += up * verticalVelocity
 
-	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
+	velocity = velocity.linear_interpolate(direction * speed, acceleration * get_move_speed_multipier() * delta)
 	#velocity = move_and_slide_with_snap(velocity, -up * GRAVITY_STRENGTH, up, true)
 	velocity = move_and_slide(velocity, up, true)
 	
@@ -164,8 +168,20 @@ func is_full() -> bool:
 	return $Inventory.is_full()
 
 
+func get_move_speed_multipier() -> float:
+	var _s = get_node_or_null("Speed")
+	if _s:
+		return _s.get_speed_multiplier()
+	else:
+		return 1.0
+
+
 func get_vertical_speed() -> float:
-	return verticalVelocity
+	return velocity.dot(-PhysicsUtility.get_gravity_dir(global_transform))
+
+
+func boost(s :float):
+	$Speed.set_speed_multiplier(s)
 
 
 func apply_force(dir :Vector3):

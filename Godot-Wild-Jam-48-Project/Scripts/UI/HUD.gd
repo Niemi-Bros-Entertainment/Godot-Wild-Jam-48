@@ -101,7 +101,7 @@ func update_jetpack_01(amount01 :float):
 #		# warning-ignore:return_value_discarded
 #		tween.start()
 	jetpackProgress.value = jetpackProgress.max_value * amount01
-	jetpackProgress.get_node("Label-2").text = str(int(jetpackProgress.value)) + "% \n" + str(stepify(body.get_vertical_speed(), 0.01)) + "m/s"
+	jetpackProgress.get_node("Label-2").text = str(int(jetpackProgress.value)) + "% \n" + str(stepify(body.get_vertical_speed(), 0.1)) + "m/s"
 
 
 func _on_game_over():

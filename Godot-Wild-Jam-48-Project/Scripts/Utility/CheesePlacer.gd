@@ -17,7 +17,7 @@ const CHEESE_COUNT :Dictionary = {
 	CheeseType.Provolone: 5,
 	CheeseType.Brie: 5,
 	CheeseType.Gouda: 5,
-	CheeseType.Gorgonzola: 1
+	CheeseType.Gorgonzola: 2
 }
 const MOON_RADIUS :float = Constants.MOON_RADIUS
 const MESSAGE :String = "Locating Cheese..."
