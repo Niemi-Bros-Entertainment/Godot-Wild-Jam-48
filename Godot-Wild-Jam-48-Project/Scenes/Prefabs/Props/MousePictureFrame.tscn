@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Meshes/MousePicture/MousePicture_PictureFrame.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://Materials/Props/MousePortrait.tres" type="Material" id=2]
+
+[node name="MousePictureFrame" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
