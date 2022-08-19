@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/UI/Buttons/PlayButton.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/UI/Buttons/QuitButton.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/Prefabs/Pickups/Pickup.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/Utility/Rotater.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Prefabs/VFX/CheesePickupParticle.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/UI/Buttons/HelpButton.gd" type="Script" id=12]
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
@@ -106,16 +107,23 @@ grow_vertical = 2
 alignment = 1
 
 [node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer"]
-margin_top = 490.0
+margin_top = 464.0
 margin_right = 107.0
-margin_bottom = 538.0
+margin_bottom = 512.0
 text = "Engage"
 script = ExtResource( 1 )
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer"]
-margin_top = 542.0
+[node name="HelpButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+margin_top = 516.0
 margin_right = 107.0
-margin_bottom = 590.0
+margin_bottom = 564.0
+text = "Help"
+script = ExtResource( 12 )
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+margin_top = 568.0
+margin_right = 107.0
+margin_bottom = 616.0
 text = "Abort"
 script = ExtResource( 2 )
 
