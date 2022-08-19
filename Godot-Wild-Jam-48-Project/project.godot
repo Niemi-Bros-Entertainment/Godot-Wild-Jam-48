@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Entity/Player/Components/Oxygen.gd"
 }, {
+"base": "Reference",
+"class": "PhysicsUtility",
+"language": "GDScript",
+"path": "res://Scripts/Utility/PhysicsUtility.gd"
+}, {
 "base": "Resource",
 "class": "PlanetData",
 "language": "GDScript",
@@ -77,6 +82,7 @@ _global_script_class_icons={
 "Inventory": "",
 "Moon": "",
 "Oxygen": "",
+"PhysicsUtility": "",
 "PlanetData": "",
 "PlanetFace": "",
 "PlanetNoise": "",
@@ -110,6 +116,10 @@ window/size/height=1080
 window/size/test_width=1280
 window/size/test_height=720
 mouse_cursor/custom_image="res://Textures/UI/Cursor.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/HelperTools/plugin.cfg" )
 
 [gui]
 

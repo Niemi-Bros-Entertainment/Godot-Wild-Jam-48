@@ -92,5 +92,5 @@ func _instance_cheese(type :int):
 	pickups[type].append(pickup)
 	
 	# shift pickup away from gravity to avoid ground clipping
-	pickup.global_transform.origin -= GameManager.get_gravity_dir(pickup.global_transform) * (CHEESE_VERTICAL_OFFSET + (CHEESE_VERTICAL_OFFSET_PER_TYPE * type))
+	pickup.global_transform.origin -= PhysicsUtility.get_gravity_dir(pickup.global_transform) * (CHEESE_VERTICAL_OFFSET + (CHEESE_VERTICAL_OFFSET_PER_TYPE * type))
 	emit_signal("instance_cheese")

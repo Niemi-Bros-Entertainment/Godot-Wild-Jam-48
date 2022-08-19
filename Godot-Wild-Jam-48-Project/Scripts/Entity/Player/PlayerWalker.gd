@@ -50,7 +50,7 @@ func _exit_tree():
 
 func _physics_process(delta :float):
 	direction = get_input()
-	up = -GameManager.get_gravity_dir(global_transform)
+	up = -PhysicsUtility.get_gravity_dir(global_transform)
 		
 	raycast.cast_to = raycast.to_local(ORIGIN - raycast.global_transform.origin)
 	#if raycast.is_colliding(): 
@@ -81,7 +81,7 @@ func _physics_process(delta :float):
 	#velocity = move_and_slide_with_snap(velocity, -up * GRAVITY_STRENGTH, up, true)
 	velocity = move_and_slide(velocity, up, true)
 	
-	var xform :Transform = align_with_y(global_transform, up)
+	var xform :Transform = PhysicsUtility.align_with_y(global_transform, up)
 	global_transform = global_transform.interpolate_with(xform, TRANSFORM_INTERPOLATE)
 	
 	jetpack = clamp(jetpack, -1.0, JETPACK_CAPACITY)
@@ -90,10 +90,6 @@ func _physics_process(delta :float):
 	# if we somehow get too close to the origin, game over
 	if raycast.cast_to.length_squared() < 1:
 		_exit_game()
-
-
-func align_with_y(xform :Transform, new_y :Vector3) -> Transform:
-	return GameManager.align_with_y(xform, new_y)
 
 
 func _unhandled_input(event :InputEvent):

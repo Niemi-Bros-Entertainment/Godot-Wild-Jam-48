@@ -23,7 +23,7 @@ func _ready():
 	connect("body_entered", self, "_on_body_entered")
 	
 	# align pickup to surface
-	var xform :Transform = GameManager.align_with_y(global_transform, -GameManager.get_gravity_dir(global_transform))
+	var xform :Transform = PhysicsUtility.align_with_y(global_transform, -PhysicsUtility.get_gravity_dir(global_transform))
 	global_transform = xform
 	
 	# start the perpetual pickup spin

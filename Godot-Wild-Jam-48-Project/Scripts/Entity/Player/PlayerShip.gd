@@ -37,7 +37,7 @@ func _exit_tree():
 func _physics_process(delta):
 	var input = get_input()
 	speedMultiplier = move_toward(speedMultiplier, BOOST_SPEED_MULTIPLIER if Input.is_action_pressed("jetpack") else 1.0, delta)
-	global_translate(speed * GameManager.get_gravity_dir(global_transform) * delta)
+	global_translate(speed * PhysicsUtility.get_gravity_dir(global_transform) * delta)
 	rotate_x(-input.y * delta)
 	rotate_y(-input.x * delta)
 	
