@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Materials/VFX/TwinklingStar.tres" type="Material" id=1]
+
+[sub_resource type="QuadMesh" id=1]
+
+[node name="TwinklingStar" type="Spatial"]
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+material_override = ExtResource( 1 )
+cast_shadow = 0
+amount = 1
+draw_order = 2
+mesh = SubResource( 1 )
+gravity = Vector3( 0, 0, 0 )
+anim_speed = 3.0
+anim_offset = 1.0
+anim_offset_random = 1.0

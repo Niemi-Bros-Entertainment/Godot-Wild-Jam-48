@@ -1,0 +1,14 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Textures/VFX/TwinklingStar.png" type="Texture" id=1]
+
+[resource]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = true
+albedo_color = Color( 0.701961, 0.701961, 0.701961, 0.588235 )
+albedo_texture = ExtResource( 1 )
