@@ -32,7 +32,7 @@ func _physics_process(delta):
 
 func _done():
 	set_physics_process(false)
-	var gouda1 = get_tree().get_nodes_in_group("Gouda-1")[0]
+	#var gouda1 = get_tree().get_nodes_in_group("Gouda-1")[0]
 	GameManager.mission_over(Enums.AftermathType.NoOxygen)
 
 
