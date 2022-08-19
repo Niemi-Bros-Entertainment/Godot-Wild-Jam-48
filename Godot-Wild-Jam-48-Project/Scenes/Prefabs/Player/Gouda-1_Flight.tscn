@@ -24,3 +24,6 @@ bus = "SFX"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.14436, 5.1889 )
 light_color = Color( 1, 0, 0, 1 )
 omni_range = 25.0
+
+[node name="OxygenBubble" parent="." index="17"]
+visible = false

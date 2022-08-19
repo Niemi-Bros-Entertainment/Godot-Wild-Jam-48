@@ -1,0 +1,32 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_add, unshaded, shadows_disabled, cull_disabled;
+
+uniform sampler2D tex : hint_albedo;
+uniform vec4 fresnel_color :hint_color = vec4(0.0, 0.7, 0.9, 1.0);
+uniform float exponent = 4.0;
+uniform float intensity = 2.0;
+
+// https://godotshaders.com/snippet/fresnel/
+vec3 fresnel_glow(float e, float i, vec3 color, vec3 normal, vec3 view)
+{
+	return pow((1.0 - dot(normalize(normal), normalize(view))), e) * color * i;
+}
+
+void vertex()
+{
+	VERTEX += sin(1.0 * TIME) * NORMAL * 0.1;
+	UV.x += (TIME * 0.02);
+}
+
+void fragment()
+{
+	vec2 uv = UV * 0.5;
+	uv += -TIME * 0.01;
+	vec3 base_color = texture(tex, UV).rgb;
+	vec3 base_color2 = texture(tex, uv).rgb;
+	vec3 fresnel = fresnel_glow(exponent *  (1.0+abs(sin(TIME))), intensity, fresnel_color.rgb, NORMAL, VIEW);
+	ALBEDO = pow((base_color + base_color2) * 0.5, vec3(6.0)) + fresnel;
+}"

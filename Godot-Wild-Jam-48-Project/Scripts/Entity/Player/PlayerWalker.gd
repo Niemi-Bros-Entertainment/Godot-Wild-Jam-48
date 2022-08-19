@@ -128,6 +128,14 @@ func get_input() -> Vector3:
 	return inputDir
 
 
+func add_oxygen_depletion_multiplier(source, multiplier :float):
+	$Oxygen.add_depletion_multiplier(source, multiplier)
+
+
+func remove_oxygen_depletion_multiplier(source):
+	$Oxygen.remove_depletion_multiplier(source)
+
+
 func add_cheese(type :int):
 	$Inventory.add_cheese(type)
 
