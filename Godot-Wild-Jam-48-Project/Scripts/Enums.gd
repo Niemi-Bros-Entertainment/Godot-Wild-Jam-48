@@ -36,6 +36,7 @@ enum SoundType {
 	
 	MissionFail,
 	MissionSuccess,
+	CheeseGoal,
 	
 	ShipAlarm,
 	Alarm,

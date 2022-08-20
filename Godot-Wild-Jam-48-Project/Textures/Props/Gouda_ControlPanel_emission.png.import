@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Gouda_ControlPanel_emissive.png-0bb19f4127e8f3542615c56d696c0288.s3tc.stex"
-path.etc2="res://.import/Gouda_ControlPanel_emissive.png-0bb19f4127e8f3542615c56d696c0288.etc2.stex"
+path.s3tc="res://.import/Gouda_ControlPanel_emission.png-64e8bade32d2919295b31c0e9c93332d.s3tc.stex"
+path.etc2="res://.import/Gouda_ControlPanel_emission.png-64e8bade32d2919295b31c0e9c93332d.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Props/Gouda_ControlPanel_emissive.png"
-dest_files=[ "res://.import/Gouda_ControlPanel_emissive.png-0bb19f4127e8f3542615c56d696c0288.s3tc.stex", "res://.import/Gouda_ControlPanel_emissive.png-0bb19f4127e8f3542615c56d696c0288.etc2.stex" ]
+source_file="res://Textures/Props/Gouda_ControlPanel_emission.png"
+dest_files=[ "res://.import/Gouda_ControlPanel_emission.png-64e8bade32d2919295b31c0e9c93332d.s3tc.stex", "res://.import/Gouda_ControlPanel_emission.png-64e8bade32d2919295b31c0e9c93332d.etc2.stex" ]
 
 [params]
 

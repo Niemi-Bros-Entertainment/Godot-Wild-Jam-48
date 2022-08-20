@@ -2,6 +2,7 @@
 extends Node
 
 signal game_over
+signal cheese_goal_reached
 signal score_changed
 
 const POST_PROCESS_PREFAB = preload("res://Scenes/Prefabs/UI/PostProcess.tscn")
@@ -13,6 +14,7 @@ const ORIGIN :Vector3 = Constants.ORIGIN
 var _ambiance :AudioStreamPlayer
 var _postProcess :Control
 var _score :int = 0
+var _cheesiness :int = 0
 
 
 func _init():
@@ -80,16 +82,25 @@ func _swap_scene(targetScenePath :String):
 
 # --- SCORE ---
 
-func add_points(p :int):
+func add_points(p :int, isCheese :bool = false):
+	if isCheese:
+		var hasReachedGoal :bool = _cheesiness >= Constants.CHEESE_GOAL
+		_cheesiness += p
+		if not hasReachedGoal and _cheesiness >= Constants.CHEESE_GOAL:
+			emit_signal("cheese_goal_reached")
 	_score += p
 	emit_signal("score_changed")
 
 
 func clear_score():
 	_score = 0
+	_cheesiness = 0
 	emit_signal("score_changed")
 
 
 func get_score() -> int:
 	return _score
 	
+
+func get_cheese_score() -> int:
+	return _cheesiness

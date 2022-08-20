@@ -49,7 +49,7 @@ func collect(body):
 	hide() # triggers victory check
 	queue_free()
 	body.add_cheese(cheeseType)
-	GameManager.add_points(Constants.CHEESE_POINT_LOOKUP.get(cheeseType, 1))
+	GameManager.add_points(Constants.CHEESE_POINT_LOOKUP.get(cheeseType, 1), true)
 	SfxManager.enqueue(Enums.SoundType.Pickup, global_transform.origin)
 
 
