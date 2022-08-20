@@ -3,7 +3,7 @@ class_name Speed extends Node
 var _speedMultiplier :float = DEFAULT_SPEED
 
 const DEFAULT_SPEED :float = 1.0
-const INTERPOLATE_SPEED :float = 1.0
+const INTERPOLATE_SPEED :float = 0.5
 
 
 func set_speed_multiplier(multiplier :float):
