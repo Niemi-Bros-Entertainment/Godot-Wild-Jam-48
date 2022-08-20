@@ -26,10 +26,10 @@ rotateVector = Vector3( 0, 1, 0 )
 duration = 8.0
 
 [node name="Pickup" parent="Moon/CheeseOrbiter" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.3573, -47.4059 )
 
 [node name="Pickup-4" parent="Moon/CheeseOrbiter" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71.4398, 43.5059 )
 
 [node name="Pickup-2" parent="Moon/CheeseOrbiter" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0 )
@@ -38,10 +38,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 0 )
 
 [node name="Pickup-3" parent="Moon/CheeseOrbiter" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.3057, -100 )
 
 [node name="Pickup-6" parent="Moon/CheeseOrbiter" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.6061, 100 )
 
 [node name="Tween" type="Tween" parent="Moon/CheeseOrbiter"]
 playback_process_mode = 0
