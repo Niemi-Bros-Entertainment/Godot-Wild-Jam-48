@@ -11,6 +11,7 @@ const AFTERMATH_HUD_PREFAB = preload("res://Scenes/Prefabs/UI/HUDAftermath.tscn"
 
 const ORIGIN :Vector3 = Constants.ORIGIN
 
+var defaultResolution = Vector2(1280, 720)
 var _ambiance :AudioStreamPlayer
 var _postProcess :Control
 var _startTicks :int = 0
@@ -28,7 +29,30 @@ func _ready():
 	_ambiance = AMBIANCE_AUDIO_PREFAB.instance()
 	add_child(_ambiance)
 	
+	# Wait for window resize event before changing resolution upon going full screen or
+	# resolution update won't work as expected with a single button press
+	# warning-ignore:return_value_discarded
+	get_viewport().connect("size_changed", self, "on_window_resize")
+	on_window_resize()
+	
 	Engine.target_fps = 60
+
+
+func on_window_resize():
+	if defaultResolution == Vector2.ZERO:
+		return
+		
+#	if not OS.window_fullscreen:
+	#OS.window_size = defaultResolution
+	get_viewport().set_size(defaultResolution)
+	center_window()
+
+
+func center_window():
+	# re-center window after resize
+	var screen_size :Vector2 = OS.get_screen_size()
+	var window_size :Vector2 = OS.get_window_size()
+	OS.set_window_position(screen_size*0.5 - window_size*0.5)
 
 
 func engage():

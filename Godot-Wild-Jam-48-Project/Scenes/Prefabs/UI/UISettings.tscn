@@ -1,0 +1,147 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/UI/InputDevicesLabel.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/UI/Toggles/ToggleMusic.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/UI/Toggles/ToggleSFX.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/UI/Toggles/ToggleFullscreen.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/UI/UISettings.gd" type="Script" id=5]
+[ext_resource path="res://Themes/DefaultTheme.tres" type="Theme" id=6]
+[ext_resource path="res://Scripts/UI/GodotVersionLabel.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/UI/Buttons/OptionButton_Resolution.gd" type="Script" id=8]
+[ext_resource path="res://Themes/SmallTheme.tres" type="Theme" id=9]
+
+[node name="UISettings" type="Control"]
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.99
+anchor_bottom = 0.99
+theme = ExtResource( 6 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="Panel" parent="."]
+light_mask = 0
+anchor_left = 0.69
+anchor_top = -0.857
+anchor_right = 0.96
+anchor_bottom = 2.143
+
+[node name="InputDevices" type="Label" parent="."]
+anchor_left = 0.015
+anchor_top = 0.05
+anchor_right = 0.375
+anchor_bottom = 0.95
+text = "Input Devices:"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.7
+anchor_top = 0.142668
+anchor_right = 0.95
+anchor_bottom = 0.856954
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 470.0
+margin_bottom = 48.0
+custom_colors/font_color = Color( 1, 0.937255, 0.784314, 1 )
+custom_colors/font_outline_modulate = Color( 0.690196, 0.321569, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "SETTINGS"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 52.0
+margin_right = 470.0
+margin_bottom = 56.0
+
+[node name="HSeparator2" type="Label" parent="VBoxContainer"]
+margin_top = 60.0
+margin_right = 470.0
+margin_bottom = 108.0
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.25
+
+[node name="Music" type="CheckButton" parent="VBoxContainer"]
+margin_top = 112.0
+margin_right = 470.0
+margin_bottom = 160.0
+text = "MUSIC"
+script = ExtResource( 2 )
+
+[node name="SFX" type="CheckButton" parent="VBoxContainer"]
+margin_top = 164.0
+margin_right = 470.0
+margin_bottom = 212.0
+text = "SFX"
+script = ExtResource( 3 )
+
+[node name="HSeparator3" type="Label" parent="VBoxContainer"]
+margin_top = 216.0
+margin_right = 470.0
+margin_bottom = 264.0
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.25
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
+margin_top = 268.0
+margin_right = 470.0
+margin_bottom = 358.0
+rect_min_size = Vector2( 0, 90 )
+text = "Resolution"
+script = ExtResource( 8 )
+
+[node name="Fullscreen" type="CheckButton" parent="VBoxContainer"]
+margin_top = 362.0
+margin_right = 470.0
+margin_bottom = 410.0
+text = "FULLSCREEN"
+script = ExtResource( 4 )
+
+[node name="HSeparator4" type="Label" parent="VBoxContainer"]
+margin_top = 414.0
+margin_right = 470.0
+margin_bottom = 462.0
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.25
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+margin_top = 466.0
+margin_right = 470.0
+margin_bottom = 530.0
+rect_min_size = Vector2( 0, 64 )
+text = "BACK"
+
+[node name="GodotVersion" type="Label" parent="VBoxContainer"]
+margin_top = 731.0
+margin_right = 470.0
+margin_bottom = 756.0
+size_flags_vertical = 10
+theme = ExtResource( 9 )
+text = "Godot Version"
+align = 1
+valign = 2
+script = ExtResource( 7 )
+
+[node name="Tween" type="Tween" parent="."]
+pause_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_Back_pressed"]

@@ -15,6 +15,7 @@ const CHEESE_CARRY_CAPACITY :float = 10.0
 
 const SUCCESS_BONUS_POINTS :int = 10000
 const CHEESE_GOAL :int = 5000
+const GAME_VERSION = "v1.0"
 
 const PICKUP_PARTICLE_PREFAB = preload("res://Scenes/Prefabs/VFX/CheesePickupParticle.tscn")
 
