@@ -11,6 +11,8 @@ const PICKUP_PARTICLE_PREFAB = Constants.PICKUP_PARTICLE_PREFAB
 
 func _ready():
 	# warning-ignore:return_value_discarded
+	GameManager.connect("cheese_goal_reached", self, "_on_cheese_goal_reached")
+	# warning-ignore:return_value_discarded
 	connect("body_entered", self, "_on_body_entered")
 	# warning-ignore:return_value_discarded
 	connect("body_exited", self, "_on_body_exited")
@@ -44,3 +46,8 @@ func _dump_cheese(b):
 		particle.transform.origin = transform.origin
 		get_parent().add_child(particle)
 		SfxManager.enqueue(Enums.SoundType.CheeseDump, global_transform.origin)
+
+
+func _on_cheese_goal_reached():
+	$Sprite3D.hide()
+	

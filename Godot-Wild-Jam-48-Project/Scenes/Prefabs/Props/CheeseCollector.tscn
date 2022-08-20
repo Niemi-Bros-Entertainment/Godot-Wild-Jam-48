@@ -6,7 +6,7 @@
 [ext_resource path="res://Materials/Props/Gouda_CheeseCollector.tres" type="Material" id=4]
 [ext_resource path="res://Materials/Props/Gouda-1.tres" type="Material" id=5]
 [ext_resource path="res://Materials/VFX/Bubble_Speed.tres" type="Material" id=6]
-[ext_resource path="res://Textures/UI/PointOfInterest.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Prefabs/VFX/Sprite3D_PointOfInterest.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/Entity/CheeseDump.gd" type="Script" id=8]
 
 [sub_resource type="ConvexPolygonShape" id=1]
@@ -35,11 +35,4 @@ mesh = ExtResource( 2 )
 skeleton = NodePath("../..")
 material/0 = ExtResource( 5 )
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0007, 0 )
-pixel_size = 0.001
-billboard = 1
-double_sided = false
-no_depth_test = true
-fixed_size = true
-texture = ExtResource( 7 )
+[node name="Sprite3D" parent="." instance=ExtResource( 7 )]
