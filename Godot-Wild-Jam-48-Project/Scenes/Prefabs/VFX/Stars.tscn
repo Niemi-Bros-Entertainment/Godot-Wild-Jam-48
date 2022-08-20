@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Materials/VFX/Star.tres" type="Material" id=1]
+
+[sub_resource type="QuadMesh" id=1]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.0614525, 0.905028, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0.92549, 0, 0, 0, 0 )
+
+[node name="Stars" type="Spatial"]
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+material_override = ExtResource( 1 )
+amount = 120
+lifetime = 60.0
+preprocess = 60.0
+mesh = SubResource( 1 )
+emission_shape = 1
+emission_sphere_radius = 130.0
+gravity = Vector3( 0, 0, 0 )
+scale_amount_random = 1.0
+color_ramp = SubResource( 2 )
