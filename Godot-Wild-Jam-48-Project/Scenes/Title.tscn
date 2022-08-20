@@ -10,8 +10,8 @@
 [ext_resource path="res://Scenes/Prefabs/UI/FadeIn.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Prefabs/Pickups/Pickup.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/Utility/Rotater.gd" type="Script" id=10]
-[ext_resource path="res://Scenes/Prefabs/VFX/CheesePickupParticle.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/UI/Buttons/HelpButton.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/Prefabs/VFX/Stars.tscn" type="PackedScene" id=13]
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
@@ -48,6 +48,7 @@ playback_process_mode = 0
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 40, 0, 100 )
+far = 200.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -135,4 +136,5 @@ type = 1
 
 [node name="FadeIn" parent="." instance=ExtResource( 8 )]
 
-[node name="CheesePickupParticle" parent="." instance=ExtResource( 11 )]
+[node name="Stars" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -41.9759 )
