@@ -2,7 +2,7 @@
 extends Label
 
 export(bool) var shouldUseFormat :bool = false
-const SCORE_FORMAT :String = "Score: %s"
+const SCORE_FORMAT :String = "Total Score:\n%s"
 
 func _ready():
 	# warning-ignore:return_value_discarded

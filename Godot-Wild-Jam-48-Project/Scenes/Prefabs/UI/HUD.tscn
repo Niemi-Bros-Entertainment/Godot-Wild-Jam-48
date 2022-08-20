@@ -117,6 +117,7 @@ valign = 2
 [node name="CheeseLabel" type="Label" parent="Margin"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 872.2, 72.8 )
 custom_colors/font_color = Color( 1, 0.654902, 0, 1 )
 custom_colors/font_outline_modulate = Color( 1, 0.984314, 0, 1 )
 text = "
