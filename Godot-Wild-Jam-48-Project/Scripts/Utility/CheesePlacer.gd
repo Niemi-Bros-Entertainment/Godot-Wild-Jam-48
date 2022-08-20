@@ -1,7 +1,8 @@
 'CheesePlacer'
 extends Control
 
-signal instance_cheese	
+signal instance_cheese
+signal instancing_complete
 	
 const CheeseType = Enums.CheeseType
 const SWISS_PICKUP = preload("res://Scenes/Prefabs/Pickups/Swiss.tscn")
@@ -72,6 +73,7 @@ func _process(_delta):
 			_instance_cheese(i)
 			
 	if isDone:
+		emit_signal("instancing_complete")
 		hide()
 
 

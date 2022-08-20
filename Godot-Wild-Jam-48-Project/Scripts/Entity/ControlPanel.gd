@@ -5,6 +5,8 @@ onready var meshInstance :MeshInstance = $ControlPanel
 onready var overlayMat :Material = meshInstance.material_overlay
 onready var sprite3d :Sprite3D = $Sprite3D
 
+var _hasMetCheeseGoal :bool = false
+
 
 func _ready():
 	sprite3d.hide()
@@ -14,6 +16,9 @@ func _ready():
 
 
 func operate():
+	if not _hasMetCheeseGoal:
+		SfxManager.enqueue2d(Enums.SoundType.MenuCancel)
+	
 	SfxManager.enqueue2d(Enums.SoundType.Ship2)
 	if GameManager.get_cheese_score() < Constants.CHEESE_GOAL:
 		GameManager.mission_over(Enums.AftermathType.InsufficientCheese)
@@ -22,6 +27,7 @@ func operate():
 
 
 func _on_cheese_goal():
+	_hasMetCheeseGoal = true
 	sprite3d.show()
 	SfxManager.enqueue2d(Enums.SoundType.CheeseGoal)
 	meshInstance.material_overlay = overlayMat

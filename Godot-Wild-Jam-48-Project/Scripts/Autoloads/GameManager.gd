@@ -13,6 +13,7 @@ const ORIGIN :Vector3 = Constants.ORIGIN
 
 var _ambiance :AudioStreamPlayer
 var _postProcess :Control
+var _startTicks :int = 0
 var _score :int = 0
 var _cheesiness :int = 0
 
@@ -31,6 +32,7 @@ func _ready():
 
 
 func engage():
+	_startTicks = OS.get_unix_time()
 	_postProcess.material.set_shader_param("vignette_intensity", 1.0)
 	_postProcess.material.set_shader_param("vignette_rgb", Color(0.05, 0, 0))
 #	call_deferred("_swap_scene", Constants.BRIEFING_SCENE_PATH)
@@ -96,6 +98,10 @@ func clear_score():
 	_score = 0
 	_cheesiness = 0
 	emit_signal("score_changed")
+
+
+func get_session_start_tick() -> int:
+	return _startTicks
 
 
 func get_score() -> int:

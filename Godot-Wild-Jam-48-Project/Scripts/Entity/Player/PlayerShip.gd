@@ -12,6 +12,7 @@ onready var defaultFov :float = camera.fov
 onready var audio :AudioStreamPlayer3D= $AudioStreamPlayer3D
 onready var light :OmniLight = $OmniLight
 onready var tween :Tween = $Tween
+onready var label :Label = $Label
 
 const ALARM_DURATION = 1.5
 const BOOST_SPEED_MULTIPLIER :float = 3.0
@@ -19,7 +20,12 @@ const BOOST_FOV :float = 60.0
 const TRAVEL_POINT_MULTIPLIER :int = 10
 
 
-func _ready():	
+func _ready():
+	# warning-ignore:return_value_discarded
+	GameManager.connect("game_over", self, "_on_game_over")
+	
+	label.percent_visible = 0.0
+	
 	# begin repeated flashing red light
 	tween.repeat = true
 	# warning-ignore:return_value_discarded
@@ -84,6 +90,10 @@ func _physics_process(delta):
 	else:
 		alarmTimer -= delta
 		
+	if label.percent_visible < 1.0:
+		label.percent_visible += delta
+		SfxManager.enqueue2d(Enums.SoundType.Beep)
+		
 		
 func _touchdown():
 	if speedMultiplier > 1.5:
@@ -95,7 +105,7 @@ func _touchdown():
 	set_physics_process(false)
 
 
-# skip		
+# skip
 func _input(event):
 	if event.is_action_pressed("debug"):
 		_touchdown()
@@ -113,6 +123,10 @@ func get_input() -> Vector3:
 		inputDir += global_transform.basis.x
 	inputDir = inputDir.normalized()
 	return inputDir
+
+
+func _on_game_over():
+	label.hide()
 
 
 func _exit_game():

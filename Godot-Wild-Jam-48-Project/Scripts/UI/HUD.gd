@@ -24,6 +24,7 @@ func _ready():
 	# warning-ignore:return_value_discarded
 	var placer = get_tree().current_scene.get_node_or_null("CheesePlacer")
 	if placer:
+		placer.connect("instancing_complete", self, "_on_cheese_location_complete")
 		placer.connect("instance_cheese", self, "_update_cheese_label")
 	
 	cheeseProgress.max_value = Constants.CHEESE_CARRY_CAPACITY
@@ -84,15 +85,21 @@ func update_cheese(amount :float):
 	
 	
 func _update_cheese_label():
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 #	tween.interpolate_property(scoreLabel, "self_modulate", Color(2,2,2), Color.white, 1.0)
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	tween.interpolate_property(cheeseLabel, "self_modulate", Color(2,2,2), Color.white, 1.0)
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	tween.interpolate_property(cheeseProgress, "self_modulate", Color(2,2,2), Color.white, 1.0)
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	tween.start()
 	cheeseLabel.text = CHEESE_STRING_FORMAT % [get_tree().get_nodes_in_group("Pickup").size()]
+	
+	
+func _on_cheese_location_complete():
+	# warning-ignore:return_value_discarded
+	#tween.interpolate_property(cheeseLabel, "rect_scale", Vector2.ONE * 1.5, Vector2.ONE, 1.0)
+	_update_cheese_label()
 	
 	
 func update_jetpack_01(amount01 :float):
