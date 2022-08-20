@@ -33,6 +33,10 @@ func _ready():
 
 
 func _physics_process(_delta):
+	_check_orbit(_delta)
+
+
+func _check_orbit(_delta):
 	var elevation :float = (Constants.ORIGIN - body.global_transform.origin).length()
 	$Margin/ElevationProgressBarL.value = elevation
 	$Margin/ElevationProgressBarR.value = elevation
@@ -127,4 +131,5 @@ func _on_Oxygen_depleted():
 	$Margin.modulate = Color.salmon
 	$Margin.modulate.a = a
 	#oxygenProgress.modulate = Color.salmon
-	oxygenProgress.find_node("Label").text = "Backup O2 - Return to ship!"
+	oxygenProgress.find_node("Label").text = "Backup O2"
+	SfxManager.enqueue2d(Enums.SoundType.ShipAlarm)
