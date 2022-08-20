@@ -76,13 +76,13 @@ func _physics_process(delta):
 	travelBonus += delta * (speedMultiplier * 2.0)
 	while travelBonus > 5.0:
 		travelBonus -= 5
-		GameManager.add_points(5 * TRAVEL_POINT_MULTIPLIER)
+		GameManager.add_points(100 * TRAVEL_POINT_MULTIPLIER)
 	while travelBonus > 1.0:
 		travelBonus -= 1
 		GameManager.add_points(1 * TRAVEL_POINT_MULTIPLIER)
 
-	if (Constants.ORIGIN - global_transform.origin).length() < Constants.MOON_RADIUS:
-		_touchdown()
+	
+	_touchdown()
 		
 	if alarmTimer <= 0:
 		alarmTimer = ALARM_DURATION
@@ -97,12 +97,15 @@ func _physics_process(delta):
 		
 func _touchdown():
 	if speedMultiplier > 1.5:
-		SfxManager.enqueue2d(Enums.SoundType.Crash)
-		GameManager.mission_over(Enums.AftermathType.Crashed)
+		if (Constants.ORIGIN - global_transform.origin).length() < Constants.MOON_RADIUS:
+			SfxManager.enqueue2d(Enums.SoundType.Crash)
+			GameManager.mission_over(Enums.AftermathType.Crashed)
+			set_physics_process(false)
 	else:
-		SfxManager.enqueue2d(Enums.SoundType.Ship2)
-		GameManager.touchdown()
-	set_physics_process(false)
+		if (Constants.ORIGIN - global_transform.origin).length() < Constants.MOON_RADIUS * 1.3:
+			SfxManager.enqueue2d(Enums.SoundType.Ship2)
+			GameManager.touchdown()
+			set_physics_process(false)
 
 
 # skip

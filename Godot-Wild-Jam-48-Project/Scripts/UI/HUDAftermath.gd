@@ -30,6 +30,7 @@ func update_display(type :int):
 
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	$Margin/DoneButton.disabled = true
 	TimeManager.add_tree_pause_source(self)
