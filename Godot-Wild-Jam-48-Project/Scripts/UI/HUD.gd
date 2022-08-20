@@ -36,14 +36,17 @@ func _physics_process(_delta):
 	$Margin/ElevationProgressBarL.value = elevation
 	$Margin/ElevationProgressBarR.value = elevation
 	
-	if elevation >= MOON_ORBIT * 0.8:	
+	if elevation >= MOON_ORBIT * 0.8:
 		var isInOrbit :bool = elevation < MOON_ORBIT
 		$OrbitLabel.visible = not isInOrbit
 		if not isInOrbit:
-			$OrbitLabel.visible_characters += 1
+			if $OrbitLabel.percent_visible < 1.0:
+				$OrbitLabel.percent_visible += 0.1
+				SfxManager.enqueue2d(Enums.SoundType.Beep)
 			orbitTimer -= _delta
 			if orbitTimer <= 0:
 				$OrbitLabel.hide()
+				$OrbitLabel.percent_visible = 0
 				GameManager.mission_over(Enums.AftermathType.LeftOrbit)
 				set_physics_process(false)
 				return
