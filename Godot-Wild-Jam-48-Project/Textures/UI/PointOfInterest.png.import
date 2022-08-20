@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/DumpIcon.png-b7801b44eeec46ba96b717894861f387.s3tc.stex"
-path.etc2="res://.import/DumpIcon.png-b7801b44eeec46ba96b717894861f387.etc2.stex"
+path.s3tc="res://.import/PointOfInterest.png-0fbdea9d353a143337d8eb031ca1690a.s3tc.stex"
+path.etc2="res://.import/PointOfInterest.png-0fbdea9d353a143337d8eb031ca1690a.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/UI/DumpIcon.png"
-dest_files=[ "res://.import/DumpIcon.png-b7801b44eeec46ba96b717894861f387.s3tc.stex", "res://.import/DumpIcon.png-b7801b44eeec46ba96b717894861f387.etc2.stex" ]
+source_file="res://Textures/UI/PointOfInterest.png"
+dest_files=[ "res://.import/PointOfInterest.png-0fbdea9d353a143337d8eb031ca1690a.s3tc.stex", "res://.import/PointOfInterest.png-0fbdea9d353a143337d8eb031ca1690a.etc2.stex" ]
 
 [params]
 
