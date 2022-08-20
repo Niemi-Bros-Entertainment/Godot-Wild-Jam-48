@@ -12,7 +12,7 @@ colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0.92549, 0, 0, 0, 0 )
 
 [node name="CPUParticles" type="CPUParticles" parent="."]
 material_override = ExtResource( 1 )
-amount = 120
+amount = 240
 lifetime = 60.0
 preprocess = 60.0
 mesh = SubResource( 1 )

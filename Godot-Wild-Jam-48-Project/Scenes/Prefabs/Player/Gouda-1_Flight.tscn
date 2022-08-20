@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Prefabs/Props/Gouda-1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Entity/Player/PlayerShip.gd" type="Script" id=2]
 [ext_resource path="res://Audio/SFX/ShipLoop.wav" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/Prefabs/VFX/Stars.tscn" type="PackedScene" id=4]
 
 [node name="Gouda-1" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1000, 0 )
@@ -27,3 +28,10 @@ omni_range = 25.0
 
 [node name="OxygenBubble" parent="." index="17"]
 visible = false
+
+[node name="Stars" parent="." index="24" instance=ExtResource( 4 )]
+
+[node name="RemoteTransform" type="RemoteTransform" parent="." index="25"]
+remote_path = NodePath("../Stars")
+update_rotation = false
+update_scale = false

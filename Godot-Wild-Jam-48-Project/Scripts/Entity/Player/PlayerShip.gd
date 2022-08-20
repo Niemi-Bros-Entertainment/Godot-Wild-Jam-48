@@ -27,6 +27,9 @@ func _ready():
 	# warning-ignore:return_value_discarded
 	tween.start()
 	
+	# Stars use RemoteTransform node to follow position, rotation is ignored
+	$Stars.set_as_toplevel(true)
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 

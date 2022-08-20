@@ -38,6 +38,9 @@ func _ready():
 	$Inventory.connect("inventory_changed", self, "_on_inventory_changed")
 	SfxManager.enqueue2d(Enums.SoundType.Ship1)
 	
+	# Stars use RemoteTransform node to follow position, rotation is ignored
+	$Stars.set_as_toplevel(true)
+	
 	raycast.cast_to = raycast.to_local(ORIGIN - raycast.global_transform.origin)
 	raycast.force_raycast_update()
 	if raycast.is_colliding(): 
