@@ -15,7 +15,7 @@ func _input(event):
 		return
 		
 	if event.is_action_pressed("ui_accept") or event.is_action_pressed("l-click"):
-		SceneManager.go_to(Constants.TOUCHDOWN_SCENE_PATH)
+		SceneManager.go_to(Constants.TITLE_SCENE_PATH)
 	
 
 func _process(delta):
