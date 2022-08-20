@@ -11,7 +11,7 @@ const AFTERMATH_HUD_PREFAB = preload("res://Scenes/Prefabs/UI/HUDAftermath.tscn"
 
 const ORIGIN :Vector3 = Constants.ORIGIN
 
-var defaultResolution = Vector2(1280, 720)
+onready var defaultResolution :Vector2 = OS.get_screen_size()
 var _ambiance :AudioStreamPlayer
 var _postProcess :Control
 var _startTicks :int = 0

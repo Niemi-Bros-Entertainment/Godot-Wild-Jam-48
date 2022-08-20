@@ -14,7 +14,7 @@ var alarmTimer :float = 1.0
 var orbitTimer :float = ORBIT_DANGER_TIME
 
 const ORBIT_DANGER_TIME :float = 6.0
-const CHEESE_STRING_FORMAT :String = "\n%s"
+const CHEESE_STRING_FORMAT :String = "\nCHEESE GOAL:\n%s / %s"
 const MOON_ORBIT :float = Constants.MOON_RADIUS * 2.0
 
 
@@ -97,7 +97,8 @@ func _update_cheese_label():
 	tween.interpolate_property(cheeseProgress, "self_modulate", Color(2,2,2), Color.white, 1.0)
 	# warning-ignore:return_value_discarded
 	tween.start()
-	cheeseLabel.text = CHEESE_STRING_FORMAT % [get_tree().get_nodes_in_group("Pickup").size()]
+	#cheeseLabel.text = CHEESE_STRING_FORMAT % [get_tree().get_nodes_in_group("Pickup").size()]
+	cheeseLabel.text = CHEESE_STRING_FORMAT % [GameManager.get_cheese_score(), Constants.CHEESE_GOAL]
 	
 	
 func _on_cheese_location_complete():
