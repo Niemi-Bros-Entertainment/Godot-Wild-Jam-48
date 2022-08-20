@@ -8,7 +8,7 @@
 [ext_resource path="res://Meshes/Gouda-1/Gouda-1_LandingGear.mesh" type="ArrayMesh" id=6]
 [ext_resource path="res://Meshes/Gouda-1/Gouda-1_LandingGear_Leg.mesh" type="ArrayMesh" id=7]
 [ext_resource path="res://Meshes/Gouda-1/Gouda-1_LandingGear_Leg_Ankle.mesh" type="ArrayMesh" id=8]
-[ext_resource path="res://Scenes/Prefabs/Props/CheeseDump.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Prefabs/Props/CheeseCollector.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Meshes/Gouda-1/Gouda-1_CockpitFloor.mesh" type="ArrayMesh" id=10]
 [ext_resource path="res://Meshes/Gouda-1/Gouda-1_Stairs.mesh" type="ArrayMesh" id=11]
 [ext_resource path="res://Materials/Props/Gouda-1_Interior.tres" type="Material" id=12]
@@ -419,7 +419,7 @@ shape = SubResource( 34 )
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="CheeseDump" parent="." instance=ExtResource( 9 )]
+[node name="CheeseCollector" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.075597, 5.47539 )
 
 [node name="CockpitFloor" type="MeshInstance" parent="."]
