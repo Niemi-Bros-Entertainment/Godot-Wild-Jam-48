@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Tests/ProceduralPlanetWalker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Audio/PlayMusic.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Prefabs/Props/Gouda-1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Prefabs/VFX/WorldEnvironment.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Prefabs/UI/FadeIn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Prefabs/Props/Rock1.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.0196078, 0.00392157, 0.0470588, 1 )
@@ -41,3 +42,21 @@ environment = SubResource( 2 )
 [node name="FadeIn" parent="." instance=ExtResource( 6 )]
 
 [node name="CheesePlacer" parent="." instance=ExtResource( 3 )]
+
+[node name="Rock1" parent="." instance=ExtResource( 7 )]
+transform = Transform( 4.91162, 0.935964, 7.54979e-07, 0.935964, -4.91162, 4.37114e-07, 8.23458e-07, -2.8806e-07, -5, -7.90292, 47.8853, -9.88572 )
+
+[node name="Rock1-2" parent="." instance=ExtResource( 7 )]
+transform = Transform( -1.07696, 0.935964, 4.79209, -0.205227, -4.91162, 0.913187, 4.87832, -2.79397e-07, 1.09634, -5.95294, 48.5299, -8.18165 )
+
+[node name="Rock1-3" parent="." instance=ExtResource( 7 )]
+transform = Transform( -1.07696, 2.25097, 4.33282, -0.205226, -4.45391, 2.26286, 4.87832, 0.30956, 1.05173, -21.7913, 43.6896, -7.02934 )
+
+[node name="Rock1-4" parent="." instance=ExtResource( 7 )]
+transform = Transform( 2.70357, 2.25096, -3.553, 1.0839, -4.45391, -1.99695, -4.06397, 0.30956, -2.89626, -21.2422, 44.0437, -10.0533 )
+
+[node name="Rock1-5" parent="." instance=ExtResource( 7 )]
+transform = Transform( 5, 0, 0, 0, 3.70103, -3.3619, 0, 3.3619, 3.70103, -18.9184, 44.2393, -8.85172 )
+
+[node name="Rock1-6" parent="." instance=ExtResource( 7 )]
+transform = Transform( -4.58908, 1.53577, 1.25767, -1.7059, -4.67106, -0.520672, 1.01501, -0.906973, 4.81115, -14.5563, 46.0013, 10.291 )
