@@ -33,8 +33,8 @@ func _ready():
 func engage():
 	_postProcess.material.set_shader_param("vignette_intensity", 1.0)
 	_postProcess.material.set_shader_param("vignette_rgb", Color(0.05, 0, 0))
-	call_deferred("_swap_scene", Constants.BRIEFING_SCENE_PATH)
-#	call_deferred("_swap_scene", Constants.TOUCHDOWN_SCENE_PATH)
+#	call_deferred("_swap_scene", Constants.BRIEFING_SCENE_PATH)
+	call_deferred("_swap_scene", Constants.TOUCHDOWN_SCENE_PATH)
 
 
 func touchdown():

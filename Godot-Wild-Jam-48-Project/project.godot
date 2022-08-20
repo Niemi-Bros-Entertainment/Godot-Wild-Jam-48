@@ -100,8 +100,13 @@ _global_script_class_icons={
 
 config/name="Cheese-E Expedition"
 config/description="Godot Wild Jam #48 Submission"
-run/main_scene="res://Scenes/Title.tscn"
+run/main_scene="res://Scenes/Briefing.tscn"
+boot_splash/image="res://icon.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.0235294, 0.00784314, 0.0627451, 1 )
 config/icon="res://icon.png"
+run/main_scene.editor="res://Scenes/Title.tscn"
 
 [audio]
 
